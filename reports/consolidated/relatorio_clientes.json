@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "sector": "clientes",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "metrics": {
+      "total_clientes": 15000,
+      "total_ltv": 139092568.84,
+      "pareto_top_20_ltv_share": 61.05,
+      "segments": [
+        {
+          "segmento_rfm": "Campeão",
+          "clientes": 1268,
+          "ltv_total": 33818518.33,
+          "ltv_medio": 26670.76,
+          "pct_base": 8.45,
+          "pct_ltv": 24.31,
+          "pedidos": 2084,
+          "receita_bruta": 1588599.45,
+          "desconto": 128103.0,
+          "margem": 793847.37,
+          "devolucoes": 296,
+          "pct_desconto": 8.06,
+          "pct_margem": 49.97,
+          "taxa_devolucao": 14.2,
+          "profile": "Altíssima frequência e valor; clientes mais rentáveis da base.",
+          "action": "Tratamento VIP, acesso antecipado a lançamentos, zero desconto transacional.",
+          "color": "#a3e635"
+        },
+        {
+          "segmento_rfm": "Fiel",
+          "clientes": 2612,
+          "ltv_total": 44134322.9,
+          "ltv_medio": 16896.75,
+          "pct_base": 17.41,
+          "pct_ltv": 31.73,
+          "pedidos": 4117,
+          "receita_bruta": 3049791.19,
+          "desconto": 249615.38,
+          "margem": 1520609.98,
+          "devolucoes": 601,
+          "pct_desconto": 8.18,
+          "pct_margem": 49.86,
+          "taxa_devolucao": 14.6,
+          "profile": "Compradores recorrentes com bom ticket médio.",
+          "action": "Programas de fidelidade por pontos, cross-sell focado em produtos de maior margem.",
+          "color": "#38bdf8"
+        },
+        {
+          "segmento_rfm": "Promissor",
+          "clientes": 4127,
+          "ltv_total": 33337782.88,
+          "ltv_medio": 8077.97,
+          "pct_base": 27.51,
+          "pct_ltv": 23.97,
+          "pedidos": 13350,
+          "receita_bruta": 9865046.82,
+          "desconto": 783784.28,
+          "margem": 4939118.4,
+          "devolucoes": 1991,
+          "pct_desconto": 7.95,
+          "pct_margem": 50.07,
+          "taxa_devolucao": 14.91,
+          "profile": "Compraram recentemente, potencial de escalada para fiéis.",
+          "action": "Nurturing pós-primeira compra, recomendações orientadas por IA.",
+          "color": "#facc15"
+        },
+        {
+          "segmento_rfm": "Em Risco",
+          "clientes": 3269,
+          "ltv_total": 17663986.57,
+          "ltv_medio": 5403.48,
+          "pct_base": 21.79,
+          "pct_ltv": 12.7,
+          "pedidos": 7430,
+          "receita_bruta": 5455556.35,
+          "desconto": 427245.49,
+          "margem": 2735286.29,
+          "devolucoes": 1116,
+          "pct_desconto": 7.83,
+          "pct_margem": 50.14,
+          "taxa_devolucao": 15.02,
+          "profile": "Ficaram inativos há mais de 60-90 dias após compras recorrentes.",
+          "action": "Campanhas ativas de reengajamento com benefícios de frete condicionados a ticket > R$ 150.",
+          "color": "#fb923c"
+        },
+        {
+          "segmento_rfm": "Churn",
+          "clientes": 1796,
+          "ltv_total": 4996623.83,
+          "ltv_medio": 2782.08,
+          "pct_base": 11.97,
+          "pct_ltv": 3.59,
+          "pedidos": 145,
+          "receita_bruta": 112709.3,
+          "desconto": 12767.04,
+          "margem": 53017.36,
+          "devolucoes": 29,
+          "pct_desconto": 11.33,
+          "pct_margem": 47.04,
+          "taxa_devolucao": 20.0,
+          "profile": "Inativos prolongados com altíssima dependência de cupom (11,2%).",
+          "action": "Cessar cupons agressivos; ativar reativação focada em novos lançamentos selecionados.",
+          "color": "#f87171"
+        },
+        {
+          "segmento_rfm": "Hibernando",
+          "clientes": 1928,
+          "ltv_total": 5141334.33,
+          "ltv_medio": 2666.67,
+          "pct_base": 12.85,
+          "pct_ltv": 3.7,
+          "pedidos": 632,
+          "receita_bruta": 454430.73,
+          "desconto": 35284.64,
+          "margem": 228557.25,
+          "devolucoes": 94,
+          "pct_desconto": 7.76,
+          "pct_margem": 50.3,
+          "taxa_devolucao": 14.87,
+          "profile": "",
+          "action": "",
+          "color": "#94a3b8"
+        }
+      ],
+      "champions": {
+        "segmento_rfm": "Campeão",
+        "clientes": 1268,
+        "ltv_total": 33818518.33,
+        "ltv_medio": 26670.76,
+        "pct_base": 8.45,
+        "pct_ltv": 24.31,
+        "pedidos": 2084,
+        "receita_bruta": 1588599.45,
+        "desconto": 128103.0,
+        "margem": 793847.37,
+        "devolucoes": 296,
+        "pct_desconto": 8.06,
+        "pct_margem": 49.97,
+        "taxa_devolucao": 14.2,
+        "profile": "Altíssima frequência e valor; clientes mais rentáveis da base.",
+        "action": "Tratamento VIP, acesso antecipado a lançamentos, zero desconto transacional.",
+        "color": "#a3e635"
+      },
+      "loyal": {
+        "segmento_rfm": "Fiel",
+        "clientes": 2612,
+        "ltv_total": 44134322.9,
+        "ltv_medio": 16896.75,
+        "pct_base": 17.41,
+        "pct_ltv": 31.73,
+        "pedidos": 4117,
+        "receita_bruta": 3049791.19,
+        "desconto": 249615.38,
+        "margem": 1520609.98,
+        "devolucoes": 601,
+        "pct_desconto": 8.18,
+        "pct_margem": 49.86,
+        "taxa_devolucao": 14.6,
+        "profile": "Compradores recorrentes com bom ticket médio.",
+        "action": "Programas de fidelidade por pontos, cross-sell focado em produtos de maior margem.",
+        "color": "#38bdf8"
+      }
+    },
+    "alerts": [
+      {
+        "sector": "clientes",
+        "metric": "pareto_top_20_ltv_share",
+        "current_value": 61.05,
+        "threshold_value": 60.0,
+        "severity": "POSITIVO",
+        "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+        "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 8,
+        "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+        "sector": "clientes",
+        "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+        "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+        "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+        "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+      }
+    ]
+  },
+  "narrative": {
+    "headline": "Concentração Estrutural: Top 20% da Base Concentram 61.05% do LTV (Champions e Fiéis Somam 56.0% do Valor)",
+    "executive_summary": "A análise da base de <strong>15.000 clientes</strong> evidencia elevada fidelização nos estratos superiores: os <strong>20% maiores clientes concentram 61.05% de todo o LTV</strong> da Vértice Retail. Os grupos <em>Campeões</em> e <em>Fiéis</em> reúnem <strong>25.9% dos consumidores e geram 56.0% do valor econômico total</strong>. Estratégias de retenção devem priorizar benefícios exclusivos e blindagem de serviço, eliminando cupons desnecessários para este público.",
+    "facts": [
+      {
+        "fact_id": "rfm_pareto",
+        "label": "Concentração Pareto 80/20",
+        "formatted_value": "Top 20% = 61.05% do LTV acumulado",
+        "source_origin": "clientes.csv / Diagnóstico RFM",
+        "impact_assessment": "Espinha dorsal da sustentabilidade de receita da empresa."
+      },
+      {
+        "fact_id": "rfm_champions_loyal",
+        "label": "Champions + Loyal Customers",
+        "formatted_value": "25.9% da base geram 56.0% do LTV",
+        "source_origin": "Diagnóstico Final - Teste 4.1",
+        "impact_assessment": "Segmentos com LTV médio de até R$ 26.670,76 que não demandam desconto transacional."
+      }
+    ],
+    "alerts": [
+      {
+        "sector": "clientes",
+        "metric": "pareto_top_20_ltv_share",
+        "current_value": 61.05,
+        "threshold_value": 60.0,
+        "severity": "POSITIVO",
+        "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+        "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 8,
+        "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+        "sector": "clientes",
+        "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+        "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+        "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+        "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+      }
+    ]
+  }
+}

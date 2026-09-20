@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimento &amp; SAC (Consolidado) · Vértice Retail</title>
+  <style>
+/* static/report.css - Executive Report Design System for Vértice Retail & EloGroup */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+
+  /* Sector Brand Accents */
+  --accent-general: #6366f1;
+  --accent-vendas: #38bdf8;
+  --accent-estoque: #facc15;
+  --accent-atendimento: #a78bfa;
+  --accent-marketing: #fb923c;
+  --accent-clientes: #34d399;
+
+  /* Severity Tokens */
+  --sev-critico: #f43f5e;
+  --sev-critico-bg: rgba(244, 63, 94, 0.12);
+  --sev-alerta: #fbbf24;
+  --sev-alerta-bg: rgba(251, 191, 36, 0.12);
+  --sev-estavel: #94a3b8;
+  --sev-estavel-bg: rgba(148, 163, 184, 0.12);
+  --sev-positivo: #10b981;
+  --sev-positivo-bg: rgba(16, 185, 129, 0.12);
+
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px -3px rgba(99, 102, 241, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.report-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
+
+/* Header & Brand Identity */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.report-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.report-meta div {
+  margin-bottom: 4px;
+}
+
+.report-meta strong {
+  color: var(--text-main);
+}
+
+/* Titles */
+.title-section {
+  margin-bottom: 32px;
+}
+
+.sector-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.report-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 900px;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-accent, var(--accent-general));
+}
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.kpi-subtext {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Alert Boxes */
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.alert-banner.CRITICO {
+  background: var(--sev-critico-bg);
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+}
+
+.alert-banner.ALERTA {
+  background: var(--sev-alerta-bg);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fef3c7;
+}
+
+.alert-banner.POSITIVO {
+  background: var(--sev-positivo-bg);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #d1fae5;
+}
+
+.alert-banner.ESTAVEL {
+  background: var(--sev-estavel-bg);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e2e8f0;
+}
+
+.alert-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.alert-banner.CRITICO .alert-badge { background: #e11d48; color: #fff; }
+.alert-banner.ALERTA .alert-badge { background: #d97706; color: #fff; }
+.alert-banner.POSITIVO .alert-badge { background: #059669; color: #fff; }
+.alert-banner.ESTAVEL .alert-badge { background: #475569; color: #fff; }
+
+.alert-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alert-content p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Executive Text Block */
+.narrative-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.narrative-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.narrative-block p {
+  margin-bottom: 12px;
+  color: #e2e8f0;
+}
+
+.narrative-block strong {
+  color: #ffffff;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 36px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.exec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.exec-table th {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.exec-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #e2e8f0;
+}
+
+.exec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.exec-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.exec-table td.num {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Advisory Scope Callout */
+.scope-advisory {
+  padding: 14px 18px;
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 4px solid var(--accent-vendas);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin-top: 14px;
+  line-height: 1.55;
+}
+
+.scope-advisory strong {
+  color: #f1f5f9;
+}
+
+/* Footer */
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .report-container { padding: 20px; }
+  .report-header { flex-direction: column; gap: 16px; }
+  .report-meta { text-align: left; }
+  .report-title { font-size: 1.5rem; }
+}
+
+</style>
+  <style>
+    /* Sector dynamic accent override */
+    :root {
+      --current-accent: #a78bfa;
+    }
+    .kpi-card::before {
+      background: var(--current-accent) !important;
+    }
+    .sector-tag {
+      color: var(--current-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <!-- Header -->
+    <header class="report-header">
+      <div class="brand-wrapper">
+        <span class="company-badge">Vértice Retail</span>
+        <span class="brand-name">EloGroup Strategic Intelligence</span>
+      </div>
+      <div class="report-meta">
+        <div><strong>Público:</strong> C-Level & Banca Executiva</div>
+        <div><strong>Ciclo / Janela:</strong> Consolidado</div>
+        <div><strong>Emissão:</strong> 19/09/2026 às 15:16:45</div>
+        <div><strong>Rastreabilidade:</strong> 100% Grounded (Diagnóstico Final)</div>
+      </div>
+    </header>
+
+    <!-- Main Title Block -->
+    <div class="title-section">
+      <span class="sector-tag">● Atendimento &amp; SAC</span>
+      <h1 class="report-title">Sobrecarga de Rastreio (WISMO: 34.0% dos Chamados) Oferece 90% de Potencial de Deflexão via Agente IA</h1>
+      <p class="report-subtitle">Relatório Executivo Semanal de Eficiência de Suporte e Atrito Operacional</p>
+    </div>
+
+    <!-- Child Content -->
+    
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Volume de Chamados SAC</div>
+    <div class="kpi-value">394</div>
+    <div class="kpi-subtext">Custo operacional: R$ 6.071,00</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Onde está meu pedido? (WISMO)</div>
+    <div class="kpi-value" style="color:#a78bfa;">134</div>
+    <div class="kpi-subtext">Concentração: 34,01% dos tickets</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Potencial Deflexão IA</div>
+    <div class="kpi-value" style="color:#34d399;">90,0%</div>
+    <div class="kpi-subtext">Automação direta via WhatsApp Webhook</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">SLA Médio de Resposta (FRT)</div>
+    <div class="kpi-value" style="color:#38bdf8;">135 min ➔ &lt; 1 min</div>
+    <div class="kpi-subtext">Ganho de 99,3% no tempo de espera</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+
+<div class="alert-container">
+  
+  <div class="alert-banner ALERTA">
+    <span class="alert-badge">ALERTA</span>
+    <div class="alert-content">
+      <h4>Concentração desproporcional de chamados de rastreio de carga (WISMO)</h4>
+      <p>Chamados &#39;Onde está meu pedido?&#39; representam 34.0% do volume SAC total (teto 25.0%).</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Diagnóstico de Atrito no Suporte & Pós-Venda</h3>
+  <p>O canal de suporte ao cliente registrou <strong>394 atendimentos</strong> com custo operacional direto de <strong>R$ 6.071,00</strong>. A categoria 'Onde está meu pedido?' concentrou <strong>134 chamados (34.0% do total)</strong>, demonstrando dependência excessiva de atendentes humanos para consultas de rastreio de logística que possuem 90% de aderência a atendimento autônomo via agente conversacional em WhatsApp.</p>
+</div>
+
+<!-- Grounded Facts Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Métrica de Atendimento</th>
+        <th style="text-align:right;">Valor Auditado</th>
+        <th>Origem Metodológica</th>
+        <th>Avaliação de Impacto Operacional</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Volume de Atendimentos</strong></td>
+        <td class="num">394 tickets (Custo: R$ 6.071,00)</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">atendimento.csv / SAC Operacional</span></td>
+        <td>Atendimento humano atual operando com custo médio de ~R$ 14,85 por chamado.</td>
+      </tr>
+      
+      <tr>
+        <td><strong>Onde está meu pedido? (WISMO)</strong></td>
+        <td class="num">134 chamados (34.0% do SAC)</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">Diagnóstico Final - Teste 3.2</span></td>
+        <td>Principal categoria geradora de atrito; automação via webhook reduz FRT para &lt; 1 min.</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#a78bfa;">Prioridade #3</span></td>
+          <td><strong>Automação Inteligente de SAC e Deflexão de Rastreio de Carga</strong></td>
+          <td>Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.</td>
+          <td><strong style="color:#34d399;">10.765 tickets de &#39;Onde está meu pedido?&#39; (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para &lt; 1 min.</strong></td>
+          <td>Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#a78bfa;">Prioridade #4</span></td>
+          <td><strong>Protocolo de Bloqueio e Quarentena para Fornecedores Críticos</strong></td>
+          <td>Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.</td>
+          <td><strong style="color:#34d399;">1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.</strong></td>
+          <td>Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas.</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="report-footer">
+      <div>EloGroup Transformation, Strategy & Analytics · Retail Practice</div>
+      <div>Documento Executivo Estritamente Confidencial · Prova de Conceito Banca</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorando Executivo C-Level (2023-W47) · Vértice Retail</title>
+  <style>
+/* static/report.css - Executive Report Design System for Vértice Retail & EloGroup */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+
+  /* Sector Brand Accents */
+  --accent-general: #6366f1;
+  --accent-vendas: #38bdf8;
+  --accent-estoque: #facc15;
+  --accent-atendimento: #a78bfa;
+  --accent-marketing: #fb923c;
+  --accent-clientes: #34d399;
+
+  /* Severity Tokens */
+  --sev-critico: #f43f5e;
+  --sev-critico-bg: rgba(244, 63, 94, 0.12);
+  --sev-alerta: #fbbf24;
+  --sev-alerta-bg: rgba(251, 191, 36, 0.12);
+  --sev-estavel: #94a3b8;
+  --sev-estavel-bg: rgba(148, 163, 184, 0.12);
+  --sev-positivo: #10b981;
+  --sev-positivo-bg: rgba(16, 185, 129, 0.12);
+
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px -3px rgba(99, 102, 241, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.report-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
+
+/* Header & Brand Identity */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.report-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.report-meta div {
+  margin-bottom: 4px;
+}
+
+.report-meta strong {
+  color: var(--text-main);
+}
+
+/* Titles */
+.title-section {
+  margin-bottom: 32px;
+}
+
+.sector-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.report-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 900px;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-accent, var(--accent-general));
+}
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.kpi-subtext {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Alert Boxes */
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.alert-banner.CRITICO {
+  background: var(--sev-critico-bg);
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+}
+
+.alert-banner.ALERTA {
+  background: var(--sev-alerta-bg);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fef3c7;
+}
+
+.alert-banner.POSITIVO {
+  background: var(--sev-positivo-bg);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #d1fae5;
+}
+
+.alert-banner.ESTAVEL {
+  background: var(--sev-estavel-bg);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e2e8f0;
+}
+
+.alert-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.alert-banner.CRITICO .alert-badge { background: #e11d48; color: #fff; }
+.alert-banner.ALERTA .alert-badge { background: #d97706; color: #fff; }
+.alert-banner.POSITIVO .alert-badge { background: #059669; color: #fff; }
+.alert-banner.ESTAVEL .alert-badge { background: #475569; color: #fff; }
+
+.alert-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alert-content p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Executive Text Block */
+.narrative-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.narrative-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.narrative-block p {
+  margin-bottom: 12px;
+  color: #e2e8f0;
+}
+
+.narrative-block strong {
+  color: #ffffff;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 36px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.exec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.exec-table th {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.exec-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #e2e8f0;
+}
+
+.exec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.exec-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.exec-table td.num {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Advisory Scope Callout */
+.scope-advisory {
+  padding: 14px 18px;
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 4px solid var(--accent-vendas);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin-top: 14px;
+  line-height: 1.55;
+}
+
+.scope-advisory strong {
+  color: #f1f5f9;
+}
+
+/* Footer */
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .report-container { padding: 20px; }
+  .report-header { flex-direction: column; gap: 16px; }
+  .report-meta { text-align: left; }
+  .report-title { font-size: 1.5rem; }
+}
+
+</style>
+  <style>
+    /* Sector dynamic accent override */
+    :root {
+      --current-accent: #6366f1;
+    }
+    .kpi-card::before {
+      background: var(--current-accent) !important;
+    }
+    .sector-tag {
+      color: var(--current-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <!-- Header -->
+    <header class="report-header">
+      <div class="brand-wrapper">
+        <span class="company-badge">Vértice Retail</span>
+        <span class="brand-name">EloGroup Strategic Intelligence</span>
+      </div>
+      <div class="report-meta">
+        <div><strong>Público:</strong> C-Level & Banca Executiva</div>
+        <div><strong>Ciclo / Janela:</strong> 2023-W47</div>
+        <div><strong>Emissão:</strong> 19/09/2026 às 15:16:45</div>
+        <div><strong>Rastreabilidade:</strong> 100% Grounded (Diagnóstico Final)</div>
+      </div>
+    </header>
+
+    <!-- Main Title Block -->
+    <div class="title-section">
+      <span class="sector-tag">● Consolidado Executivo C-Level</span>
+      <h1 class="report-title">Memorando Executivo C-Level: Diagnóstico Integrado da Vértice Retail (2023-W47) — Foco em Liquidez de Estoque, Estancamento de Sangrias e Otimização de Mídia</h1>
+      <p class="report-subtitle">Diagnóstico Integrado dos 5 Setores, Matriz de Alavancas e Análise de DRE</p>
+    </div>
+
+    <!-- Child Content -->
+    
+<!-- Executive DRE KPI Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card" style="--card-accent:#38bdf8;">
+    <div class="kpi-label">Receita Bruta Faturada</div>
+    <div class="kpi-value">R$ 20.526.133,84</div>
+    <div class="kpi-subtext">R$ 27.758,00 pedidos transacionados</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#34d399;">
+    <div class="kpi-label">Margem de Contribuição</div>
+    <div class="kpi-value" style="color:#34d399;">50,04%</div>
+    <div class="kpi-subtext">Total: R$ 10.270.436,65</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#f43f5e;">
+    <div class="kpi-label">Dreno Reversa & SAC</div>
+    <div class="kpi-value" style="color:#f43f5e;">- R$ 1.210.000,00</div>
+    <div class="kpi-subtext">Perdas diretas em pós-venda</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#facc15;">
+    <div class="kpi-label">Margem Pós-Atrito</div>
+    <div class="kpi-value" style="color:#facc15;">48,12%</div>
+    <div class="kpi-subtext">Resultado: R$ 9.874.979,50</div>
+  </div>
+</div>
+
+<!-- Consolidated Alerts Banner -->
+
+<div class="alert-container">
+  
+  <div class="alert-banner CRITICO">
+    <span class="alert-badge">CRITICO · VENDAS</span>
+    <div class="alert-content">
+      <h4>Concessão crítica de descontos comerciais</h4>
+      <p>Desconto atingiu 13.27% (limite crítico 9.0%).</p>
+    </div>
+  </div>
+  
+  <div class="alert-banner CRITICO">
+    <span class="alert-badge">CRITICO · ESTOQUE</span>
+    <div class="alert-content">
+      <h4>Volume massivo de capital imobilizado em SKUs descontinuados</h4>
+      <p>207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes.</p>
+    </div>
+  </div>
+  
+  <div class="alert-banner ALERTA">
+    <span class="alert-badge">ALERTA · ATENDIMENTO</span>
+    <div class="alert-content">
+      <h4>Concentração desproporcional de chamados de rastreio de carga (WISMO)</h4>
+      <p>Chamados &#39;Onde está meu pedido?&#39; representam 34.0% do volume SAC total (teto 25.0%).</p>
+    </div>
+  </div>
+  
+  <div class="alert-banner ALERTA">
+    <span class="alert-badge">ALERTA · MARKETING</span>
+    <div class="alert-content">
+      <h4>Custo de frete abusivo no Marketplace comprimindo margem</h4>
+      <p>Frete consome 4.55% da receita em Marketplace (5x acima dos canais proprietários).</p>
+    </div>
+  </div>
+  
+  <div class="alert-banner POSITIVO">
+    <span class="alert-badge">POSITIVO · CLIENTES</span>
+    <div class="alert-content">
+      <h4>Elevada concentração de valor nos clientes mais fiéis da base</h4>
+      <p>Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base).</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Executive Synthesis Block -->
+<div class="narrative-block">
+  <h3>Síntese Transversal Executiva C-Level</h3>
+  <p>A Vértice Retail encerrou o ciclo com robustez de margem de contribuição industrial <strong>(50,04% | R$ 10,27M)</strong>, porém com três focos de sangria estrutural comprovados no diagnóstico: (1) <strong>R$ 1,21M drenados</strong> em perdas pós-venda diretas de reversa e SAC; (2) <strong>R$ 17.714.096,89 imobilizados</strong> em 207 SKUs descontinuados, gerando custo financeiro WACC de R$ 3,19M/ano; e (3) dispersão orçamentária em canais com frete abusivo (Marketplace a 4,55%) enquanto canais de alta tração (Influenciadores com ROAS 7.75x e TikTok a 4.67x) demandam escala.</p>
+</div>
+
+<!-- Cross-Sector Strategic Summary Table -->
+<div class="narrative-block">
+  <h3>Visão Integrada dos 5 Setores Analisados</h3>
+  <div class="table-wrapper">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Setor de Negócio</th>
+          <th>Manchete Diagnóstica</th>
+          <th>Indicador Crítico Reconciliado</th>
+          <th>Direcionamento C-Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#38bdf8;">● Vendas & Receita</strong></td>
+          <td>Semana de Forte Volume (1.219 pedidos), mas com Erosão Severa de Margem por Descontos (13,27%)</td>
+          <td class="num">R$ 118.001,60 (13,27%)</td>
+          <td>Blindar descontos comerciais e implementar piso de frete mínimo.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#facc15;">● Estoque & Suprimentos</strong></td>
+          <td>R$ 17.71M Imobilizados em 207 SKUs Descontinuados Drenam R$ 3.19M/ano em Custo WACC</td>
+          <td class="num" style="color:#f43f5e;">207 SKUs (R$ 17,71M)</td>
+          <td>Desova acelerada dos 207 SKUs para liberar R$ 17,71M de caixa.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#a78bfa;">● Atendimento & SAC</strong></td>
+          <td>Sobrecarga de Rastreio (WISMO: 34.0% dos Chamados) Oferece 90% de Potencial de Deflexão via Agente IA</td>
+          <td class="num">134 chamados (34.0% do SAC)</td>
+          <td>Automação de rastreio de carga via agente conversacional de IA.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fb923c;">● Marketing & Aquisição</strong></td>
+          <td>Disparidade de Eficiência em Mídia: Influenciadores (ROAS 7.75x, CAC R$ 1,76) vs Marketplace (ROAS 3.02x, Frete 4,55%)</td>
+          <td class="num" style="color:#34d399;">ROAS 7.75x | CAC Ponderado R$ 1.76</td>
+          <td>Realocar verba de Marketplace para Influenciadores e TikTok.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34d399;">● Clientes & Retenção (RFM)</strong></td>
+          <td>Concentração Estrutural: Top 20% da Base Concentram 61.05% do LTV (Champions e Fiéis Somam 56.0% do Valor)</td>
+          <td class="num" style="color:#34d399;">Top 20% = 61.05% do LTV acumulado</td>
+          <td>Retenção VIP e blindagem de serviço aos clientes Campeões.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Consolidated Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <p style="color:#94a3b8; font-size:0.9rem;">
+    Matriz de alavancas consolidadas para suporte à tomada de decisão da Diretoria Executiva:
+  </p>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Setor</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #1</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">estoque</span></td>
+          <td><strong>Liquidação e Desova Acelerada dos 207 SKUs Descontinuados</strong></td>
+          <td>207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.</td>
+          <td><strong style="color:#34d399;">R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.</strong></td>
+          <td>Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #2</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">vendas</span></td>
+          <td><strong>Piso de Frete Mínimo (R$ 150) &amp; Repasse de Frete em Marketplace</strong></td>
+          <td>Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.</td>
+          <td><strong style="color:#34d399;">741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.</strong></td>
+          <td>Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #3</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">atendimento</span></td>
+          <td><strong>Automação Inteligente de SAC e Deflexão de Rastreio de Carga</strong></td>
+          <td>Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.</td>
+          <td><strong style="color:#34d399;">10.765 tickets de &#39;Onde está meu pedido?&#39; (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para &lt; 1 min.</strong></td>
+          <td>Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #4</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">atendimento</span></td>
+          <td><strong>Protocolo de Bloqueio e Quarentena para Fornecedores Críticos</strong></td>
+          <td>Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.</td>
+          <td><strong style="color:#34d399;">1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.</strong></td>
+          <td>Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #5</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">marketing</span></td>
+          <td><strong>Otimização de Portfólio de Canais e Realocação de Verba</strong></td>
+          <td>Descompasso severo de eficiência: Marketplace e Google Ads drenam recursos de canais de alto retorno.</td>
+          <td><strong style="color:#34d399;">Influenciador atinge ROAS 7.75x e CAC ponderado R$ 1,76; Marketplace opera com ROAS 3.02x e frete de 4,55%.</strong></td>
+          <td>Migrar orçamento de canais saturados para Influenciadores e TikTok Ads com trava de retornos decrescentes.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #6</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">vendas</span></td>
+          <td><strong>Calibragem de Desconto Comercial &amp; Trava de Margem</strong></td>
+          <td>Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.</td>
+          <td><strong style="color:#34d399;">R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.</strong></td>
+          <td>Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #7</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">estoque</span></td>
+          <td><strong>Racionalização do Estoque de Segurança &amp; Redução de Rupturas</strong></td>
+          <td>800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.</td>
+          <td><strong style="color:#34d399;">16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.</strong></td>
+          <td>Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #8</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">clientes</span></td>
+          <td><strong>Programa de Proteção VIP para Clientes Campeões &amp; Fiéis</strong></td>
+          <td>Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.</td>
+          <td><strong style="color:#34d399;">25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.</strong></td>
+          <td>Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas.</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="report-footer">
+      <div>EloGroup Transformation, Strategy & Analytics · Retail Practice</div>
+      <div>Documento Executivo Estritamente Confidencial · Prova de Conceito Banca</div>
+    </footer>
+  </div>
+</body>
+</html>

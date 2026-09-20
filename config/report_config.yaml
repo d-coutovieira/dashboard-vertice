@@ -1,0 +1,97 @@
+# report_config.yaml - Strategic parameters and thresholds for Vértice Retail Executive Reports
+company:
+  name: "Vértice Retail"
+  client_tier: "C-Level & Conselho Consultivo"
+  consultancy: "EloGroup Transformation, Strategy & Analytics"
+  unit: "Retail & Consumer Goods Practice"
+
+historical_dataset:
+  start_date: "2023-01-01"
+  end_date: "2024-01-31"
+  total_months: 13
+  default_demo_week: "2023-W47" # Black Friday week
+  sample_demo_weeks:
+    - "2023-W45" # Normal week (pre-BF)
+    - "2023-W47" # Black Friday peak
+    - "2023-W51" # Natal / Holiday season
+
+thresholds:
+  discount_rate_alert_pct: 8.0 # Alert when commercial discount > 8.0%
+  discount_rate_critical_pct: 9.0 # Critical alert when discount > 9.0%
+  return_rate_alert_pct: 14.0 # Alert when returns > 14.0%
+  return_rate_critical_pct: 16.0 # Critical alert when returns > 16.0%
+  marketplace_freight_alert_pct: 4.0 # Freight cost / gross rev in Marketplace
+  wismo_share_alert_pct: 25.0 # Share of "Where is my order?" tickets
+  roas_target_minimum: 4.0 # Minimum acceptable ROAS for paid media
+  wacc_rate_annual_pct: 18.0 # Corporate cost of capital for inventory
+
+sectors:
+  vendas:
+    id: "vendas"
+    name: "Vendas & Receita"
+    title: "Relatório Executivo Semanal de Vendas e Dinâmica Comercial"
+    color: "#38bdf8" # Sky Blue
+    accent_rgb: "56, 189, 248"
+    icon: "trending-up"
+    lead_kpis:
+      - "faturamento_bruto"
+      - "pedidos"
+      - "ticket_medio"
+      - "margem_contribuicao_pct"
+      - "taxa_desconto_pct"
+  
+  estoque:
+    id: "estoque"
+    name: "Estoque & Suprimentos"
+    title: "Relatório Executivo Semanal de Giro de Estoque e Capital Imobilizado"
+    color: "#facc15" # Amber / Gold
+    accent_rgb: "250, 204, 21"
+    icon: "package"
+    lead_kpis:
+      - "total_skus"
+      - "skus_descontinuados"
+      - "capital_descontinuado"
+      - "economia_wacc_18pct"
+      - "excesso_defensivo"
+
+  atendimento:
+    id: "atendimento"
+    name: "Atendimento & SAC"
+    title: "Relatório Executivo Semanal de Eficiência de Suporte e Atrito Operacional"
+    color: "#a78bfa" # Violet
+    accent_rgb: "167, 139, 250"
+    icon: "headphones"
+    lead_kpis:
+      - "total_tickets"
+      - "wismo_tickets"
+      - "wismo_share_pct"
+      - "taxa_deflexao_ia"
+      - "sla_frt_min"
+
+  marketing:
+    id: "marketing"
+    name: "Marketing & Aquisição"
+    title: "Relatório Executivo Semanal de Mídia Paga, ROAS e Aquisição"
+    color: "#fb923c" # Coral / Orange
+    accent_rgb: "251, 146, 60"
+    icon: "megaphone"
+    lead_kpis:
+      - "roas_influenciador"
+      - "roas_tiktok"
+      - "cac_weighted_influenciador"
+      - "cac_weighted_tiktok"
+      - "frete_marketplace_pct"
+
+  clientes:
+    id: "clientes"
+    name: "Clientes & Retenção (RFM)"
+    title: "Relatório Executivo Semanal de Comportamento de Clientes e Concentração LTV"
+    color: "#34d399" # Emerald / Green
+    accent_rgb: "52, 211, 153"
+    icon: "users"
+    lead_kpis:
+      - "total_clientes"
+      - "pareto_top_20_ltv_share"
+      - "champions_loyal_share"
+      - "ltv_medio_campeao"
+      - "churn_rate_pct"

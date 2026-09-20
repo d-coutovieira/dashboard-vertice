@@ -1,0 +1,113 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Top ROAS: Influenciadores</div>
+    <div class="kpi-value" style="color:#34d399;">7.75x</div>
+    <div class="kpi-subtext">Ticket Líquido R$ 912,40 (+38% vs média)</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Menor CAC Ponderado</div>
+    <div class="kpi-value" style="color:#34d399;">R$ 1,75 / R$ 1,76</div>
+    <div class="kpi-subtext">TikTok Ads (1.75) e Influenciador (1.76)</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Canal Crítico: Marketplace</div>
+    <div class="kpi-value" style="color:#f43f5e;">ROAS 3.02x</div>
+    <div class="kpi-subtext">Frete abusivo consome 4,55% da receita</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Google Ads: Margem</div>
+    <div class="kpi-value" style="color:#fbbf24;">ROAS 3.53x</div>
+    <div class="kpi-subtext">Descontos médios de 8,46% por pedido</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+{% if alerts %}
+<div class="alert-container">
+  {% for alert in alerts %}
+  <div class="alert-banner {{ alert.severity }}">
+    <span class="alert-badge">{{ alert.severity }}</span>
+    <div class="alert-content">
+      <h4>{{ alert.headline }}</h4>
+      <p>{{ alert.grounded_evidence }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Diagnóstico de Eficiência em Mídia Paga & Atribuição</h3>
+  <p>{{ executive_summary | safe }}</p>
+</div>
+
+<!-- Channels Breakdown Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Canal de Aquisição</th>
+        <th style="text-align:right;">ROAS</th>
+        <th style="text-align:right;">CAC Ponderado</th>
+        <th style="text-align:right;">CAC Médio</th>
+        <th style="text-align:right;">Frete / Receita</th>
+        <th style="text-align:right;">Ticket Líquido</th>
+        <th>Classificação Estratégica</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ch in channels %}
+      <tr>
+        <td><strong>{{ ch.canal }}</strong></td>
+        <td class="num" style="color:{% if ch.roas >= 4.5 %}#34d399{% elif ch.roas >= 3.5 %}#38bdf8{% else %}#f43f5e{% endif %};">{{ ch.roas_fmt }}</td>
+        <td class="num" style="color:#34d399;">{{ ch.cac_weighted_fmt }}</td>
+        <td class="num">{{ ch.cac_medio_fmt }}</td>
+        <td class="num" style="color:{% if ch.frete_pct >= 4.0 %}#f43f5e{% else %}#e2e8f0{% endif %};">{{ ch.frete_pct_fmt }}</td>
+        <td class="num">{{ ch.ticket_medio_liquido_fmt }}</td>
+        <td><span style="font-size:0.8rem; color:#94a3b8;">{{ ch.tier }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lever in levers %}
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#fb923c;">Prioridade #{{ lever.rank }}</span></td>
+          <td><strong>{{ lever.title }}</strong></td>
+          <td>{{ lever.primary_bottleneck }}</td>
+          <td><strong style="color:#34d399;">{{ lever.grounded_metric }}</strong></td>
+          <td>{{ lever.strategic_mandate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+{% endblock %}

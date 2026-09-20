@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vértice Retail | Dashboard Executivo EloGroup</title>
+  <meta name="description" content="Dashboard Executivo de Inteligência Estratégica e Analytics para Diretoria e C-Level da Vértice Retail. Parceria EloGroup.">
+  <link rel="stylesheet" href="css/dashboard.css?v=20260920_v3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Consolas&display=swap" rel="stylesheet">
+  <!-- Apache ECharts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar">
+    <div class="brand-container">
+      <div class="brand-logo-wrapper">
+        <img src="assets/elogroup-logo.png" alt="EloGroup" class="brand-logo" onerror="this.style.display='none'; document.getElementById('alt-logo-text').style.display='block';">
+        <span id="alt-logo-text" style="display:none; font-weight:800; color:var(--accent-lime); font-size:1.1rem;">EloGroup</span>
+        <span class="brand-badge">AI & Analytics</span>
+      </div>
+      <div class="brand-project-info">
+        <span class="brand-project-title">Vértice Retail</span>
+        <span class="brand-project-subtitle">Diagnóstico C-Level & Tomada de Decisão</span>
+      </div>
+    </div>
+
+    <ul class="nav-menu" id="nav-menu">
+      <li class="nav-section-title">Estratégia & DRE</li>
+      <li class="nav-item active" data-view="visao-geral">
+        <span class="nav-icon">📊</span>
+        <span>Visão Geral & DRE</span>
+      </li>
+
+      <li class="nav-section-title">Sistemas Operacionais</li>
+      <li class="nav-item" data-view="vendas-canais">
+        <span class="nav-icon">📈</span>
+        <span>Vendas & Canais</span>
+      </li>
+      <li class="nav-item" data-view="marketing-roas">
+        <span class="nav-icon">🎯</span>
+        <span>Marketing & ROAS</span>
+      </li>
+      <li class="nav-item" data-view="clientes-rfm">
+        <span class="nav-icon">👥</span>
+        <span>Clientes & RFM</span>
+      </li>
+      <li class="nav-item" data-view="sac-atrito">
+        <span class="nav-icon">🎧</span>
+        <span>SAC & Atrito IA</span>
+      </li>
+      <li class="nav-item" data-view="estoque-supply">
+        <span class="nav-icon">📦</span>
+        <span>Estoque & Capital</span>
+      </li>
+
+      <li class="nav-section-title">Inteligência Analítica</li>
+      <li class="nav-item" data-view="relatorios-ia">
+        <span class="nav-icon">📋</span>
+        <span>Relatórios IA</span>
+      </li>
+
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Bases Auditadas (13m)</span>
+      </div>
+      <span>Conciliação: Diagnóstico Oficial</span>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <div class="main-wrapper">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title" id="page-title">
+          <span>Visão Geral & DRE Conciliada</span>
+        </h1>
+        <span class="page-badge" id="page-badge">Estratégico</span>
+      </div>
+
+      <div class="topbar-right">
+        <div class="control-pill">
+          <span>📅 Período:</span>
+          <select id="period-selector">
+            <option value="13m">Auditado (13 meses)</option>
+            <option value="12m">Anualizado (12 meses)</option>
+          </select>
+        </div>
+
+        <button class="btn-audit-trigger" id="btn-open-audit">
+          <span>🔍</span>
+          <span>Rastreabilidade & Premissas</span>
+        </button>
+
+        <button class="btn-ai-report-trigger" id="btn-open-ai-report">
+          <span>🤖</span>
+          <span>Relatórios IA</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENT BODY (SPA SECTIONS) -->
+    <main class="content-body" id="content-body">
+
+      <!-- ==================== VIEW 1: VISÃO GERAL & DRE ==================== -->
+      <section class="dashboard-view active" id="view-visao-geral">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">DRE Gerencial Conciliada & Diagnóstico Executivo</div>
+            <div class="view-header-desc">
+              Visão macro da formação da lucratividade: da receita faturada até a margem após fricção operacional e custo financeiro de estoque.
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge accent" style="font-size:0.8rem;">Status Contábil</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">100% Conciliado com Auditoria</span>
+          </div>
+        </div>
+
+        <!-- 4 Top Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-lime" data-kpi="gross_revenue">
+            <div class="kpi-header">
+              <span class="kpi-label">Receita Bruta</span>
+              <button class="btn-trace-modal" title="Ver fórmula e premissas">🔍</button>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-gross-rev">R$ 20,53M</span>
+              <span class="kpi-badge accent">27.758 pedidos</span>
+            </div>
+            <div class="kpi-subtext">
+              <span>Anualizado: R$ 19,19M/ano</span>
+              <span>Ticket: R$ 739,47</span>
+            </div>
+          </div>
+
+          <div class="kpi-card highlight-cyan" data-kpi="contribution_margin">
+            <div class="kpi-header">
+              <span class="kpi-label">Margem Contribuição Bruta</span>
+              <button class="btn-trace-modal" title="Ver fórmula e premissas">🔍</button>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-contrib-margin">R$ 10,27M</span>
+              <span class="kpi-badge success">50,04%</span>
+            </div>
+            <div class="kpi-subtext">
+              <span>Markup médio: 2,47x</span>
+              <span>CMV: 40,33%</span>
+            </div>
+          </div>
+
+          <div class="kpi-card highlight-danger" data-kpi="reverse_logistics_drain">
+            <div class="kpi-header">
+              <span class="kpi-label">Perdas Reversa & SAC</span>
+              <button class="btn-trace-modal" title="Ver fórmula e premissas">🔍</button>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-drain">R$ 395,46k</span>
+              <span class="kpi-badge danger">1,93% Rec.</span>
+            </div>
+            <div class="kpi-subtext">
+              <span>Frete + Handling + SAC</span>
+              <span>4.127 devoluções</span>
+            </div>
+          </div>
+
+          <div class="kpi-card highlight-warning" data-kpi="post_friction_margin">
+            <div class="kpi-header">
+              <span class="kpi-label">Margem Pós-Atrito</span>
+              <button class="btn-trace-modal" title="Ver fórmula e premissas">🔍</button>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-post-friction">R$ 9,87M</span>
+              <span class="kpi-badge warning">48,12%</span>
+            </div>
+            <div class="kpi-subtext">
+              <span>Antes do custo de capital</span>
+              <span>Oportunidade: +R$ 870k</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- DRE Waterfall Chart & Audit Table -->
+        <div class="chart-grid">
+          <div class="panel-card col-12">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Cascata de Decomposição da DRE Gerencial</div>
+                <div class="panel-subtitle">Impacto acumulado das deduções, custos variáveis e perdas operacionais</div>
+              </div>
+              <span class="kpi-badge accent">R$ 20,53M ➔ R$ 9,87M</span>
+            </div>
+            <div id="chart-dre-waterfall" class="chart-container-large"></div>
+          </div>
+
+          <div class="panel-card col-12">
+            <div class="panel-header">
+              <div class="panel-title">Tabela da DRE Gerencial Conciliada</div>
+              <div class="panel-subtitle">Comparativo oficial Período (13m) vs Anualizado (12m)</div>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table-dre">
+                <thead>
+                  <tr>
+                    <th>Linha da DRE</th>
+                    <th class="text-right">Período Auditado (13m)</th>
+                    <th class="text-right">Anualizado (12m)</th>
+                    <th class="text-center">% Rec. Bruta</th>
+                    <th>Diagnóstico Estratégico & Linha de Ação</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-dre">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: VENDAS & CANAIS ==================== -->
+      <section class="dashboard-view" id="view-vendas-canais">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Dinâmica de Vendas, Ticket Médio & Desempenho por Canal</div>
+            <div class="view-header-desc">
+              Evolução temporal do faturamento, volume de transações e identificação de anomalias logísticas por canal de venda.
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge danger">Alerta: Marketplace</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Frete consome 4,55% da receita</span>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-lime">
+            <div class="kpi-header"><span class="kpi-label">Ticket Médio Geral</span></div>
+            <div class="kpi-value-row"><span class="kpi-value">R$ 739,47</span></div>
+            <div class="kpi-subtext"><span>27.758 pedidos</span><span>Moda & Lifestyle</span></div>
+          </div>
+
+          <div class="kpi-card highlight-danger">
+            <div class="kpi-header"><span class="kpi-label">Frete Marketplace</span></div>
+            <div class="kpi-value-row">
+              <span class="kpi-value">4,55%</span>
+              <span class="kpi-badge danger">5x outros canais</span>
+            </div>
+            <div class="kpi-subtext"><span>Outros canais: ~0,90%</span><span>Distorção crítica</span></div>
+          </div>
+
+          <div class="kpi-card highlight-warning">
+            <div class="kpi-header"><span class="kpi-label">Pedidos Prejuízo (MC &lt; 0)</span></div>
+            <div class="kpi-value-row">
+              <span class="kpi-value">741 pedidos</span>
+              <span class="kpi-badge warning">Tickets &le; R$ 100</span>
+            </div>
+            <div class="kpi-subtext"><span>Causados por frete fixo</span><span>Solução: Piso R$ 150</span></div>
+          </div>
+
+          <div class="kpi-card highlight-cyan">
+            <div class="kpi-header"><span class="kpi-label">Efeito Black Friday</span></div>
+            <div class="kpi-value-row">
+              <span class="kpi-value">9,55%</span>
+              <span class="kpi-badge warning">+2,34 p.p.</span>
+            </div>
+            <div class="kpi-subtext"><span>Desconto médio em Nov/23</span><span>Margem caiu para 48,1%</span></div>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel-card col-8">
+            <div class="panel-header">
+              <div class="panel-title">Evolução Mensal: Receita Bruta x Desconto x Margem (%)</div>
+              <div class="panel-subtitle">Trajetória ao longo dos 13 meses de operação</div>
+            </div>
+            <div id="chart-sales-temporal" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-4">
+            <div class="panel-header">
+              <div class="panel-title">Participação de Receita por Canal</div>
+              <div class="panel-subtitle">Marketplace vs E-commerce Direto vs Outros</div>
+            </div>
+            <div id="chart-channel-share" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-12">
+            <div class="panel-header">
+              <div class="panel-title">Demonstrativo de Eficiência por Canal de Venda</div>
+              <div class="panel-subtitle">Faturamento, frete subsidiado, devoluções e margem pós-reversa</div>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table-channels">
+                <thead>
+                  <tr>
+                    <th>Canal de Venda</th>
+                    <th class="text-right">Pedidos</th>
+                    <th class="text-right">Receita Bruta</th>
+                    <th class="text-right">Ticket Médio</th>
+                    <th class="text-center">Frete (%)</th>
+                    <th class="text-center">Devolução (%)</th>
+                    <th class="text-center">Margem Real (%)</th>
+                    <th>Classificação Estratégica</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-channels"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: MARKETING & ROAS ==================== -->
+      <section class="dashboard-view" id="view-marketing-roas">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Aquisição de Clientes, Eficiência de Mídia & ROAS</div>
+            <div class="view-header-desc">
+              Avaliação de retorno por canal de tráfego, segmentação em Tiers e simulação de ganho com realocação para canais proprietários.
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge success">Top Performer: Influenciador</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">ROAS de 7.75x vs 3.02x Marketplace</span>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel-card col-8">
+            <div class="panel-header">
+              <div class="panel-title">Matriz de Eficiência de Mídia: ROAS x Investimento</div>
+              <div class="panel-subtitle">Identificação visual de canais subinvestidos e canais saturados</div>
+            </div>
+            <div id="chart-marketing-scatter" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-4">
+            <div class="panel-header">
+              <div class="panel-title">Tiering dos Canais de Aquisição</div>
+              <div class="panel-subtitle">Classificação por aderência à margem real</div>
+            </div>
+            <div id="chart-marketing-tiers" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-12">
+            <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div class="panel-title">Matriz de Diagnóstico e Estratégia de Mídia</div>
+                <div class="panel-subtitle">Orientações acionáveis para o time de Performance e Growth</div>
+              </div>
+              <span class="kpi-badge warning" style="font-size:0.75rem; font-weight:600;">📊 Projeção / Simulação Anual</span>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table-marketing-summary">
+                <thead>
+                  <tr>
+                    <th>Canal</th>
+                    <th>Tier</th>
+                    <th class="text-right">Investimento</th>
+                    <th class="text-right">Receita Gerada</th>
+                    <th class="text-center">ROAS</th>
+                    <th class="text-center">CAC Médio</th>
+                    <th>Ação Recomendada (E daí?)</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-marketing"></tbody>
+              </table>
+            </div>
+            <div style="margin-top:10px; padding:8px 12px; background:rgba(251, 191, 36, 0.05); border:1px solid rgba(251, 191, 36, 0.2); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.9rem;">ℹ️</span>
+              <span><strong>Nota de Projeção & Planejamento:</strong> Os valores de Investimento e Receita Gerada por canal desta matriz representam cenários orçamentários parametrizados e projeções de capacidade anual de mídia calculadas no case para calibragem de ROAS e realocação tática.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 6: CLIENTES & RFM ==================== -->
+      <section class="dashboard-view" id="view-clientes-rfm">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Segmentação Comportamental RFM & Economia do CRM</div>
+            <div class="view-header-desc">
+              Distribuição dos 15.000 clientes da base entre perfis de consumo, taxa de dependência de cupons e concentração de Lifetime Value (LTV).
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge accent">Concentração de LTV</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Top 2 Tiers concentram 52,8% do valor</span>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Concentração de LTV Acumulado por Segmento</div>
+              <div class="panel-subtitle">Participação percentual no valor gerado histórico</div>
+            </div>
+            <div id="chart-rfm-ltv" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Dependência de Desconto (%) vs Taxa de Devolução (%)</div>
+              <div class="panel-subtitle">Comportamento de risco por grupo de clientes</div>
+            </div>
+            <div id="chart-rfm-behavior" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-12">
+            <div class="panel-header">
+              <div class="panel-title">Tabela Tática de CRM por Segmento RFM</div>
+              <div class="panel-subtitle">Perfil econômico e diretrizes de ativação de clientes</div>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table-rfm">
+                <thead>
+                  <tr>
+                    <th>Segmento</th>
+                    <th class="text-right">Clientes</th>
+                    <th class="text-right">% Base</th>
+                    <th class="text-right">LTV Total</th>
+                    <th class="text-center">Desconto Médio</th>
+                    <th class="text-center">Devolução (%)</th>
+                    <th>Estratégia Recomendada de CRM</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-rfm"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 7: SAC & ATRITO IA ==================== -->
+      <section class="dashboard-view" id="view-sac-atrito">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Atendimento ao Cliente (SAC), Atrito Pós-Venda & IA Autônoma</div>
+            <div class="view-header-desc">
+              Quantificação das falhas operacionais, motivos de devoluções e modelo de deflexão por IA com estimativas de produtividade rastreáveis.
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge success">Potencial IA: 67,6%</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Economia de R$ 330k + 6.055h</span>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Volume de Chamados por Categoria</div>
+              <div class="panel-subtitle">30,04% concentrados em 'Onde está meu pedido?'</div>
+            </div>
+            <div id="chart-sac-categories" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Causas Raiz de Devoluções & Dreno Direto</div>
+              <div class="panel-subtitle">69,6% das devoluções decorrem de falhas operacionais evitáveis</div>
+            </div>
+            <div id="chart-returns-causes" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-12">
+            <div class="panel-header">
+              <div class="panel-title">Painel de Produtividade & Métricas de IA (Estimativas Rastreáveis)</div>
+              <div class="panel-subtitle">Premissas, fórmulas e ganhos projetados de inteligência artificial aplicada</div>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table-ai-kpis">
+                <thead>
+                  <tr>
+                    <th>Indicador de IA / Produtividade</th>
+                    <th class="text-center">Impacto Projetado</th>
+                    <th>Fórmula Algorítmica de Cálculo</th>
+                    <th>Premissa Operacional Auditável</th>
+                    <th class="text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-ai-kpis"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 8: ESTOQUE & CAPITAL ==================== -->
+      <section class="dashboard-view" id="view-estoque-supply">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Valoração de Estoque, Cobertura & Capital de Giro</div>
+            <div class="view-header-desc">
+              Auditoria física de mercadorias, análise de giro operacional e oportunidade de liquidação do estoque descontinuado.
+            </div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge warning">Estoque Físico Total</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">1,67M peças · R$ 348,70M custo</span>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-lime">
+            <div class="kpi-header"><span class="kpi-label">SKUs Descontinuados</span></div>
+            <div class="kpi-value-row"><span class="kpi-value">207 SKUs</span><span class="kpi-badge accent">R$ 17,71M</span></div>
+            <div class="kpi-subtext"><span>Alvo da Alavanca #1</span><span>Liberação rápida de caixa</span></div>
+          </div>
+
+          <div class="kpi-card highlight-warning">
+            <div class="kpi-header"><span class="kpi-label">Economia Juros WACC</span></div>
+            <div class="kpi-value-row"><span class="kpi-value">+ R$ 3,19M</span><span class="kpi-badge success">18% a.a.</span></div>
+            <div class="kpi-subtext"><span>Redução de custo de dívida</span><span>Impacto direto no EBT</span></div>
+          </div>
+
+          <div class="kpi-card highlight-cyan">
+            <div class="kpi-header"><span class="kpi-label">Total SKUs Cadastrados</span></div>
+            <div class="kpi-value-row"><span class="kpi-value">5.000 SKUs</span></div>
+            <div class="kpi-subtext"><span>Moda, Acessórios, Beleza</span><span>Lifestyle</span></div>
+          </div>
+
+          <div class="kpi-card highlight-danger">
+            <div class="kpi-header"><span class="kpi-label">Giro de Estoque Anual</span></div>
+            <div class="kpi-value-row"><span class="kpi-value">0,022x</span><span class="kpi-badge danger">Baixo</span></div>
+            <div class="kpi-subtext"><span>Superestocagem defensiva</span><span>Normalização em curso</span></div>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Composição de Custo por Categoria de Produto</div>
+              <div class="panel-subtitle">Distribuição do capital em estoque no CD</div>
+            </div>
+            <div id="chart-stock-categories" class="chart-container"></div>
+          </div>
+
+          <div class="panel-card col-6">
+            <div class="panel-header">
+              <div class="panel-title">Status de Disponibilidade dos SKUs</div>
+              <div class="panel-subtitle">Ativo x Alerta de Ruptura x Descontinuado</div>
+            </div>
+            <div id="chart-stock-status" class="chart-container"></div>
+          </div>
+        </div>
+
+        <!-- ==================== NOVO: PAINEL DE ALERTAS TÁTICOS DE ESTOQUE ==================== -->
+        <div class="panel-card col-12 stock-alerts-panel" id="panel-stock-alerts" style="margin-top: 24px;">
+          <div class="stock-alerts-header">
+            <div>
+              <div class="panel-title" style="display:flex; align-items:center; gap:8px;">
+                <span>⚡</span>
+                <span>Painel de Alertas Táticos de Estoque & Capital</span>
+                <span class="kpi-badge accent" style="font-size:0.75rem;">Ação Rápida</span>
+              </div>
+              <div class="panel-subtitle">
+                Monitoramento executivo discreto de capital imobilizado, obsolescência por shelf life e risco de desabastecimento.
+              </div>
+            </div>
+            <button class="btn-toggle-alerts" id="btn-toggle-stock-alerts" title="Expandir ou recolher detalhes operacionais">
+              <span class="toggle-icon">▾</span>
+              <span class="toggle-text">Recolher</span>
+            </button>
+          </div>
+
+          <!-- 3 Compact KPI Indicator Cards -->
+          <div class="stock-alert-cards-row">
+            <div class="stock-stat-card">
+              <div class="stock-stat-icon">🏷️</div>
+              <div class="stock-stat-info">
+                <span class="stock-stat-title">Descontinuados em Estoque</span>
+                <span class="stock-stat-val" id="stat-alert-disc-val">207 SKUs</span>
+                <span class="stock-stat-sub" id="stat-alert-disc-sub">R$ 17,71M imobilizado (378.118 peças)</span>
+              </div>
+            </div>
+
+            <div class="stock-stat-card">
+              <div class="stock-stat-icon">⏳</div>
+              <div class="stock-stat-info">
+                <span class="stock-stat-title">Shelf Life Crítico (10–20 dias)</span>
+                <span class="stock-stat-val" id="stat-alert-shelf-val">48 SKUs</span>
+                <span class="stock-stat-sub" id="stat-alert-shelf-sub">Janela acionável antes do descarte</span>
+              </div>
+            </div>
+
+            <div class="stock-stat-card">
+              <div class="stock-stat-icon">⚠️</div>
+              <div class="stock-stat-info">
+                <span class="stock-stat-title">Risco de Ruptura (Cob. &lt; Lead Time)</span>
+                <span class="stock-stat-val" id="stat-alert-rupture-val">102 SKUs</span>
+                <span class="stock-stat-sub" id="stat-alert-rupture-sub">Cobertura física abaixo do ressuprimento</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible Content Wrapper -->
+          <div id="stock-alerts-collapsible-content">
+            <!-- Navigation Tabs Bar -->
+            <div class="stock-alert-tabs-bar">
+              <div class="stock-alert-tab-group">
+                <button class="btn-stock-alert-tab active" data-tab="shelflife">
+                  ⏳ Shelf Life Crítico (10–20d)
+                </button>
+                <button class="btn-stock-alert-tab" data-tab="rupture">
+                  ⚠️ Risco de Ruptura
+                </button>
+                <button class="btn-stock-alert-tab" data-tab="discontinued">
+                  🏷️ Top Descontinuados Imobilizados
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab 1: Shelf Life Crítico -->
+            <div id="alert-tab-shelflife">
+              <div class="stock-traceability-banner">
+                <span>ℹ️</span>
+                <span><strong>Rastreabilidade Auditável:</strong> Dias até Vencer = <code>shelf_life_dias - (Data Referência - data_ultima_entrada)</code>. Marco temporal auditado: última entrada física no CD. Priorização na janela crítica de 10 a 20 dias para viabilizar campanhas comerciais e desova preventiva.</span>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table" id="table-stock-shelflife">
+                  <thead>
+                    <tr>
+                      <th style="width:110px;">SKU</th>
+                      <th>Descrição do Produto</th>
+                      <th style="width:120px;">Categoria</th>
+                      <th class="text-right" style="width:100px;">Qtd Estoque</th>
+                      <th class="text-center" style="width:130px;">Dias até Vencer</th>
+                      <th class="text-right" style="width:110px;">Custo Unit.</th>
+                      <th style="width:230px;">Ação Sugerida</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-stock-shelflife"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab 2: Risco de Ruptura -->
+            <div id="alert-tab-rupture" style="display:none;">
+              <div class="stock-traceability-banner">
+                <span>ℹ️</span>
+                <span><strong>Critério Operacional:</strong> SKUs ativos de linha cuja cobertura de venda diária (<code>estoque_disponivel / venda_diaria</code>) é inferior ao lead time do fornecedor. Ordenados por criticidade de abastecimento.</span>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table" id="table-stock-rupture">
+                  <thead>
+                    <tr>
+                      <th style="width:110px;">SKU</th>
+                      <th>Descrição do Produto</th>
+                      <th style="width:120px;">Categoria</th>
+                      <th class="text-right" style="width:110px;">Estoque Disp.</th>
+                      <th class="text-center" style="width:120px;">Cobertura Atual</th>
+                      <th class="text-center" style="width:110px;">Lead Time</th>
+                      <th class="text-right" style="width:110px;">Ponto Pedido</th>
+                      <th style="width:160px;">Criticidade</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-stock-rupture"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab 3: Top Descontinuados -->
+            <div id="alert-tab-discontinued" style="display:none;">
+              <div class="stock-traceability-banner">
+                <span>ℹ️</span>
+                <span><strong>Alavanca #1:</strong> 10 maiores SKUs descontinuados por custo contábil imobilizado no armazém central, priorizados para liquidação no simulador abaixo.</span>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table" id="table-stock-discontinued">
+                  <thead>
+                    <tr>
+                      <th style="width:110px;">SKU</th>
+                      <th>Descrição do Produto</th>
+                      <th style="width:120px;">Categoria</th>
+                      <th class="text-right" style="width:110px;">Qtd Parada</th>
+                      <th class="text-right" style="width:110px;">Custo Unit.</th>
+                      <th class="text-right" style="width:140px;">Capital Imobilizado</th>
+                      <th class="text-right" style="width:130px;">Preço Sugerido</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-stock-discontinued"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULADOR ESTRATÉGICO DE DESOVA (ALAVANCA ICE #1) -->
+        <div class="panel-card col-12" style="margin-top: 24px;">
+          <div class="panel-header" style="margin-bottom: 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%; flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="panel-title" style="display:flex; align-items:center; gap:8px;">
+                  <span>🎛️</span>
+                  <span>Simulador de Desova dos 207 SKUs Descontinuados (Alavanca ICE #1)</span>
+                  <span class="kpi-badge accent" style="font-size:0.75rem;">Liquidez Imediata</span>
+                </div>
+                <div class="panel-subtitle">
+                  Simule a velocidade e o desconto agressivo na desova dos R$ 17,71M parados em estoque morto, avaliando o caixa livre gerado e os juros bancários eliminados.
+                </div>
+              </div>
+              <button class="btn-reset-sim" id="btn-reset-sim-stock" style="cursor:pointer;">Restaurar Padrão</button>
+            </div>
+          </div>
+
+          <div class="simulator-layout" id="sim-container-stock" style="display:grid;">
+            <div class="simulator-controls" style="background:var(--bg-elevated); border:1px solid var(--border-subtle);">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>Desconto de Liquidação / Outlet</span>
+                  <span class="slider-value-badge" id="val-sim-liq-disc">35%</span>
+                </div>
+                <input type="range" class="custom-slider" id="slider-liq-disc" min="15" max="60" step="5" value="35">
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>Prazo de Escoamento</span>
+                  <span class="slider-value-badge" id="val-sim-liq-time">3 meses</span>
+                </div>
+                <input type="range" class="custom-slider" id="slider-liq-time" min="1" max="6" step="1" value="3">
+              </div>
+
+              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.4; border-top:1px dashed var(--border-subtle); padding-top:12px; margin-top:4px;">
+                💡 <strong>Premissa Operacional:</strong> R$ 17.714.096,89 de capital contábil imobilizado em 207 SKUs descontinuados sem reposição. Custo financeiro WACC de 18,0% a.a. (+R$ 3,19M/ano em juros eliminados com a desova).
+              </div>
+            </div>
+
+            <div class="simulator-results">
+              <h3 style="font-size:0.95rem; font-weight:700;">Liquidez & Alívio Financeiro</h3>
+              <div class="sim-output-card positive">
+                <div class="sim-output-label">Caixa Líquido Destravado</div>
+                <div class="sim-output-value" id="sim-stock-cash">R$ 11,51M</div>
+                <div class="sim-output-delta">Liquidez pura para amortizar dívida ou reinvestir</div>
+              </div>
+
+              <div class="sim-output-card">
+                <div class="sim-output-label">Juros de Carregamento Estancados (18% a.a.)</div>
+                <div class="sim-output-value" id="sim-stock-interest">+ R$ 3,19M/ano</div>
+                <div class="sim-output-delta">Redução imediata do custo da dívida / WACC</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 9: RELATÓRIOS EXECUTIVOS IA (MÓDULO D) ==================== -->
+      <section class="dashboard-view" id="view-relatorios-ia">
+        <div class="view-header">
+          <div>
+            <div class="view-header-title">Gerador de Relatórios Executivos com IA</div>
+            <div class="view-header-desc">Arquitetura em 4 Camadas · Síntese Transversal e Setorial 100% Conciliada com o Diagnóstico Final</div>
+          </div>
+          <div class="view-header-highlight">
+            <span class="kpi-badge accent" style="font-size:0.8rem;">Módulo D</span>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Engine 4 Camadas</span>
+          </div>
+        </div>
+
+        <!-- SECTOR SELECTOR GRID -->
+        <div class="report-selection-container">
+          <div class="report-section-headline">1. Selecione o Recorte do Relatório Executivo:</div>
+          <div class="report-sector-grid">
+            <div class="report-sector-card active" data-sector="all" style="--sector-accent: #6366f1;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">🏛️</span>
+                <span class="sector-card-tag">Transversal</span>
+              </div>
+              <div class="sector-card-title">Consolidado Geral C-Level</div>
+              <div class="sector-card-desc">Visão integrada dos 5 setores, cascata completa da DRE e matriz prioritária de alavancas.</div>
+            </div>
+
+            <div class="report-sector-card" data-sector="vendas" style="--sector-accent: #38bdf8;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">📈</span>
+                <span class="sector-card-tag">Comercial</span>
+              </div>
+              <div class="sector-card-title">Vendas & Receita</div>
+              <div class="sector-card-desc">Faturamento bruto, dinâmica de canais, ticket médio e política de concessão de descontos.</div>
+            </div>
+
+            <div class="report-sector-card" data-sector="estoque" style="--sector-accent: #facc15;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">📦</span>
+                <span class="sector-card-tag">Supply Chain</span>
+              </div>
+              <div class="sector-card-title">Estoque & Capital</div>
+              <div class="sector-card-desc">Capital imobilizado nos 207 SKUs descontinuados, custo de carregamento WACC 18% e excessos.</div>
+            </div>
+
+            <div class="report-sector-card" data-sector="atendimento" style="--sector-accent: #a78bfa;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">🎧</span>
+                <span class="sector-card-tag">Pós-Venda</span>
+              </div>
+              <div class="sector-card-title">Atendimento & SAC</div>
+              <div class="sector-card-desc">Volume de chamados, atrito operacional WISMO (onde está meu pedido?) e deflexão com IA.</div>
+            </div>
+
+            <div class="report-sector-card" data-sector="marketing" style="--sector-accent: #fb923c;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">🎯</span>
+                <span class="sector-card-tag">Aquisição</span>
+              </div>
+              <div class="sector-card-title">Marketing & ROAS</div>
+              <div class="sector-card-desc">Eficiência de mídia paga por canal, dispersão de CAC e erosão de margem no Marketplace.</div>
+            </div>
+
+            <div class="report-sector-card" data-sector="clientes" style="--sector-accent: #34d399;">
+              <div class="sector-card-header">
+                <span class="sector-card-icon">👥</span>
+                <span class="sector-card-tag">CRM</span>
+              </div>
+              <div class="sector-card-title">Clientes & RFM</div>
+              <div class="sector-card-desc">Concentração da curva Pareto LTV, segmentação Champions/Loyal e mitigação de churn.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTROLS & GENERATE BAR -->
+        <div class="report-controls-panel">
+          <div class="report-controls-left">
+            <div class="control-group">
+              <label for="report-week-select">📅 Janela Temporal / Semana:</label>
+              <select id="report-week-select" class="report-select">
+                <option value="2023-W47" selected>Semana 47 / 2023 (Black Friday · Destaque)</option>
+                <option value="consolidated">Período Consolidado (13 meses auditados)</option>
+                <option value="latest">Última Semana Registrada (2024-W04)</option>
+                <option value="2023-W51">Semana 51 / 2023 (Pico de Natal)</option>
+                <option value="2023-W45">Semana 45 / 2023 (Pré-Black Friday)</option>
+              </select>
+            </div>
+
+            <div class="control-checkbox-group">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="report-llm-toggle">
+                <span class="checkbox-indicator"></span>
+                <span class="checkbox-label">Enriquecer com IA (LLM)</span>
+              </label>
+              <input type="password" id="report-api-key-input" placeholder="API Key (Opcional - DeepSeek / OpenAI / Gemini)" value="" class="report-select" style="display:none; max-width:240px; font-size:0.78rem;">
+              <span class="checkbox-badge">Fallback Seguro Ativo</span>
+            </div>
+          </div>
+
+          <div class="report-controls-right">
+            <button class="btn-generate-report" id="btn-generate-inline-report">
+              <span class="btn-icon">⚡</span>
+              <span>Gerar Relatório Executivo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- REPORT ACTION TOOLBAR (When Report is Present) -->
+        <div class="report-output-toolbar" id="report-output-toolbar" style="display:none;">
+          <div class="toolbar-meta" id="report-toolbar-meta">
+            <span class="status-indicator-dot"></span>
+            <span id="report-meta-text">Relatório Pronto · Semana 2023-W47</span>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn-tool-action" id="btn-copy-inline-report">
+              <span>📋</span>
+              <span>Copiar Texto</span>
+            </button>
+            <button class="btn-tool-action" id="btn-download-md-report">
+              <span>💾</span>
+              <span>Baixar Markdown</span>
+            </button>
+            <button class="btn-tool-action primary" id="btn-download-pdf-direct" title="Gera e baixa o PDF oficial sem cabeçalhos do navegador">
+              <span>⚡</span>
+              <span>Baixar PDF Executivo</span>
+            </button>
+            <button class="btn-tool-action" id="btn-print-inline-report" title="Abre o diálogo de impressão do navegador">
+              <span>🖨️</span>
+              <span>Imprimir</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- REPORT DISPLAY WRAPPER -->
+        <div class="report-inline-display" id="report-inline-display">
+          <!-- Initial Placeholder State -->
+          <div class="report-placeholder" id="report-empty-placeholder">
+            <div class="placeholder-icon">📋</div>
+            <div class="placeholder-title">Selecione o setor e a semana acima e clique em "Gerar Relatório Executivo"</div>
+            <div class="placeholder-subtitle">
+              A engine de 4 camadas processará os dados auditados, calculará as anomalias e estruturará o memorando com fatos e alavancas prioritárias.
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div class="report-loading-container" id="report-inline-loading" style="display:none;">
+            <div class="report-spinner"></div>
+            <div class="loading-title">Sintetizando Dados Auditados em 4 Camadas...</div>
+            <div class="loading-subtitle">
+              Carregando fatos auditados → Calculando variações e anomalias → Sintetizando narrativa C-Level → Renderizando publicação executiva.
+            </div>
+          </div>
+
+          <!-- Shadow Host for Isolated CSS Rendering -->
+          <div id="report-content-host" class="report-content-host" style="display:none;"></div>
+        </div>
+      </section>
+
+
+    </main>
+  </div>
+
+  <!-- ==================== DRILL-DOWN MODAL ==================== -->
+  <div class="modal-overlay" id="drill-down-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🔍</span>
+          <span id="modal-kpi-title">Auditoria & Rastreabilidade do Indicador</span>
+        </div>
+        <button class="btn-modal-close" id="btn-close-modal">✕</button>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" id="modal-tab-formula">Fórmula & Premissas</button>
+        <button class="modal-tab-btn" id="modal-tab-data">Dados Fonte & Colunas</button>
+      </div>
+
+      <div class="modal-body" id="modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AI REPORT MODAL ==================== -->
+  <div class="modal-overlay" id="ai-report-modal">
+    <div class="modal-card modal-report-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🤖</span>
+          <span>Gerador de Relatórios Executivos com IA</span>
+        </div>
+        <button class="btn-modal-close" id="btn-close-ai-modal">✕</button>
+      </div>
+
+      <div class="modal-body modal-report-body">
+        <!-- Configuration / Selection Screen -->
+        <div id="ai-report-setup">
+          <div class="modal-section-title">Selecione o Recorte Analítico para o Relatório:</div>
+          <div class="report-topic-grid">
+            <div class="report-topic-card active" data-topic="visao_geral_dre">
+              <div class="topic-card-icon">📊</div>
+              <div class="topic-card-title">Visão Geral C-Level & DRE Gerencial</div>
+              <div class="topic-card-desc">Cascata de formação da receita, erosão de margens e impacto patrimonial do capital de giro.</div>
+            </div>
+
+            <div class="report-topic-card" data-topic="devolucoes_logistica">
+              <div class="topic-card-icon">🚚</div>
+              <div class="topic-card-title">Gargalos de Devoluções & Falhas Logísticas</div>
+              <div class="topic-card-desc">Causas evitáveis (defeito/tamanho), frete Marketplace e estancamento de sangrias.</div>
+            </div>
+
+            <div class="report-topic-card" data-topic="estoque_capital_giro">
+              <div class="topic-card-icon">📦</div>
+              <div class="topic-card-title">Desova de Descontinuados & Capital de Giro</div>
+              <div class="topic-card-desc">Análise dos 207 SKUs parados, alívio de R$ 17,7M de caixa e corte de juros WACC.</div>
+            </div>
+
+            <div class="report-topic-card" data-topic="midia_roas_preco">
+              <div class="topic-card-icon">🎯</div>
+              <div class="topic-card-title">Eficiência de Mídia, ROAS & Calibragem de Preço</div>
+              <div class="topic-card-desc">Comparativo de ROAS, realocação para Influenciadores/TikTok e teto de cupom.</div>
+            </div>
+          </div>
+
+          <div class="ai-config-row">
+            <div class="ai-config-item">
+              <label class="ai-config-label">Chave de API (Opcional - DeepSeek / OpenAI / Gemini):</label>
+              <input type="password" id="ai-api-key-input" class="ai-key-input" placeholder="sk-... (Deixe em branco para usar o motor analítico local)" value="">
+            </div>
+            <button class="btn-generate-report" id="btn-run-ai-report">
+              <span>⚡ Gerar Relatório Executivo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Output Screen (Hidden Initially) -->
+        <div id="ai-report-output" style="display:none;">
+          <div class="report-toolbar">
+            <button class="btn-report-tool" id="btn-back-setup"><span>⬅️</span> Voltar / Selecionar Outro</button>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-report-tool" id="btn-copy-report"><span>📋</span> Copiar Texto</button>
+              <button class="btn-report-tool primary" id="btn-print-report"><span>🖨️</span> Imprimir / Salvar PDF</button>
+            </div>
+          </div>
+          <div id="ai-report-view-container" class="report-rendered-view">
+            <!-- Rendered Report Content -->
+          </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="ai-report-loading" style="display:none; text-align:center; padding:40px 20px;">
+          <div class="ai-spinner"></div>
+          <div style="font-size:1rem; font-weight:700; color:var(--accent-lime); margin-top:16px;">Sintetizando Dados Auditados com IA...</div>
+          <div style="font-size:0.8rem; color:var(--text-secondary); margin-top:6px;">Processando árvore de lucratividade, cálculo de alavancas e elaboração do parecer C-Level.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT MODULES ==================== -->
+  <script src="data/dashboard_data.js?v=20240920"></script>
+  <script src="js/drill-down.js?v=20240920"></script>
+  <script src="js/kpi-cards.js?v=20240920"></script>
+  <script src="js/charts.js?v=20260920_v2"></script>
+  <script src="js/diagnostics.js?v=20240920"></script>
+  <script src="js/simulators.js?v=20240920"></script>
+  <script src="js/stock-alerts.js?v=20240920"></script>
+  <script src="js/ai-reports.js?v=20240920"></script>
+  <script src="js/app.js?v=20240920"></script>
+</body>
+</html>

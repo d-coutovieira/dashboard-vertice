@@ -1,0 +1,137 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+<!-- Executive DRE KPI Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card" style="--card-accent:#38bdf8;">
+    <div class="kpi-label">Receita Bruta Faturada</div>
+    <div class="kpi-value">{{ dre.gross_revenue_fmt }}</div>
+    <div class="kpi-subtext">{{ dre.total_orders_fmt }} pedidos transacionados</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#34d399;">
+    <div class="kpi-label">Margem de Contribuição</div>
+    <div class="kpi-value" style="color:#34d399;">{{ dre.contribution_margin_pct_fmt }}</div>
+    <div class="kpi-subtext">Total: {{ dre.contribution_margin_fmt }}</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#f43f5e;">
+    <div class="kpi-label">Dreno Reversa & SAC</div>
+    <div class="kpi-value" style="color:#f43f5e;">- {{ dre.returns_drain_fmt }}</div>
+    <div class="kpi-subtext">Perdas diretas em pós-venda</div>
+  </div>
+
+  <div class="kpi-card" style="--card-accent:#facc15;">
+    <div class="kpi-label">Margem Pós-Atrito</div>
+    <div class="kpi-value" style="color:#facc15;">{{ dre.post_friction_margin_pct_fmt }}</div>
+    <div class="kpi-subtext">Resultado: {{ dre.post_friction_margin_fmt }}</div>
+  </div>
+</div>
+
+<!-- Consolidated Alerts Banner -->
+{% if consolidated_alerts %}
+<div class="alert-container">
+  {% for alert in consolidated_alerts %}
+  <div class="alert-banner {{ alert.severity }}">
+    <span class="alert-badge">{{ alert.severity }} · {{ alert.sector | upper }}</span>
+    <div class="alert-content">
+      <h4>{{ alert.headline }}</h4>
+      <p>{{ alert.grounded_evidence }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Executive Synthesis Block -->
+<div class="narrative-block">
+  <h3>Síntese Transversal Executiva C-Level</h3>
+  <p>{{ executive_synthesis | safe }}</p>
+</div>
+
+<!-- Cross-Sector Strategic Summary Table -->
+<div class="narrative-block">
+  <h3>Visão Integrada dos 5 Setores Analisados</h3>
+  <div class="table-wrapper">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Setor de Negócio</th>
+          <th>Manchete Diagnóstica</th>
+          <th>Indicador Crítico Reconciliado</th>
+          <th>Direcionamento C-Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#38bdf8;">● Vendas & Receita</strong></td>
+          <td>{{ vendas.headline }}</td>
+          <td class="num">{{ vendas.facts[2].formatted_value }}</td>
+          <td>Blindar descontos comerciais e implementar piso de frete mínimo.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#facc15;">● Estoque & Suprimentos</strong></td>
+          <td>{{ estoque.headline }}</td>
+          <td class="num" style="color:#f43f5e;">{{ estoque.facts[2].formatted_value }}</td>
+          <td>Desova acelerada dos 207 SKUs para liberar R$ 17,71M de caixa.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#a78bfa;">● Atendimento & SAC</strong></td>
+          <td>{{ atendimento.headline }}</td>
+          <td class="num">{{ atendimento.facts[1].formatted_value }}</td>
+          <td>Automação de rastreio de carga via agente conversacional de IA.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fb923c;">● Marketing & Aquisição</strong></td>
+          <td>{{ marketing.headline }}</td>
+          <td class="num" style="color:#34d399;">{{ marketing.facts[0].formatted_value }}</td>
+          <td>Realocar verba de Marketplace para Influenciadores e TikTok.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34d399;">● Clientes & Retenção (RFM)</strong></td>
+          <td>{{ clientes.headline }}</td>
+          <td class="num" style="color:#34d399;">{{ clientes.facts[0].formatted_value }}</td>
+          <td>Retenção VIP e blindagem de serviço aos clientes Campeões.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Consolidated Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <p style="color:#94a3b8; font-size:0.9rem;">
+    Matriz de alavancas consolidadas para suporte à tomada de decisão da Diretoria Executiva:
+  </p>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Setor</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lever in consolidated_levers %}
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#ffffff;">Prioridade #{{ lever.rank }}</span></td>
+          <td><span style="font-weight:700; text-transform:uppercase; font-size:0.75rem; color:#94a3b8;">{{ lever.sector }}</span></td>
+          <td><strong>{{ lever.title }}</strong></td>
+          <td>{{ lever.primary_bottleneck }}</td>
+          <td><strong style="color:#34d399;">{{ lever.grounded_metric }}</strong></td>
+          <td>{{ lever.strategic_mandate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+{% endblock %}

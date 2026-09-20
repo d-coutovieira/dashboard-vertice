@@ -1,0 +1,107 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Estoque Físico Total</div>
+    <div class="kpi-value">{{ current.custo_total_fisico_fmt }}</div>
+    <div class="kpi-subtext">{{ current.unidades_fisicas_fmt }} peças em centro de distribuição</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">SKUs Descontinuados</div>
+    <div class="kpi-value" style="color:#f43f5e;">{{ current.skus_descontinuados }} SKUs</div>
+    <div class="kpi-subtext">Capital parado: {{ current.capital_descontinuado_fmt }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Economia WACC (18% a.a.)</div>
+    <div class="kpi-value" style="color:#34d399;">+ {{ current.economia_wacc_18pct_fmt }}/ano</div>
+    <div class="kpi-subtext">Juros estancados com liquidação</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Estoque Defensivo Excedente</div>
+    <div class="kpi-value" style="color:#fbbf24;">{{ current.excesso_defensivo_fmt }}</div>
+    <div class="kpi-subtext">Custo WACC: {{ current.excesso_wacc_cost_fmt }}/ano</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+{% if alerts %}
+<div class="alert-container">
+  {% for alert in alerts %}
+  <div class="alert-banner {{ alert.severity }}">
+    <span class="alert-badge">{{ alert.severity }}</span>
+    <div class="alert-content">
+      <h4>{{ alert.headline }}</h4>
+      <p>{{ alert.grounded_evidence }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Diagnóstico do Dilema de Capital de Giro</h3>
+  <p>{{ executive_summary | safe }}</p>
+</div>
+
+<!-- Discontinued SKUs Breakdown Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Métrica de Inventário</th>
+        <th style="text-align:right;">Valor Auditado</th>
+        <th>Origem Metodológica</th>
+        <th>Impacto Financeiro C-Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fact in facts %}
+      <tr>
+        <td><strong>{{ fact.label }}</strong></td>
+        <td class="num">{{ fact.formatted_value }}</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">{{ fact.source_origin }}</span></td>
+        <td>{{ fact.impact_assessment }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lever in levers %}
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#facc15;">Prioridade #{{ lever.rank }}</span></td>
+          <td><strong>{{ lever.title }}</strong></td>
+          <td>{{ lever.primary_bottleneck }}</td>
+          <td><strong style="color:#34d399;">{{ lever.grounded_metric }}</strong></td>
+          <td>{{ lever.strategic_mandate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+{% endblock %}

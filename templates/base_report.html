@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title | default("Relatório Executivo · Vértice Retail") }}</title>
+  <link rel="stylesheet" href="../../static/report.css">
+  <style>
+    /* Sector dynamic accent override */
+    :root {
+      --current-accent: {{ sector_color | default("#6366f1") }};
+    }
+    .kpi-card::before {
+      background: var(--current-accent) !important;
+    }
+    .sector-tag {
+      color: var(--current-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <!-- Header -->
+    <header class="report-header">
+      <div class="brand-wrapper">
+        <span class="company-badge">Vértice Retail</span>
+        <span class="brand-name">EloGroup Strategic Intelligence</span>
+      </div>
+      <div class="report-meta">
+        <div><strong>Público:</strong> C-Level & Banca Executiva</div>
+        <div><strong>Ciclo / Janela:</strong> {{ week_label }}</div>
+        <div><strong>Emissão:</strong> {{ generated_at }}</div>
+        <div><strong>Rastreabilidade:</strong> 100% Grounded (Diagnóstico Final)</div>
+      </div>
+    </header>
+
+    <!-- Main Title Block -->
+    <div class="title-section">
+      <span class="sector-tag">● {{ sector_name | default("Visão Consolidada") }}</span>
+      <h1 class="report-title">{{ report_headline }}</h1>
+      <p class="report-subtitle">{{ report_subtitle }}</p>
+    </div>
+
+    <!-- Child Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="report-footer">
+      <div>EloGroup Transformation, Strategy & Analytics · Retail Practice</div>
+      <div>Documento Executivo Estritamente Confidencial · Prova de Conceito Banca</div>
+    </footer>
+  </div>
+</body>
+</html>

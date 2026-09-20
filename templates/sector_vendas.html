@@ -1,0 +1,118 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Receita Bruta Faturada</div>
+    <div class="kpi-value">{{ current.receita_bruta_fmt }}</div>
+    <div class="kpi-subtext">
+      {% if variations.receita.has_previous %}
+        WoW: {{ "+" if variations.receita.pct_change > 0 else "" }}{{ variations.receita.pct_change }}% vs anterior
+      {% else %}
+        Base consolidada auditada
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Volume de Pedidos</div>
+    <div class="kpi-value">{{ current.pedidos_fmt }}</div>
+    <div class="kpi-subtext">Ticket médio: {{ current.ticket_medio_fmt }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Margem de Contribuição</div>
+    <div class="kpi-value" style="color:#34d399;">{{ current.margem_contribuicao_pct_fmt }}</div>
+    <div class="kpi-subtext">Absoluto: {{ current.margem_contribuicao_fmt }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Taxa de Desconto</div>
+    <div class="kpi-value" style="color:{% if current.taxa_desconto_pct >= 9.0 %}#f43f5e{% elif current.taxa_desconto_pct >= 8.0 %}#fbbf24{% else %}#e2e8f0{% endif %};">
+      {{ current.taxa_desconto_pct_fmt }}
+    </div>
+    <div class="kpi-subtext">Total: {{ current.descontos_fmt }}</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+{% if alerts %}
+<div class="alert-container">
+  {% for alert in alerts %}
+  <div class="alert-banner {{ alert.severity }}">
+    <span class="alert-badge">{{ alert.severity }}</span>
+    <div class="alert-content">
+      <h4>{{ alert.headline }}</h4>
+      <p>{{ alert.grounded_evidence }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Síntese Analítica Executiva</h3>
+  <p>{{ executive_summary | safe }}</p>
+</div>
+
+<!-- Grounded Facts Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Métrica Auditada</th>
+        <th style="text-align:right;">Valor</th>
+        <th>Fonte de Grounding</th>
+        <th>Avaliação de Impacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fact in facts %}
+      <tr>
+        <td><strong>{{ fact.label }}</strong></td>
+        <td class="num">{{ fact.formatted_value }}</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">{{ fact.source_origin }}</span></td>
+        <td>{{ fact.impact_assessment }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <p style="color:#94a3b8; font-size:0.9rem;">
+    Mapeamento direto dos gargalos comerciais diagnosticados nas análises causais da Vértice Retail:
+  </p>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lever in levers %}
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#38bdf8;">Prioridade #{{ lever.rank }}</span></td>
+          <td><strong>{{ lever.title }}</strong></td>
+          <td>{{ lever.primary_bottleneck }}</td>
+          <td><strong style="color:#34d399;">{{ lever.grounded_metric }}</strong></td>
+          <td>{{ lever.strategic_mandate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+{% endblock %}

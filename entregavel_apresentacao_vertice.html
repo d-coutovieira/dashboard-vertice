@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vértice Retail — Entregável Executivo de Diagnóstico & Priorização 90 Dias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1e1b4b;
+    --primary-light: #312e81;
+    --accent: #4338ca;
+    --accent-hover: #3730a3;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --danger: #be123c;
+    --danger-bg: #fff1f2;
+    --danger-border: #fecdd3;
+    --warning: #b45309;
+    --warning-bg: #fffbeb;
+    --warning-border: #fde68a;
+    --success: #047857;
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Top Navigation Bar */
+  .top-nav {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-badge {
+    background: #4338ca;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .nav-title {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  .nav-subtitle {
+    font-size: 11px;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .nav-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-print {
+    background: #4338ca;
+    color: #fff;
+    border: 1px solid #6366f1;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .btn-print:hover {
+    background: #3730a3;
+  }
+
+  /* Tab Navigation */
+  .tabs-bar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    gap: 24px;
+    position: sticky;
+    top: 59px;
+    z-index: 90;
+  }
+  .tab-btn {
+    padding: 14px 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover {
+    color: var(--primary);
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 1280px;
+    margin: 24px auto 60px auto;
+    padding: 0 24px;
+  }
+
+  /* Tab Content */
+  .tab-pane {
+    display: none;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+  .tab-pane.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--accent);
+    position: relative;
+  }
+  .kpi-card.danger { border-top-color: var(--danger); background: var(--danger-bg); border-color: var(--danger-border); }
+  .kpi-card.warning { border-top-color: var(--warning); background: var(--warning-bg); border-color: var(--warning-border); }
+  .kpi-card.success { border-top-color: var(--success); background: var(--success-bg); border-color: var(--success-border); }
+  .kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text);
+    margin: 4px 0;
+    letter-spacing: -0.5px;
+  }
+  .kpi-card.danger .kpi-value { color: #9f1239; }
+  .kpi-card.success .kpi-value { color: #065f46; }
+  .kpi-card.warning .kpi-value { color: #92400e; }
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* Executive Highlight Callout */
+  .highlight-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: #ffffff;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-lg);
+  }
+  .highlight-banner h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .highlight-banner p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e7ff;
+    max-width: 1000px;
+  }
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .highlight-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .highlight-item-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    margin-bottom: 4px;
+  }
+  .highlight-item-text {
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  /* Tables */
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    text-align: left;
+  }
+  th {
+    background: #1e1b4b;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 12px;
+    border: 1px solid #1e1b4b;
+    font-size: 11.5px;
+    letter-spacing: 0.3px;
+  }
+  td {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  tr:hover td {
+    background: #f1f5f9;
+  }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .font-bold { font-weight: 700; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .text-danger { color: var(--danger); font-weight: 600; }
+  .text-success { color: var(--success); font-weight: 600; }
+  .text-warning { color: var(--warning); font-weight: 600; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .badge-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+  .badge-success { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+  .badge-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning-border); }
+  .badge-info { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Matrix 2x2 */
+  .matrix-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .matrix-quadrant {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    background: #ffffff;
+  }
+  .matrix-quadrant.p1 {
+    background: #f0fdf4;
+    border: 2px solid #059669;
+  }
+  .quadrant-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .quadrant-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .quadrant-content {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Callout Alert Box */
+  .callout {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 16px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .callout.danger { border-left-color: var(--danger); background: var(--danger-bg); border-color: var(--danger-border); }
+  .callout.warning { border-left-color: var(--warning); background: var(--warning-bg); border-color: var(--warning-border); }
+  .callout.success { border-left-color: var(--success); background: var(--success-bg); border-color: var(--success-border); }
+  .callout-title {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  /* Timeline & Roadmap */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid #cbd5e1;
+    margin: 20px 0 20px 10px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -31px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #ffffff;
+  }
+  .timeline-dot.green { background: #059669; }
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  .timeline-badge {
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .timeline-body {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Print Styling */
+  @media print {
+    body { background: #ffffff; font-size: 11px; }
+    .top-nav, .tabs-bar, .btn-print { display: none !important; }
+    .container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    .tab-pane { display: block !important; page-break-after: always; }
+    .tab-pane:last-child { page-break-after: avoid; }
+    .card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; margin-bottom: 15px !important; }
+    .kpi-card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+    th { background: #1e1b4b !important; color: #fff !important; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<header class="top-nav">
+  <div class="nav-brand">
+    <span class="brand-badge">Audit & Strategy</span>
+    <div>
+      <div class="nav-title">Vértice Retail · Diagnóstico Estratégico & Engenharia Financeira</div>
+      <div class="nav-subtitle">Plano de Priorização Executiva & Maximização de Valor em 90 Dias</div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Exportar / Imprimir PDF
+    </button>
+  </div>
+</header>
+
+<!-- TABS NAVIGATION -->
+<nav class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab(event, 'tab-overview')">1. Resumo Executivo & DRE</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-mece')">2. Validação da Árvore MECE (1.1 a 3.2.3)</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-prioritization')">3. Matriz ICE & Prioridade #1</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-business-case')">4. Business Case & Fluxo 90d</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-roadmap')">5. Roadmap Tático (30, 60, 90d)</button>
+</nav>
+
+<div class="container">
+
+  <!-- TAB 1: RESUMO EXECUTIVO & DRE -->
+  <section id="tab-overview" class="tab-pane active">
+    
+    <div class="highlight-banner">
+      <h2>Diagnóstico da Questão Central: Onde está a perda e como recuperar valor?</h2>
+      <p>
+        A Vértice Retail opera com uma sólida margem de contribuição bruta comercial (<strong>50,04%</strong>), mas sofre destruição sistemática de valor em dois polos: uma superestocagem defensiva de <strong>R$ 120,05M</strong> cujo custo financeiro (R$ 21,6M/ano) supera a receita faturada, somada a um atrito pós-venda crônico de <strong>14,87% em devoluções</strong> e <strong>35.840 tickets de suporte</strong>.
+      </p>
+      <div class="highlight-grid">
+        <div class="highlight-item">
+          <div class="highlight-item-title">Polos Ofensores</div>
+          <div class="highlight-item-text">Estoque parado no balanço (R$ 21,6M/ano) + Sangria de pós-venda (R$ 1,60M em devoluções e SAC).</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-item-title">Alavanca Nº 1 (80/20)</div>
+          <div class="highlight-item-text">Liquidação híbrida de 207 SKUs descontinuados (R$ 17,7M retidos) com liberação líquida de <strong>R$ 9,52M de caixa</strong>.</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-item-title">Retorno Econômico</div>
+          <div class="highlight-item-text">Payback &lt; 15 dias, ROI de 61,4x sobre o investimento de R$ 155k e +R$ 3,28M/ano de EBIT recorrente.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Receita Bruta Auditada</div>
+        <div class="kpi-value">R$ 20,53M</div>
+        <div class="kpi-sub">Anualizado: R$ 19,19M/ano</div>
+      </div>
+      <div class="kpi-card danger">
+        <div class="kpi-label">Estoque Defensivo Excedente</div>
+        <div class="kpi-value">R$ 120,05M</div>
+        <div class="kpi-sub">Custo Financeiro: R$ 21,61M/ano (18% a.a.)</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Dreno Direto Devoluções</div>
+        <div class="kpi-value">R$ 1,21M</div>
+        <div class="kpi-sub">4.127 pedidos (14,87% devolução)</div>
+      </div>
+      <div class="kpi-card success">
+        <div class="kpi-label">Caixa Líquido Destravável (90d)</div>
+        <div class="kpi-value">R$ 9,52M</div>
+        <div class="kpi-sub">ROI de 61,4x s/ CAPEX/OPEX R$ 155k</div>
+      </div>
+    </div>
+
+    <!-- DRE GERENCIAL CONCILIADA -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16h8M7 11h12M7 6h4"/></svg>
+          DRE Gerencial Conciliada: Da Formação da Receita à Erosão Patrimonial
+        </div>
+        <span class="card-badge badge-info">Auditoria 100% Reconciliada</span>
+      </div>
+      
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Linha da Cascata DRE Gerencial</th>
+              <th class="text-right">Período Auditado (13m)</th>
+              <th class="text-right">Anualizado (12m)</th>
+              <th class="text-center">% Rec. Bruta</th>
+              <th>Diagnóstico Operacional & Mecânica Financeira</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="font-bold" style="background:#f1f5f9;">
+              <td>(=) RECEITA BRUTA FATURADA</td>
+              <td class="text-right font-mono">R$ 20.526.133,84</td>
+              <td class="text-right font-mono">R$ 19.188.202,13</td>
+              <td class="text-center">100,00%</td>
+              <td>27.758 pedidos; Top 5 clientes corporativos concentram 74,16% do volume total faturado.</td>
+            </tr>
+            <tr>
+              <td>(-) Descontos Comerciais Concedidos</td>
+              <td class="text-right font-mono text-danger">- R$ 1.636.799,83</td>
+              <td class="text-right font-mono text-danger">- R$ 1.530.125,56</td>
+              <td class="text-center text-danger">7,97%</td>
+              <td>Desconto médio anual; saltou para 9,55% na Black Friday (+2,34 p.p. vs. Jan/23).</td>
+            </tr>
+            <tr class="font-bold">
+              <td>(=) RECEITA LÍQUIDA OPERACIONAL</td>
+              <td class="text-right font-mono">R$ 18.889.334,01</td>
+              <td class="text-right font-mono">R$ 17.658.076,57</td>
+              <td class="text-center">92,03%</td>
+              <td>Receita líquida antes dos custos variáveis diretos de mercadoria e frete de envio.</td>
+            </tr>
+            <tr>
+              <td>(-) Custo das Mercadorias Vendidas (CMV)</td>
+              <td class="text-right font-mono text-danger">- R$ 8.278.603,59</td>
+              <td class="text-right font-mono text-danger">- R$ 7.738.988,76</td>
+              <td class="text-center text-danger">40,33%</td>
+              <td>Mark-up fabril comercial estável de 2,48x sobre o custo fabril unitário.</td>
+            </tr>
+            <tr>
+              <td>(-) Frete de Envio Subsidiado (Outbound)</td>
+              <td class="text-right font-mono text-danger">- R$ 340.293,77</td>
+              <td class="text-right font-mono text-danger">- R$ 318.118,52</td>
+              <td class="text-center text-danger">1,66%</td>
+              <td>Frete geral; distorção no Marketplace (4,55%) e tickets &le; R$ 100 (43,01% da venda).</td>
+            </tr>
+            <tr class="font-bold" style="background:#e0e7ff;">
+              <td>(=) MARGEM DE CONTRIBUIÇÃO BRUTA</td>
+              <td class="text-right font-mono text-success">R$ 10.270.436,65</td>
+              <td class="text-right font-mono text-success">R$ 9.600.969,29</td>
+              <td class="text-center text-success">50,04%</td>
+              <td>Margem comercial saudável na boca do funil antes das sangrias e atritos operacionais.</td>
+            </tr>
+            <tr>
+              <td>(-) Frete de Envio Perdido em Devoluções</td>
+              <td class="text-right font-mono text-danger">- R$ 51.006,15</td>
+              <td class="text-right font-mono text-danger">- R$ 47.681,87</td>
+              <td class="text-center text-danger">0,25%</td>
+              <td>Frete outbound pago para 4.127 pedidos que retornaram cancelados ao galpão.</td>
+            </tr>
+            <tr>
+              <td>(-) Custo Logística Reversa & Manuseio (R$ 40/caso)</td>
+              <td class="text-right font-mono text-danger">- R$ 165.080,00</td>
+              <td class="text-right font-mono text-danger">- R$ 154.321,13</td>
+              <td class="text-center text-danger">0,80%</td>
+              <td>Transporte reverso, conferência técnica e reestocagem de produtos devolvidos.</td>
+            </tr>
+            <tr>
+              <td>(-) Custo Operacional de Suporte (SAC 2023)</td>
+              <td class="text-right font-mono text-danger">- R$ 179.371,00</td>
+              <td class="text-right font-mono text-danger">- R$ 167.679,25</td>
+              <td class="text-center text-danger">0,87%</td>
+              <td>11.977 chamados no ano; 63% motivados por rastreio de pedido e defeitos fabris.</td>
+            </tr>
+            <tr class="font-bold" style="background:#fee2e2;">
+              <td>Subtotal Perdas Reversas & SAC</td>
+              <td class="text-right font-mono text-danger">- R$ 395.457,15</td>
+              <td class="text-right font-mono text-danger">- R$ 369.682,25</td>
+              <td class="text-center text-danger">1,93%</td>
+              <td>Atrito operacional direto pós-venda que corrói o resultado operacional.</td>
+            </tr>
+            <tr class="font-bold" style="background:#dcfce7;">
+              <td>(=) MARGEM OPERACIONAL PÓS-ATRITO</td>
+              <td class="text-right font-mono text-success">R$ 9.874.979,50</td>
+              <td class="text-right font-mono text-success">R$ 9.231.287,04</td>
+              <td class="text-center text-success">48,12%</td>
+              <td>Resultado líquido operacional remanescente antes do impacto do capital de giro.</td>
+            </tr>
+            <tr style="background:#fff1f2;">
+              <td class="font-bold text-danger">(-) Custo Oportunidade do Estoque Defensivo (18% a.a.)</td>
+              <td class="text-right font-mono text-danger font-bold">- R$ 21.608.250,24</td>
+              <td class="text-right font-mono text-danger font-bold">- R$ 21.608.250,24</td>
+              <td class="text-center text-danger font-bold">-112,61%</td>
+              <td>Juros de capital de giro (CDI/WACC) de carregar R$ 120,05M de excedente (supera faturamento).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: VALIDAÇÃO MECE -->
+  <section id="tab-mece" class="tab-pane">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Matriz de Validação Empírica da Árvore de Lucratividade (Nós 1.1 a 3.2.3)
+        </div>
+        <span class="card-badge badge-info">Estrutura MECE</span>
+      </div>
+      
+      <p style="margin-bottom:16px; color: var(--text-muted);">
+        Cruzamento exaustivo entre as hipóteses afirmativas declaradas em <code>arvore_ebit.md</code> e os registros auditados das bases transacionais de vendas, estoque, atendimento e marketing.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 12%;">Raiz DRE</th>
+              <th style="width: 6%;" class="text-center">ID/Nó</th>
+              <th style="width: 18%;">Hipótese Afirmativa</th>
+              <th style="width: 38%;">Evidência Numérica Auditada (R$ e %)</th>
+              <th style="width: 10%;" class="text-center">Status</th>
+              <th style="width: 16%;" class="text-right">Dreno Anualizado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Raiz 1 -->
+            <tr>
+              <td class="font-bold">Receita Líquida</td>
+              <td class="text-center font-mono font-bold">1.1</td>
+              <td><strong>Quantidade Vendida:</strong> Crescimento sustentado por volume sem ticket, denotando dependência promocional.</td>
+              <td>97.420 unidades em 27.758 pedidos (média estável de 3,51 un/ped). Ticket médio de R$ 739,47. Volume não sofreu explosão isolada de preço.</td>
+              <td class="text-center"><span class="badge badge-success">Refutada</span></td>
+              <td class="text-right font-mono">R$ 0,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Receita Líquida</td>
+              <td class="text-center font-mono font-bold">1.2</td>
+              <td><strong>Preço Unitário:</strong> Preço estagnado ou cadente em categorias específicas comprimindo a receita bruta.</td>
+              <td>Preço médio de R$ 210,90 (R$ 39 a R$ 837). Mark-up médio de 2,48x sobre o custo fabril unitário. Tabela de lista preservada.</td>
+              <td class="text-center"><span class="badge badge-success">Refutada</span></td>
+              <td class="text-right font-mono">R$ 0,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Receita Líquida</td>
+              <td class="text-center font-mono font-bold">1.3</td>
+              <td><strong>Mix de Categorias:</strong> Migração de vendas para categorias de menor valor e margem comprimindo o portfólio.</td>
+              <td>Margens homogêneas entre categorias: Moda (50,14%), Beleza (50,11%), Lifestyle (49,73%) e Acessórios (50,06%). Mix equilibrado.</td>
+              <td class="text-center"><span class="badge badge-success">Refutada</span></td>
+              <td class="text-right font-mono">R$ 0,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Receita Líquida</td>
+              <td class="text-center font-mono font-bold">1.4</td>
+              <td><strong>Retenção & RFM:</strong> Clientes de alto valor em risco de churn silencioso e dependência de poucos compradores.</td>
+              <td>Amostragem: 346 clientes em vendas vs 15k no CRM. Top 5 clientes B2B concentram 74,16% do faturamento (R$ 15,22M). Clientes <em>Churn</em> recebem 11,2% desconto com devolução de 18,4%.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 450.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Receita Líquida</td>
+              <td class="text-center font-mono font-bold">1.5</td>
+              <td><strong>Descontos Concedidos:</strong> Concessão agressiva de descontos e cupons corrói a margem de contribuição.</td>
+              <td>R$ 1,64M em descontos (7,97% da receita). Na Black Friday (Nov/23), saltou para 9,55% (+2,34 p.p.), derrubando a margem para 48,14%.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 340.000,00</td>
+            </tr>
+
+            <!-- Raiz 2 -->
+            <tr>
+              <td class="font-bold">Custos Variáveis</td>
+              <td class="text-center font-mono font-bold">2.1</td>
+              <td><strong>CMV Unitário:</strong> Custo do produto subindo acima do preço, comprimindo margem na fábrica.</td>
+              <td>CMV de R$ 8,28M representa 40,33% da receita bruta. Spread comercial fabril padrão do varejo de moda/lifestyle.</td>
+              <td class="text-center"><span class="badge badge-success">Refutada</span></td>
+              <td class="text-right font-mono">R$ 0,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Custos Variáveis</td>
+              <td class="text-center font-mono font-bold">2.1.2</td>
+              <td><strong>Margem Fornecedor:</strong> Fornecedores com custos de compra elevados ou spreads insuficientes.</td>
+              <td>Spread de compra homogêneo (49% a 52%), porém 5 fornecedores concentram 48% de todos os produtos devolvidos por defeito.</td>
+              <td class="text-center"><span class="badge badge-warning">Validada*</span></td>
+              <td class="text-right font-mono text-danger">R$ 180.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Custos Variáveis</td>
+              <td class="text-center font-mono font-bold">2.2</td>
+              <td><strong>Custo de Frete:</strong> Subsídio de frete consome margem em pedidos pequenos e canais terceiros.</td>
+              <td>Marketplace consome 4,55% da receita em frete (5x outros canais). Em tickets &le; R$ 100, frete consome 43,01%, gerando 491 pedidos negativos.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 90.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Custos Variáveis</td>
+              <td class="text-center font-mono font-bold">2.2.2</td>
+              <td><strong>Prazo de Entrega:</strong> Lead time longo de entrega provoca devoluções e chamados de clientes.</td>
+              <td>Prazo médio real de entrega de 8,3 dias. 55,61% dos pedidos demoram >7 dias e 33,91% >10 dias. Causa direta de 808 devoluções e 10.765 tickets SAC.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 280.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Custos Variáveis</td>
+              <td class="text-center font-mono font-bold">2.3.1</td>
+              <td><strong>Taxa de Devolução:</strong> Falhas operacionais e de qualidade geram devoluções que destroem valor.</td>
+              <td>4.127 devoluções (14,87%). 69,59% são falhas operacionais evitáveis: Defeito (1.039 un), Tamanho (1.025 un), Atraso (808 un). Dreno direto de R$ 1,21M.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 1.130.000,00</td>
+            </tr>
+            <tr style="background:#fff1f2;">
+              <td class="font-bold text-danger">Custos & Capital</td>
+              <td class="text-center font-mono font-bold text-danger">2.3.2</td>
+              <td><strong>Estoque & Giro:</strong> Superestocagem defensiva gera custo de capital que supera o faturamento.</td>
+              <td>R$ 348,70M em estoque a custo. Excesso defensivo (>3x ponto pedido) soma R$ 120,05M. 207 SKUs descontinuados retêm R$ 17,71M parados. Giro de 0,022x.</td>
+              <td class="text-center"><span class="badge badge-danger font-bold">Crítica</span></td>
+              <td class="text-right font-mono text-danger font-bold">R$ 21.608.250,24</td>
+            </tr>
+
+            <!-- Raiz 3 -->
+            <tr>
+              <td class="font-bold">Despesas Operacionais</td>
+              <td class="text-center font-mono font-bold">3.1.1</td>
+              <td><strong>CAC por Canal:</strong> Canais trazem volume com CAC elevado sem contrapartida de margem.</td>
+              <td>Marketplace possui CAC de R$ 4,39 e margem líquida de 38,9%, enquanto Influenciador tem CAC de R$ 4,17 e margem líquida de 44,5%.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 350.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Despesas Operacionais</td>
+              <td class="text-center font-mono font-bold">3.1.2</td>
+              <td><strong>ROAS & Atribuição:</strong> Modelos de atribuição inflam ROAS e mascaram canais saturados.</td>
+              <td>ROAS médio de 4,18x. Influenciador entrega 7,75x e TikTok 4,67x, enquanto Marketplace (3,02x) e Email (3,07x) operam no breakeven.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 420.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Despesas Operacionais</td>
+              <td class="text-center font-mono font-bold">3.2.1</td>
+              <td><strong>Custo por Ticket SAC:</strong> Atendimento concentra custos altos em chamados repetitivos evitáveis.</td>
+              <td>35.840 tickets custam R$ 532,2k (R$ 14,85/ticket humano; R$ 179,4k em 2023). 67,6% dos chamados poderiam ser defletidos por automação.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 167.679,25</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Despesas Operacionais</td>
+              <td class="text-center font-mono font-bold">3.2.2</td>
+              <td><strong>Falhas & CSAT:</strong> Categorias de falhas concentram volume e derrubam satisfação.</td>
+              <td>CSAT de 3,24. "Onde está meu pedido?" soma 10.765 chamados (30,0% do volume, CSAT 2,99). Defeito soma 6.509 tickets (CSAT 2,82).</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 106.000,00</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Despesas Operacionais</td>
+              <td class="text-center font-mono font-bold">3.2.3</td>
+              <td><strong>Tempo 1ª Resposta:</strong> Tempo longo de primeira resposta degrada CSAT e gera duplicidade.</td>
+              <td>Tempo médio de 1ª resposta de 135,3 minutos (>2h15). O atraso na triagem provoca reabertura de chamados repetidos para o mesmo pedido.</td>
+              <td class="text-center"><span class="badge badge-danger">Validada</span></td>
+              <td class="text-right font-mono text-danger">R$ 45.000,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:11px; color:var(--text-muted);">
+        * Validada pela concentração de perdas fabris e não-conformidade técnica.
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: PRIORIZAÇÃO & MATRIZ ICE -->
+  <section id="tab-prioritization" class="tab-pane">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Matriz 2x2 Impacto Financeiro vs. Esforço de Implementação (90 Dias)
+        </div>
+        <span class="card-badge badge-info">Critério 80/20</span>
+      </div>
+
+      <div class="matrix-container">
+        <!-- Quadrante 1: Quick Wins -->
+        <div class="matrix-quadrant">
+          <div class="quadrant-tag text-warning">Baixo Esforço · Médio Impacto</div>
+          <div class="quadrant-title">Quick Wins Operacionais (Até 30d)</div>
+          <div class="quadrant-content">
+            <strong>#2 Piso de Frete R$ 150 & Trava Marketplace:</strong> Zera margem negativa em 491 pedidos.<br/>
+            <strong>#3 Agente IA de Rastreio SAC:</strong> Deflete 90% das 10,7k dúvidas de rastreio.
+          </div>
+        </div>
+
+        <!-- Quadrante 2: Prioridade #1 -->
+        <div class="matrix-quadrant p1">
+          <div class="quadrant-tag text-success">Baixo/Médio Esforço · Impacto Máximo</div>
+          <div class="quadrant-title">PRIORIDADE ESTRATÉGICA Nº 1 (90d)</div>
+          <div class="quadrant-content">
+            <strong>#1 Liquidação Híbrida de SKUs Descontinuados:</strong><br/>
+            Desova de R$ 17,7M retidos nos 207 SKUs obsoletos. Gera <strong>R$ 9,52M de caixa líquido</strong> e estanca R$ 3,19M/ano em juros de carregamento financeiro.
+          </div>
+        </div>
+
+        <!-- Quadrante 3: Médio/Longo Prazo -->
+        <div class="matrix-quadrant">
+          <div class="quadrant-tag text-muted">Alto Esforço · Médio Impacto</div>
+          <div class="quadrant-title">Otimizações Táticas (60 a 90d)</div>
+          <div class="quadrant-content">
+            <strong>#5 Realocação Orçamentária de Marketing:</strong><br/>
+            Corte de verba em canais de baixo ROAS (Marketplace/Google) e migração para Influenciadores (+15% margem).
+          </div>
+        </div>
+
+        <!-- Quadrante 4: Estrutural -->
+        <div class="matrix-quadrant">
+          <div class="quadrant-tag text-muted">Alto Esforço · Alto Impacto</div>
+          <div class="quadrant-title">Transformações Estruturais (90d+)</div>
+          <div class="quadrant-content">
+            <strong>#4 Quarentena Fabril & Provador Virtual 3D:</strong><br/>
+            Bloqueio de fornecedores ofensores e tecnologia de dimensionamento para reduzir 30% das devoluções de moda.
+          </div>
+        </div>
+      </div>
+
+      <!-- ICE RANKING TABLE -->
+      <h3 style="margin: 24px 0 12px 0; font-size:15px; color:var(--primary);">Ranqueamento Algorítmico das Iniciativas via Score ICE</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 6%;">Rank</th>
+              <th style="width: 28%;">Iniciativa Estratégica</th>
+              <th style="width: 14%;">Frente DRE</th>
+              <th class="text-center" style="width: 10%;">Impacto (I)</th>
+              <th class="text-center" style="width: 10%;">Confiança (C)</th>
+              <th class="text-center" style="width: 10%;">Facilidade (E)</th>
+              <th class="text-center" style="width: 10%;">Score ICE</th>
+              <th style="width: 12%;">Veredito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#f0fdf4;">
+              <td class="text-center font-bold text-success font-mono">#1</td>
+              <td class="font-bold text-success">Liquidação Híbrida de SKUs Descontinuados</td>
+              <td>Custos & Capital</td>
+              <td class="text-center font-bold">10</td>
+              <td class="text-center font-bold">9</td>
+              <td class="text-center font-bold">8</td>
+              <td class="text-center font-bold font-mono text-success" style="font-size:14px;">72,0</td>
+              <td><span class="badge badge-success">Prioridade #1</span></td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold font-mono">#2</td>
+              <td class="font-bold">Piso de Frete R$ 150 & Trava Marketplace</td>
+              <td>Custos Variáveis</td>
+              <td class="text-center">6</td>
+              <td class="text-center">10</td>
+              <td class="text-center">10</td>
+              <td class="text-center font-bold font-mono">60,0</td>
+              <td><span class="badge badge-warning">Quick Win</span></td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold font-mono">#3</td>
+              <td class="font-bold">Agente IA de Rastreio Proativo (WhatsApp)</td>
+              <td>Despesas SAC</td>
+              <td class="text-center">7</td>
+              <td class="text-center">9</td>
+              <td class="text-center">8</td>
+              <td class="text-center font-bold font-mono">50,4</td>
+              <td><span class="badge badge-info">Sprint 30d</span></td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold font-mono">#4</td>
+              <td class="font-bold">Quarentena Fabril & Provador Virtual</td>
+              <td>Custos Variáveis</td>
+              <td class="text-center">8</td>
+              <td class="text-center">8</td>
+              <td class="text-center">6</td>
+              <td class="text-center font-bold font-mono">38,4</td>
+              <td><span class="badge badge-info">Plano 60d</span></td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold font-mono">#5</td>
+              <td class="font-bold">Realocação de Mídia (Influencer vs. Mktplace)</td>
+              <td>Despesas Marketing</td>
+              <td class="text-center">9</td>
+              <td class="text-center">6</td>
+              <td class="text-center">7</td>
+              <td class="text-center font-bold font-mono">37,8</td>
+              <td><span class="badge badge-info">Transição 90d</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: BUSINESS CASE & CASH FLOW -->
+  <section id="tab-business-case" class="tab-pane">
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Business Case da Prioridade #1: Liquidação dos 207 SKUs Descontinuados
+        </div>
+        <span class="card-badge badge-success">Geração Líquida R$ 9,52M</span>
+      </div>
+
+      <!-- COMPARATIVO 3 ABORDAGENS -->
+      <h3 style="font-size:14px; margin-bottom:12px; color:var(--primary);">Comparativo de Abordagens de Implementação</h3>
+      <div class="grid-3">
+        <div class="card" style="margin-bottom:0; background:#f8fafc;">
+          <div class="font-bold text-danger" style="margin-bottom:4px;">Abordagem A: Lote Atacadista B2B</div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Venda em bloco para atacadistas de ponta de estoque.</p>
+          <div style="font-size:11.5px; color:var(--success); margin-bottom:4px;"><strong>Prós:</strong> Liquidez em 15 dias; esvazia o CD sem esforço operacional fracionado.</div>
+          <div style="font-size:11.5px; color:var(--danger);"><strong>Contras:</strong> Deságio severo (paga apenas 30-35% do custo); recupera apenas ~R$ 5,3M.</div>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#f8fafc;">
+          <div class="font-bold text-warning" style="margin-bottom:4px;">Abordagem B: Outlet D2C Digital</div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Aba exclusiva no e-commerce com 40-50% de desconto.</p>
+          <div style="font-size:11.5px; color:var(--success); margin-bottom:4px;"><strong>Prós:</strong> Maior margem bruta unitária (recupera 70-80% do custo fabril).</div>
+          <div style="font-size:11.5px; color:var(--danger);"><strong>Contras:</strong> Giro lento (>180 dias); canibaliza catálogo e sobrecarrega frete e SAC.</div>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#f0fdf4; border: 2px solid #059669;">
+          <div class="font-bold text-success" style="margin-bottom:4px;">Abordagem C: Híbrida em 2 Fases (Recomendada)</div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Fase 1 VIP CRM D2C + Fase 2 Lote B2B Residual.</p>
+          <div style="font-size:11.5px; color:var(--success); margin-bottom:4px;"><strong>Prós:</strong> Maximiza margem no D2C nos primeiros 30d e zera resíduo no B2B em 90d.</div>
+          <div style="font-size:11.5px; color:var(--primary);"><strong>Retorno:</strong> 50,0% ponderado do custo contábil recuperado = <strong>R$ 8,86M</strong>.</div>
+        </div>
+      </div>
+
+      <!-- PROJEÇÃO FLUXO DE CAIXA 90 DIAS -->
+      <h3 style="font-size:14px; margin: 24px 0 12px 0; color:var(--primary);">Modelagem Econômica: Demonstrativo de Fluxo de Caixa Projetado (90 Dias)</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Linha de Fluxo de Caixa (R$)</th>
+              <th class="text-right">Mês 1 (VIP & Quick Win)</th>
+              <th class="text-right">Mês 2 (Lote B2B 1)</th>
+              <th class="text-right">Mês 3 (Liquidação Final)</th>
+              <th class="text-right">Total Acumulado 90 Dias</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold">Monetização de Estoque — Venda Flash VIP D2C</td>
+              <td class="text-right font-mono">R$ 2.214.262,11</td>
+              <td class="text-right font-mono">R$ 885.704,85</td>
+              <td class="text-right font-mono">R$ 0,00</td>
+              <td class="text-right font-mono font-bold">R$ 3.099.966,96</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Monetização de Estoque — Lote Atacadista B2B</td>
+              <td class="text-right font-mono">R$ 0,00</td>
+              <td class="text-right font-mono">R$ 3.100.000,00</td>
+              <td class="text-right font-mono">R$ 2.657.081,49</td>
+              <td class="text-right font-mono font-bold">R$ 5.757.081,49</td>
+            </tr>
+            <tr>
+              <td>Economia Operacional: Estancamento de Frete Negativo</td>
+              <td class="text-right font-mono">R$ 7.500,00</td>
+              <td class="text-right font-mono">R$ 7.500,00</td>
+              <td class="text-right font-mono">R$ 7.500,00</td>
+              <td class="text-right font-mono">R$ 22.500,00</td>
+            </tr>
+            <tr>
+              <td>Economia Financeira: Custo de Carregamento Evitado (18% a.a.)</td>
+              <td class="text-right font-mono">R$ 132.855,73</td>
+              <td class="text-right font-mono">R$ 265.711,45</td>
+              <td class="text-right font-mono">R$ 398.567,18</td>
+              <td class="text-right font-mono">R$ 797.134,36</td>
+            </tr>
+            <tr class="font-bold" style="background:#f1f5f9;">
+              <td>(=) TOTAL DE ENTRADAS OPERACIONAIS & CAIXA</td>
+              <td class="text-right font-mono text-success">R$ 2.354.617,84</td>
+              <td class="text-right font-mono text-success">R$ 4.258.916,30</td>
+              <td class="text-right font-mono text-success">R$ 3.063.148,67</td>
+              <td class="text-right font-mono text-success font-bold">R$ 9.676.682,81</td>
+            </tr>
+            <tr>
+              <td class="text-danger">(-) CAPEX Técnico (Landing Page VIP & Checkout)</td>
+              <td class="text-right font-mono text-danger">- R$ 35.000,00</td>
+              <td class="text-right font-mono text-danger">R$ 0,00</td>
+              <td class="text-right font-mono text-danger">R$ 0,00</td>
+              <td class="text-right font-mono text-danger">- R$ 35.000,00</td>
+            </tr>
+            <tr>
+              <td class="text-danger">(-) OPEX Operacional, Comissões B2B & Disparos CRM</td>
+              <td class="text-right font-mono text-danger">- R$ 40.000,00</td>
+              <td class="text-right font-mono text-danger">- R$ 50.000,00</td>
+              <td class="text-right font-mono text-danger">- R$ 30.000,00</td>
+              <td class="text-right font-mono text-danger">- R$ 120.000,00</td>
+            </tr>
+            <tr class="font-bold" style="background:#fee2e2;">
+              <td>(=) TOTAL DE SAÍDAS (INVESTIMENTO DO PROJETO)</td>
+              <td class="text-right font-mono text-danger">- R$ 75.000,00</td>
+              <td class="text-right font-mono text-danger">- R$ 50.000,00</td>
+              <td class="text-right font-mono text-danger">- R$ 30.000,00</td>
+              <td class="text-right font-mono text-danger font-bold">- R$ 155.000,00</td>
+            </tr>
+            <tr class="font-bold" style="background:#dcfce7;">
+              <td>(=) FLUXO DE CAIXA LÍQUIDO DO PERÍODO</td>
+              <td class="text-right font-mono text-success">+ R$ 2.279.617,84</td>
+              <td class="text-right font-mono text-success">+ R$ 4.208.916,30</td>
+              <td class="text-right font-mono text-success">+ R$ 3.033.148,67</td>
+              <td class="text-right font-mono text-success font-bold">+ R$ 9.521.682,81</td>
+            </tr>
+            <tr class="font-bold" style="background:#e0e7ff;">
+              <td>FLUXO DE CAIXA LÍQUIDO ACUMULADO</td>
+              <td class="text-right font-mono text-success">R$ 2.279.617,84</td>
+              <td class="text-right font-mono text-success">R$ 6.488.534,14</td>
+              <td class="text-right font-mono text-success font-bold">R$ 9.521.682,81</td>
+              <td class="text-right font-mono text-success font-bold">R$ 9.521.682,81</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INDICADORES DE RETORNO DO BUSINESS CASE -->
+      <div class="kpi-grid" style="margin-top:20px;">
+        <div class="kpi-card success">
+          <div class="kpi-label">Caixa Líquido Gerado</div>
+          <div class="kpi-value">R$ 9,52M</div>
+          <div class="kpi-sub">Liquidez desovada nos 90 dias</div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">Payback do Investimento</div>
+          <div class="kpi-value">&lt; 15 dias</div>
+          <div class="kpi-sub">Coberto na 1ª semana VIP</div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">ROI do Projeto (90d)</div>
+          <div class="kpi-value">61,4x</div>
+          <div class="kpi-sub">Retorno s/ R$ 155k investidos</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">EBIT Anual Recorrente</div>
+          <div class="kpi-value">+ R$ 3,28M</div>
+          <div class="kpi-sub">Juros evitados + Frete estancado</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TAB 5: ROADMAP TÁTICO -->
+  <section id="tab-roadmap" class="tab-pane">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Roadmap Tático de Execução & Painel de Controle (30, 60, 90 Dias)
+        </div>
+        <span class="card-badge badge-info">Governança Semanal</span>
+      </div>
+
+      <div class="timeline">
+        <!-- MARCO 30 DIAS -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-title">Marco 30 Dias: Quick Wins Operacionais & Venda Flash VIP</div>
+            <span class="timeline-badge">Fase 1 · Mobilização</span>
+          </div>
+          <div class="timeline-body">
+            <div style="margin-bottom:8px; font-weight:600; color:var(--primary);">Ações Táticas Imediatas:</div>
+            <ul style="padding-left:18px; margin-bottom:12px; font-size:12.5px; color:var(--text);">
+              <li>Configurar piso de frete mínimo de R$ 150 no e-commerce e repassar taxa de frete no Marketplace.</li>
+              <li>Subir Dark Landing Page exclusiva integrada ao CRM, disparando ofertas personalizadas para clientes Campeões e Fiéis.</li>
+              <li>Implantar webhook de rastreio proativo via WhatsApp para defletir chamados de "Onde está meu pedido?".</li>
+            </ul>
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:12px;">
+              <strong>KPIs de Controle (D+30):</strong>
+              Volume de pedidos com margem negativa: <strong class="text-success">0</strong> |
+              Caixa desovado na venda VIP: &ge; <strong class="text-success">R$ 2,2M</strong> |
+              Deflexão de tickets de rastreio no SAC: &ge; <strong class="text-success">60%</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCO 60 DIAS -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-title">Marco 60 Dias: Liquidação B2B em Bloco & Mitigação de Devoluções</div>
+            <span class="timeline-badge">Fase 2 · Escala</span>
+          </div>
+          <div class="timeline-body">
+            <div style="margin-bottom:8px; font-weight:600; color:var(--primary);">Ações Táticas de Escala:</div>
+            <ul style="padding-left:18px; margin-bottom:12px; font-size:12.5px; color:var(--text);">
+              <li>Fechar o 1º contrato de alienação em lote fechado B2B para atacadistas de saldos (R$ 3,1M faturados).</li>
+              <li>Implantar quarentena técnica de recebimento e notificar os 5 fornecedores ofensores de defeito.</li>
+              <li>Adicionar provador virtual e tabela de medidas interativa nas páginas de Vestuário com maior devolução.</li>
+            </ul>
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:12px;">
+              <strong>KPIs de Controle (D+60):</strong>
+              Caixa líquido acumulado: &ge; <strong class="text-success">R$ 6,4M</strong> |
+              Taxa de devolução por tamanho e defeito: redução de <strong class="text-success">-25%</strong> |
+              CSAT médio: &ge; <strong class="text-success">3,80 / 5,0</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCO 90 DIAS -->
+        <div class="timeline-item">
+          <div class="timeline-dot green"></div>
+          <div class="timeline-header">
+            <div class="timeline-title">Marco 90 Dias: Zeração do Estoque Residual & Realocação de Marketing</div>
+            <span class="timeline-badge" style="background:#dcfce7; color:#166534;">Fase 3 · Conclusão</span>
+          </div>
+          <div class="timeline-body">
+            <div style="margin-bottom:8px; font-weight:600; color:var(--primary);">Ações Táticas de Consolidação:</div>
+            <ul style="padding-left:18px; margin-bottom:12px; font-size:12.5px; color:var(--text);">
+              <li>Liquidação final do lote B2B residual de 207 SKUs descontinuados, zerando o saldo físico no CD.</li>
+              <li>Realocar R$ 15 milhões da verba de marketing (-R$ 10M Marketplace, -R$ 5M Google para +R$ 10M Influenciadores e +R$ 5M TikTok).</li>
+              <li>Revisar as regras de compras no ERP, travando o teto de cobertura em 90 dias de giro para novos SKUs.</li>
+            </ul>
+            <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; padding:10px; font-size:12px;">
+              <strong>KPIs de Controle (D+90):</strong>
+              Estoque de SKUs descontinuados: <strong class="text-success">R$ 0,00 (100% liquidado)</strong> |
+              Caixa líquido final liberado: <strong class="text-success">R$ 9,52 milhões</strong> |
+              ROAS global de marketing: &ge; <strong class="text-success">5,10x</strong> |
+              Margem operacional pós-atrito: &ge; <strong class="text-success">51,50%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function switchTab(event, tabId) {
+    // Hide all panes
+    const panes = document.querySelectorAll('.tab-pane');
+    panes.forEach(p => p.classList.remove('active'));
+
+    // Remove active class from buttons
+    const btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(b => b.classList.remove('active'));
+
+    // Show target pane
+    const targetPane = document.getElementById(tabId);
+    if (targetPane) {
+      targetPane.classList.add('active');
+    }
+
+    // Set active button
+    event.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>

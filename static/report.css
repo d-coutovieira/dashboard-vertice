@@ -1,0 +1,729 @@
+/* static/report.css - Executive Report Design System for Vértice Retail & EloGroup */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+
+  /* Sector Brand Accents */
+  --accent-general: #6366f1;
+  --accent-vendas: #38bdf8;
+  --accent-estoque: #facc15;
+  --accent-atendimento: #a78bfa;
+  --accent-marketing: #fb923c;
+  --accent-clientes: #34d399;
+
+  /* Severity Tokens */
+  --sev-critico: #f43f5e;
+  --sev-critico-bg: rgba(244, 63, 94, 0.12);
+  --sev-alerta: #fbbf24;
+  --sev-alerta-bg: rgba(251, 191, 36, 0.12);
+  --sev-estavel: #94a3b8;
+  --sev-estavel-bg: rgba(148, 163, 184, 0.12);
+  --sev-positivo: #10b981;
+  --sev-positivo-bg: rgba(16, 185, 129, 0.12);
+
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px -3px rgba(99, 102, 241, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.report-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
+
+/* Header & Brand Identity */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.report-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.report-meta div {
+  margin-bottom: 4px;
+}
+
+.report-meta strong {
+  color: var(--text-main);
+}
+
+/* Titles */
+.title-section {
+  margin-bottom: 32px;
+}
+
+.sector-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.report-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 900px;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-accent, var(--accent-general));
+}
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.kpi-subtext {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Alert Boxes */
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.alert-banner.CRITICO {
+  background: var(--sev-critico-bg);
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+}
+
+.alert-banner.ALERTA {
+  background: var(--sev-alerta-bg);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fef3c7;
+}
+
+.alert-banner.POSITIVO {
+  background: var(--sev-positivo-bg);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #d1fae5;
+}
+
+.alert-banner.ESTAVEL {
+  background: var(--sev-estavel-bg);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e2e8f0;
+}
+
+.alert-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.alert-banner.CRITICO .alert-badge { background: #e11d48; color: #fff; }
+.alert-banner.ALERTA .alert-badge { background: #d97706; color: #fff; }
+.alert-banner.POSITIVO .alert-badge { background: #059669; color: #fff; }
+.alert-banner.ESTAVEL .alert-badge { background: #475569; color: #fff; }
+
+.alert-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alert-content p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Executive Text Block */
+.narrative-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.narrative-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.narrative-block p {
+  margin-bottom: 12px;
+  color: #e2e8f0;
+}
+
+.narrative-block strong {
+  color: #ffffff;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 36px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.exec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.exec-table th {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.exec-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #e2e8f0;
+}
+
+.exec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.exec-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.exec-table td.num {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Advisory Scope Callout */
+.scope-advisory {
+  padding: 14px 18px;
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 4px solid var(--accent-vendas);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin-top: 14px;
+  line-height: 1.55;
+}
+
+.scope-advisory strong {
+  color: #f1f5f9;
+}
+
+/* Footer */
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .report-container { padding: 20px; }
+  .report-header { flex-direction: column; gap: 16px; }
+  .report-meta { text-align: left; }
+  .report-title { font-size: 1.5rem; }
+}
+
+/* ==============================================================================
+   EXECUTIVE PRINT / PDF EXPORT ENGINE (McKinsey / EloGroup Corporate Standard)
+   ============================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 12mm 14mm 12mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 8.5pt !important;
+    line-height: 1.45 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .report-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Header & Branding */
+  .report-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .brand-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .company-badge {
+    background: #e0e7ff !important;
+    color: #3730a3 !important;
+    border: 1px solid #c7d2fe !important;
+    font-size: 7pt !important;
+    font-weight: 800 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .brand-name {
+    background: none !important;
+    -webkit-text-fill-color: #0f172a !important;
+    color: #0f172a !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .report-meta {
+    font-size: 7.2pt !important;
+    color: #475569 !important;
+    line-height: 1.4 !important;
+  }
+
+  .report-meta strong {
+    color: #0f172a !important;
+  }
+
+  /* Titles */
+  .title-section {
+    margin-bottom: 16px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .sector-tag {
+    font-size: 7.5pt !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 4px !important;
+    display: inline-block !important;
+  }
+
+  .report-title {
+    color: #0f172a !important;
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .report-subtitle {
+    color: #475569 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* KPI Stat-Callout Grid */
+  .kpi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .kpi-card {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-top: 3.5px solid var(--current-accent, #3b82f6) !important;
+    border-radius: 6px !important;
+    padding: 10px 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .kpi-card::before {
+    display: none !important;
+  }
+
+  .kpi-label {
+    color: #475569 !important;
+    font-size: 6.8pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 4px !important;
+  }
+
+  .kpi-value {
+    color: #0f172a !important;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    font-size: 1.22rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 3px !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .kpi-subtext {
+    color: #64748b !important;
+    font-size: 7pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Anomaly Alerts */
+  .alert-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .alert-banner {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .alert-banner.CRITICO {
+    background: #fff1f2 !important;
+    border: 1px solid #fecdd3 !important;
+    border-left: 4px solid #e11d48 !important;
+    color: #9f1239 !important;
+  }
+
+  .alert-banner.ALERTA {
+    background: #fffbeb !important;
+    border: 1px solid #fde68a !important;
+    border-left: 4px solid #d97706 !important;
+    color: #92400e !important;
+  }
+
+  .alert-banner.POSITIVO {
+    background: #ecfdf5 !important;
+    border: 1px solid #a7f3d0 !important;
+    border-left: 4px solid #059669 !important;
+    color: #065f46 !important;
+  }
+
+  .alert-banner.ESTAVEL {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid #64748b !important;
+    color: #334155 !important;
+  }
+
+  .alert-badge {
+    font-size: 6.5pt !important;
+    font-weight: 800 !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .alert-content h4 {
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    color: inherit !important;
+    margin-bottom: 2px !important;
+  }
+
+  .alert-content p {
+    font-size: 7.5pt !important;
+    color: #334155 !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Executive Narrative Analysis */
+  .narrative-block {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid var(--current-accent, #3b82f6) !important;
+    border-radius: 6px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 16px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .narrative-block h3 {
+    color: #0f172a !important;
+    font-size: 9pt !important;
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 4px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .narrative-block p {
+    color: #334155 !important;
+    font-size: 8pt !important;
+    line-height: 1.55 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .narrative-block p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .narrative-block strong {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+
+  /* Management Tables */
+  .table-wrapper {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .exec-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 7.5pt !important;
+  }
+
+  .exec-table thead {
+    display: table-header-group !important;
+  }
+
+  .exec-table th {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    font-size: 6.8pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 7px 10px !important;
+    border-bottom: 2px solid #0f172a !important;
+  }
+
+  .exec-table td {
+    color: #0f172a !important;
+    padding: 7px 10px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    line-height: 1.35 !important;
+  }
+
+  .exec-table tbody tr:nth-child(even) {
+    background-color: #f8fafc !important;
+  }
+
+  .exec-table tbody tr:last-child td {
+    border-bottom: none !important;
+  }
+
+  .exec-table tr:hover td {
+    background: transparent !important;
+  }
+
+  .exec-table td.num {
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    color: #0f172a !important;
+    text-align: right !important;
+    font-weight: 600 !important;
+  }
+
+  /* Footer */
+  .report-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-top: 1px solid #cbd5e1 !important;
+    color: #64748b !important;
+    font-size: 7pt !important;
+    padding-top: 8px !important;
+    margin-top: 16px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}

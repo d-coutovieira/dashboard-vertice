@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estoque &amp; Suprimentos (Consolidado) · Vértice Retail</title>
+  <style>
+/* static/report.css - Executive Report Design System for Vértice Retail & EloGroup */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+
+  /* Sector Brand Accents */
+  --accent-general: #6366f1;
+  --accent-vendas: #38bdf8;
+  --accent-estoque: #facc15;
+  --accent-atendimento: #a78bfa;
+  --accent-marketing: #fb923c;
+  --accent-clientes: #34d399;
+
+  /* Severity Tokens */
+  --sev-critico: #f43f5e;
+  --sev-critico-bg: rgba(244, 63, 94, 0.12);
+  --sev-alerta: #fbbf24;
+  --sev-alerta-bg: rgba(251, 191, 36, 0.12);
+  --sev-estavel: #94a3b8;
+  --sev-estavel-bg: rgba(148, 163, 184, 0.12);
+  --sev-positivo: #10b981;
+  --sev-positivo-bg: rgba(16, 185, 129, 0.12);
+
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px -3px rgba(99, 102, 241, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.report-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
+
+/* Header & Brand Identity */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.report-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.report-meta div {
+  margin-bottom: 4px;
+}
+
+.report-meta strong {
+  color: var(--text-main);
+}
+
+/* Titles */
+.title-section {
+  margin-bottom: 32px;
+}
+
+.sector-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.report-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 900px;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-accent, var(--accent-general));
+}
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.kpi-subtext {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Alert Boxes */
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.alert-banner.CRITICO {
+  background: var(--sev-critico-bg);
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+}
+
+.alert-banner.ALERTA {
+  background: var(--sev-alerta-bg);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fef3c7;
+}
+
+.alert-banner.POSITIVO {
+  background: var(--sev-positivo-bg);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #d1fae5;
+}
+
+.alert-banner.ESTAVEL {
+  background: var(--sev-estavel-bg);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e2e8f0;
+}
+
+.alert-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.alert-banner.CRITICO .alert-badge { background: #e11d48; color: #fff; }
+.alert-banner.ALERTA .alert-badge { background: #d97706; color: #fff; }
+.alert-banner.POSITIVO .alert-badge { background: #059669; color: #fff; }
+.alert-banner.ESTAVEL .alert-badge { background: #475569; color: #fff; }
+
+.alert-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alert-content p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Executive Text Block */
+.narrative-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.narrative-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.narrative-block p {
+  margin-bottom: 12px;
+  color: #e2e8f0;
+}
+
+.narrative-block strong {
+  color: #ffffff;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 36px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.exec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.exec-table th {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.exec-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #e2e8f0;
+}
+
+.exec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.exec-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.exec-table td.num {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Advisory Scope Callout */
+.scope-advisory {
+  padding: 14px 18px;
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 4px solid var(--accent-vendas);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin-top: 14px;
+  line-height: 1.55;
+}
+
+.scope-advisory strong {
+  color: #f1f5f9;
+}
+
+/* Footer */
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .report-container { padding: 20px; }
+  .report-header { flex-direction: column; gap: 16px; }
+  .report-meta { text-align: left; }
+  .report-title { font-size: 1.5rem; }
+}
+
+</style>
+  <style>
+    /* Sector dynamic accent override */
+    :root {
+      --current-accent: #facc15;
+    }
+    .kpi-card::before {
+      background: var(--current-accent) !important;
+    }
+    .sector-tag {
+      color: var(--current-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <!-- Header -->
+    <header class="report-header">
+      <div class="brand-wrapper">
+        <span class="company-badge">Vértice Retail</span>
+        <span class="brand-name">EloGroup Strategic Intelligence</span>
+      </div>
+      <div class="report-meta">
+        <div><strong>Público:</strong> C-Level & Banca Executiva</div>
+        <div><strong>Ciclo / Janela:</strong> Consolidado</div>
+        <div><strong>Emissão:</strong> 19/09/2026 às 15:16:45</div>
+        <div><strong>Rastreabilidade:</strong> 100% Grounded (Diagnóstico Final)</div>
+      </div>
+    </header>
+
+    <!-- Main Title Block -->
+    <div class="title-section">
+      <span class="sector-tag">● Estoque &amp; Suprimentos</span>
+      <h1 class="report-title">R$ 17.71M Imobilizados em 207 SKUs Descontinuados Drenam R$ 3.19M/ano em Custo WACC</h1>
+      <p class="report-subtitle">Relatório Executivo Semanal de Giro de Estoque e Capital Imobilizado</p>
+    </div>
+
+    <!-- Child Content -->
+    
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Estoque Físico Total</div>
+    <div class="kpi-value">R$ 348.701.550,87</div>
+    <div class="kpi-subtext">1.671.577 peças em centro de distribuição</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">SKUs Descontinuados</div>
+    <div class="kpi-value" style="color:#f43f5e;">207 SKUs</div>
+    <div class="kpi-subtext">Capital parado: R$ 17.714.096,89</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Economia WACC (18% a.a.)</div>
+    <div class="kpi-value" style="color:#34d399;">+ 3188537,44%/ano</div>
+    <div class="kpi-subtext">Juros estancados com liquidação</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Estoque Defensivo Excedente</div>
+    <div class="kpi-value" style="color:#fbbf24;">R$ 120.045.834,67</div>
+    <div class="kpi-subtext">Custo WACC: R$ 21.608.250,24/ano</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+
+<div class="alert-container">
+  
+  <div class="alert-banner CRITICO">
+    <span class="alert-badge">CRITICO</span>
+    <div class="alert-content">
+      <h4>Volume massivo de capital imobilizado em SKUs descontinuados</h4>
+      <p>207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes.</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Diagnóstico do Dilema de Capital de Giro</h3>
+  <p>A estrutura de estoques da Vértice Retail apresenta o nó mais crítico de capital de giro da operação: <strong>207 SKUs classificados como Descontinuados</strong> retêm <strong>R$ 17.714.096,89 em valor contábil parado</strong> sem reposição ou demanda natural, impondo custo financeiro anual de <strong>R$ 3.188.537,44 (WACC 18% a.a.)</strong>. Além disso, o volume em excesso defensivo soma <strong>R$ 120,05M</strong>, superando o faturamento anual da companhia.</p>
+</div>
+
+<!-- Discontinued SKUs Breakdown Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Métrica de Inventário</th>
+        <th style="text-align:right;">Valor Auditado</th>
+        <th>Origem Metodológica</th>
+        <th>Impacto Financeiro C-Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Estoque Físico em Armazém</strong></td>
+        <td class="num">R$ 348,70M (1,67M peças)</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">estoque.csv / Auditoria de Inventário</span></td>
+        <td>Cobertura teórica estimada de 45 anos com giro anual de 0.022x.</td>
+      </tr>
+      
+      <tr>
+        <td><strong>Estoque Defensivo em Excesso</strong></td>
+        <td class="num">R$ 120,05M</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">Diagnóstico Final - Teste 2.1</span></td>
+        <td>Custo financeiro de oportunidade de R$ 21,61M/ano a 18% a.a. WACC.</td>
+      </tr>
+      
+      <tr>
+        <td><strong>SKUs Descontinuados Parados</strong></td>
+        <td class="num">207 SKUs (R$ 17,71M)</td>
+        <td><span style="color:#94a3b8; font-size:0.8rem;">Diagnóstico Final - Teste 2.1 &amp; Alavanca ICE #1</span></td>
+        <td>Liquidação imediata estanca dreno de R$ 3,19M/ano em juros bancários.</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#facc15;">Prioridade #1</span></td>
+          <td><strong>Liquidação e Desova Acelerada dos 207 SKUs Descontinuados</strong></td>
+          <td>207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.</td>
+          <td><strong style="color:#34d399;">R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.</strong></td>
+          <td>Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata.</td>
+        </tr>
+        
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#facc15;">Prioridade #7</span></td>
+          <td><strong>Racionalização do Estoque de Segurança &amp; Redução de Rupturas</strong></td>
+          <td>800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.</td>
+          <td><strong style="color:#34d399;">16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.</strong></td>
+          <td>Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem.</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="report-footer">
+      <div>EloGroup Transformation, Strategy & Analytics · Retail Practice</div>
+      <div>Documento Executivo Estritamente Confidencial · Prova de Conceito Banca</div>
+    </footer>
+  </div>
+</body>
+</html>

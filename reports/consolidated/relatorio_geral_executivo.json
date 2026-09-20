@@ -1,0 +1,1404 @@
+{
+  "metadata": {
+    "sector": "all",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "week": "consolidated",
+    "prev_week": null,
+    "vendas": {
+      "metrics": {
+        "periodo": "Consolidado 13 Meses (Jan/2023 - Jan/2024)",
+        "receita_bruta": 20526133.84,
+        "pedidos": 27758,
+        "receita_liquida": 18889334.01,
+        "descontos": 1636799.83,
+        "taxa_desconto_pct": 7.97,
+        "cmv": 8278603.59,
+        "frete": 340293.77,
+        "margem_contribuicao": 10270436.65,
+        "margem_contribuicao_pct": 50.04,
+        "ticket_medio": 739.4673189711074,
+        "devolucoes": 4127,
+        "taxa_devolucao_pct": 14.87
+      },
+      "previous_metrics": null,
+      "variations": {
+        "receita": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        },
+        "pedidos": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        },
+        "ticket_medio": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        },
+        "margem_pct": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        },
+        "desconto_pct": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        }
+      },
+      "variance_decomposition": {
+        "delta_volume_reais": 0.0,
+        "delta_price_reais": 0.0
+      },
+      "alerts": [],
+      "levers": [
+        {
+          "rank": 2,
+          "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+          "sector": "vendas",
+          "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+          "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+          "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+          "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+        },
+        {
+          "rank": 6,
+          "title": "Calibragem de Desconto Comercial & Trava de Margem",
+          "sector": "vendas",
+          "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+          "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+          "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+          "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+        }
+      ]
+    },
+    "estoque": {
+      "metrics": {
+        "total_skus": 5000,
+        "unidades_fisicas": 1671577,
+        "custo_total_fisico": 348701550.87,
+        "excesso_defensivo": 120045834.67,
+        "excesso_wacc_cost": 21608250.24,
+        "skus_descontinuados": 207,
+        "capital_descontinuado": 17714096.89,
+        "economia_wacc_18pct": 3188537.44,
+        "status_distribution": [
+          {
+            "status_disponibilidade": "Descontinuado",
+            "skus": 207,
+            "pecas": 77695,
+            "custo_total": 17714096.89,
+            "venda_total": 42112876.3,
+            "share_custo_pct": 5.08
+          },
+          {
+            "status_disponibilidade": "Em Estoque",
+            "skus": 3993,
+            "pecas": 1552184,
+            "custo_total": 322340213.13,
+            "venda_total": 778745564.33,
+            "share_custo_pct": 92.44
+          },
+          {
+            "status_disponibilidade": "Estoque Crítico",
+            "skus": 701,
+            "pecas": 41694,
+            "custo_total": 8646871.09,
+            "venda_total": 20909171.86,
+            "share_custo_pct": 2.48
+          },
+          {
+            "status_disponibilidade": "Ruptura",
+            "skus": 99,
+            "pecas": 4,
+            "custo_total": 369.76,
+            "venda_total": 782.57,
+            "share_custo_pct": 0.0
+          }
+        ],
+        "category_distribution": [
+          {
+            "categoria": "Acessórios",
+            "skus": 753,
+            "pecas": 192539,
+            "custo_total": 40178473.48,
+            "venda_total": 95467316.87,
+            "share_custo_pct": 11.52
+          },
+          {
+            "categoria": "Beleza",
+            "skus": 1512,
+            "pecas": 354702,
+            "custo_total": 75036616.69,
+            "venda_total": 180639068.06,
+            "share_custo_pct": 21.52
+          },
+          {
+            "categoria": "Lifestyle",
+            "skus": 1006,
+            "pecas": 259764,
+            "custo_total": 53261294.11,
+            "venda_total": 128539979.95,
+            "share_custo_pct": 15.27
+          },
+          {
+            "categoria": "Moda",
+            "skus": 1729,
+            "pecas": 864572,
+            "custo_total": 180225166.59,
+            "venda_total": 437122030.18,
+            "share_custo_pct": 51.68
+          }
+        ],
+        "giro_anual": 0.022,
+        "cobertura_anos": 45.0
+      },
+      "alerts": [
+        {
+          "sector": "estoque",
+          "metric": "skus_descontinuados",
+          "current_value": 207.0,
+          "threshold_value": 100.0,
+          "severity": "CRITICO",
+          "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+          "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 1,
+          "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+          "sector": "estoque",
+          "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+          "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+          "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+          "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+        },
+        {
+          "rank": 7,
+          "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+          "sector": "estoque",
+          "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+          "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+          "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+          "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+        }
+      ]
+    },
+    "atendimento": {
+      "metrics": {
+        "periodo": "Consolidado 13 Meses",
+        "total_tickets": 35840,
+        "custo_total": 532260.0,
+        "wismo_tickets": 10765,
+        "wismo_share_pct": 30.04,
+        "wismo_potencial_ia_pct": 90.0,
+        "taxa_deflexao_global_pct": 70.1,
+        "economia_potencial_ia": 331824.16,
+        "horas_poupadas": 6280.8,
+        "categories": [
+          {
+            "categoria_normalizada": "Onde está meu pedido?",
+            "tickets": 10765,
+            "custo_total": 159660.0,
+            "custo_medio": 14.83,
+            "share_pct": 30.04,
+            "potencial_ia_pct": 90.0,
+            "tier": "Tier 1 - Totalmente Automatizável",
+            "sla_estimado_ia": "1 min",
+            "economia_potencial": 129156.09
+          },
+          {
+            "categoria_normalizada": "Produto com defeito",
+            "tickets": 6509,
+            "custo_total": 96592.0,
+            "custo_medio": 14.84,
+            "share_pct": 18.16,
+            "potencial_ia_pct": 25.0,
+            "tier": "Tier 3 - Triage IA + Especialista",
+            "sla_estimado_ia": "15 min",
+            "economia_potencial": 16008.12
+          },
+          {
+            "categoria_normalizada": "Troca de tamanho",
+            "tickets": 5360,
+            "custo_total": 79325.0,
+            "custo_medio": 14.8,
+            "share_pct": 14.96,
+            "potencial_ia_pct": 60.0,
+            "tier": "Tier 2 - Autoatendimento Guiado",
+            "sla_estimado_ia": "4 min",
+            "economia_potencial": 41161.8
+          },
+          {
+            "categoria_normalizada": "Dúvida técnica",
+            "tickets": 5314,
+            "custo_total": 78888.0,
+            "custo_medio": 14.85,
+            "share_pct": 14.83,
+            "potencial_ia_pct": 75.0,
+            "tier": "Tier 1 - Totalmente Automatizável",
+            "sla_estimado_ia": "2 min",
+            "economia_potencial": 53174.85
+          },
+          {
+            "categoria_normalizada": "Pagamento não aprovado",
+            "tickets": 4281,
+            "custo_total": 63856.0,
+            "custo_medio": 14.92,
+            "share_pct": 11.94,
+            "potencial_ia_pct": 70.0,
+            "tier": "Tier 2 - Autoatendimento Guiado",
+            "sla_estimado_ia": "3 min",
+            "economia_potencial": 40189.8
+          },
+          {
+            "categoria_normalizada": "Elogio",
+            "tickets": 3611,
+            "custo_total": 53939.0,
+            "custo_medio": 14.94,
+            "share_pct": 10.08,
+            "potencial_ia_pct": 100.0,
+            "tier": "Tier 1 - Totalmente Automatizável",
+            "sla_estimado_ia": "0 min",
+            "economia_potencial": 52133.5
+          }
+        ]
+      },
+      "previous_metrics": null,
+      "variations": {
+        "tickets": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        },
+        "wismo": {
+          "absolute_delta": 0.0,
+          "pct_change": 0.0,
+          "direction": "stable",
+          "has_previous": false
+        }
+      },
+      "alerts": [
+        {
+          "sector": "atendimento",
+          "metric": "wismo_share_pct",
+          "current_value": 30.04,
+          "threshold_value": 25.0,
+          "severity": "ALERTA",
+          "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+          "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 30.0% do volume SAC total (teto 25.0%)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 3,
+          "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+          "sector": "atendimento",
+          "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+          "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+          "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+          "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+        },
+        {
+          "rank": 4,
+          "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+          "sector": "atendimento",
+          "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+          "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+          "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+          "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+        }
+      ]
+    },
+    "marketing": {
+      "metrics": {
+        "channels": [
+          {
+            "canal": "Email Marketing",
+            "pedidos": 2812,
+            "receita_bruta": 2038419.06,
+            "receita_liquida": 1891602.25,
+            "desconto": 146816.81,
+            "cmv": 820952.24,
+            "frete": 18975.65,
+            "margem": 1051674.36,
+            "devolucoes": 410,
+            "investimento": 29700531.98,
+            "receita_gerada": 91046211.86,
+            "conversoes": 16563197,
+            "cac_medio": 4.29,
+            "cac_weighted": 1.79,
+            "roas": 3.07,
+            "frete_pct": 0.93,
+            "desconto_pct": 7.2,
+            "margem_pct": 51.59,
+            "taxa_devolucao_pct": 14.58,
+            "ticket_medio": 724.9,
+            "ticket_medio_liquido": 672.69,
+            "tier": "Tier 2 - Rentável",
+            "strategy": "Canal de altíssima eficiência orgânica, ROAS 3.07x"
+          },
+          {
+            "canal": "Google Ads",
+            "pedidos": 5504,
+            "receita_bruta": 3979241.06,
+            "receita_liquida": 3642784.4,
+            "desconto": 336456.66,
+            "cmv": 1608134.86,
+            "frete": 36878.31,
+            "margem": 1997771.23,
+            "devolucoes": 839,
+            "investimento": 30224839.25,
+            "receita_gerada": 106557384.47,
+            "conversoes": 16118323,
+            "cac_medio": 4.27,
+            "cac_weighted": 1.88,
+            "roas": 3.53,
+            "frete_pct": 0.93,
+            "desconto_pct": 8.46,
+            "margem_pct": 50.2,
+            "taxa_devolucao_pct": 15.24,
+            "ticket_medio": 722.97,
+            "ticket_medio_liquido": 661.84,
+            "tier": "Tier 3 - Alerta Margem",
+            "strategy": "Reduzir -R$ 5M; alta dependência de desconto (8,46%)"
+          },
+          {
+            "canal": "Influenciador",
+            "pedidos": 2263,
+            "receita_bruta": 2250914.31,
+            "receita_liquida": 2064752.77,
+            "desconto": 186161.54,
+            "cmv": 908948.59,
+            "frete": 8719.51,
+            "margem": 1147084.67,
+            "devolucoes": 339,
+            "investimento": 28061599.02,
+            "receita_gerada": 217577980.41,
+            "conversoes": 15940484,
+            "cac_medio": 4.17,
+            "cac_weighted": 1.76,
+            "roas": 7.75,
+            "frete_pct": 0.39,
+            "desconto_pct": 8.27,
+            "margem_pct": 50.96,
+            "taxa_devolucao_pct": 14.98,
+            "ticket_medio": 994.66,
+            "ticket_medio_liquido": 912.4,
+            "tier": "Tier 1 - Tração Alta",
+            "strategy": "Aumentar investimento (+R$ 10M), ROAS 7.75x"
+          },
+          {
+            "canal": "Instagram Ads",
+            "pedidos": 4965,
+            "receita_bruta": 3555245.17,
+            "receita_liquida": 3270791.31,
+            "desconto": 284453.86,
+            "cmv": 1436515.29,
+            "frete": 34047.67,
+            "margem": 1800228.35,
+            "devolucoes": 748,
+            "investimento": 30165772.33,
+            "receita_gerada": 135938587.47,
+            "conversoes": 15360484,
+            "cac_medio": 4.72,
+            "cac_weighted": 1.96,
+            "roas": 4.51,
+            "frete_pct": 0.96,
+            "desconto_pct": 8.0,
+            "margem_pct": 50.64,
+            "taxa_devolucao_pct": 15.07,
+            "ticket_medio": 716.06,
+            "ticket_medio_liquido": 658.77,
+            "tier": "Tier 2 - Rentável",
+            "strategy": "Manter verba e otimizar criativos, ROAS 4.51x"
+          },
+          {
+            "canal": "Marketplace",
+            "pedidos": 6040,
+            "receita_bruta": 4320195.69,
+            "receita_liquida": 3986568.87,
+            "desconto": 333626.82,
+            "cmv": 1739813.19,
+            "frete": 196721.45,
+            "margem": 2050034.23,
+            "devolucoes": 903,
+            "investimento": 32682629.69,
+            "receita_gerada": 98795912.77,
+            "conversoes": 17894187,
+            "cac_medio": 4.39,
+            "cac_weighted": 1.83,
+            "roas": 3.02,
+            "frete_pct": 4.55,
+            "desconto_pct": 7.72,
+            "margem_pct": 47.45,
+            "taxa_devolucao_pct": 14.95,
+            "ticket_medio": 715.26,
+            "ticket_medio_liquido": 660.03,
+            "tier": "Tier 4 - Sangria Operacional",
+            "strategy": "Reduzir -R$ 10M; frete abusivo (4,55%) e devoluções"
+          },
+          {
+            "canal": "Orgânico",
+            "pedidos": 3246,
+            "receita_bruta": 2316434.49,
+            "receita_liquida": 2137746.01,
+            "desconto": 178688.48,
+            "cmv": 934913.24,
+            "frete": 23680.92,
+            "margem": 1179151.85,
+            "devolucoes": 468,
+            "investimento": 29808867.75,
+            "receita_gerada": 89649257.14,
+            "conversoes": 16401820,
+            "cac_medio": 4.66,
+            "cac_weighted": 1.82,
+            "roas": 3.01,
+            "frete_pct": 1.02,
+            "desconto_pct": 7.71,
+            "margem_pct": 50.9,
+            "taxa_devolucao_pct": 14.42,
+            "ticket_medio": 713.63,
+            "ticket_medio_liquido": 658.58,
+            "tier": "Outro",
+            "strategy": "Analisar individualmente"
+          },
+          {
+            "canal": "TikTok Ads",
+            "pedidos": 2928,
+            "receita_bruta": 2065684.06,
+            "receita_liquida": 1895088.4,
+            "desconto": 170595.66,
+            "cmv": 829326.18,
+            "frete": 21270.26,
+            "margem": 1044491.96,
+            "devolucoes": 420,
+            "investimento": 29770101.07,
+            "receita_gerada": 139063375.68,
+            "conversoes": 17009948,
+            "cac_medio": 3.95,
+            "cac_weighted": 1.75,
+            "roas": 4.67,
+            "frete_pct": 1.03,
+            "desconto_pct": 8.26,
+            "margem_pct": 50.56,
+            "taxa_devolucao_pct": 14.34,
+            "ticket_medio": 705.49,
+            "ticket_medio_liquido": 647.23,
+            "tier": "Tier 1 - Tração Alta",
+            "strategy": "Acelerar escala (+R$ 5M), ROAS 4.67x"
+          }
+        ],
+        "top_roas_canal": "Influenciador",
+        "top_roas_valor": 7.75,
+        "top_cac_canal": "TikTok Ads",
+        "top_cac_valor": 1.75,
+        "influenciador": {
+          "canal": "Influenciador",
+          "pedidos": 2263,
+          "receita_bruta": 2250914.31,
+          "receita_liquida": 2064752.77,
+          "desconto": 186161.54,
+          "cmv": 908948.59,
+          "frete": 8719.51,
+          "margem": 1147084.67,
+          "devolucoes": 339,
+          "investimento": 28061599.02,
+          "receita_gerada": 217577980.41,
+          "conversoes": 15940484,
+          "cac_medio": 4.17,
+          "cac_weighted": 1.76,
+          "roas": 7.75,
+          "frete_pct": 0.39,
+          "desconto_pct": 8.27,
+          "margem_pct": 50.96,
+          "taxa_devolucao_pct": 14.98,
+          "ticket_medio": 994.66,
+          "ticket_medio_liquido": 912.4,
+          "tier": "Tier 1 - Tração Alta",
+          "strategy": "Aumentar investimento (+R$ 10M), ROAS 7.75x"
+        },
+        "tiktok": {
+          "canal": "TikTok Ads",
+          "pedidos": 2928,
+          "receita_bruta": 2065684.06,
+          "receita_liquida": 1895088.4,
+          "desconto": 170595.66,
+          "cmv": 829326.18,
+          "frete": 21270.26,
+          "margem": 1044491.96,
+          "devolucoes": 420,
+          "investimento": 29770101.07,
+          "receita_gerada": 139063375.68,
+          "conversoes": 17009948,
+          "cac_medio": 3.95,
+          "cac_weighted": 1.75,
+          "roas": 4.67,
+          "frete_pct": 1.03,
+          "desconto_pct": 8.26,
+          "margem_pct": 50.56,
+          "taxa_devolucao_pct": 14.34,
+          "ticket_medio": 705.49,
+          "ticket_medio_liquido": 647.23,
+          "tier": "Tier 1 - Tração Alta",
+          "strategy": "Acelerar escala (+R$ 5M), ROAS 4.67x"
+        },
+        "marketplace": {
+          "canal": "Marketplace",
+          "pedidos": 6040,
+          "receita_bruta": 4320195.69,
+          "receita_liquida": 3986568.87,
+          "desconto": 333626.82,
+          "cmv": 1739813.19,
+          "frete": 196721.45,
+          "margem": 2050034.23,
+          "devolucoes": 903,
+          "investimento": 32682629.69,
+          "receita_gerada": 98795912.77,
+          "conversoes": 17894187,
+          "cac_medio": 4.39,
+          "cac_weighted": 1.83,
+          "roas": 3.02,
+          "frete_pct": 4.55,
+          "desconto_pct": 7.72,
+          "margem_pct": 47.45,
+          "taxa_devolucao_pct": 14.95,
+          "ticket_medio": 715.26,
+          "ticket_medio_liquido": 660.03,
+          "tier": "Tier 4 - Sangria Operacional",
+          "strategy": "Reduzir -R$ 10M; frete abusivo (4,55%) e devoluções"
+        },
+        "google_ads": {
+          "canal": "Google Ads",
+          "pedidos": 5504,
+          "receita_bruta": 3979241.06,
+          "receita_liquida": 3642784.4,
+          "desconto": 336456.66,
+          "cmv": 1608134.86,
+          "frete": 36878.31,
+          "margem": 1997771.23,
+          "devolucoes": 839,
+          "investimento": 30224839.25,
+          "receita_gerada": 106557384.47,
+          "conversoes": 16118323,
+          "cac_medio": 4.27,
+          "cac_weighted": 1.88,
+          "roas": 3.53,
+          "frete_pct": 0.93,
+          "desconto_pct": 8.46,
+          "margem_pct": 50.2,
+          "taxa_devolucao_pct": 15.24,
+          "ticket_medio": 722.97,
+          "ticket_medio_liquido": 661.84,
+          "tier": "Tier 3 - Alerta Margem",
+          "strategy": "Reduzir -R$ 5M; alta dependência de desconto (8,46%)"
+        }
+      },
+      "alerts": [
+        {
+          "sector": "marketing",
+          "metric": "marketplace_frete_pct",
+          "current_value": 4.55,
+          "threshold_value": 4.0,
+          "severity": "ALERTA",
+          "headline": "Custo de frete abusivo no Marketplace comprimindo margem",
+          "grounded_evidence": "Frete consome 4.55% da receita em Marketplace (5x acima dos canais proprietários)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 5,
+          "title": "Otimização de Portfólio de Canais e Realocação de Verba",
+          "sector": "marketing",
+          "primary_bottleneck": "Descompasso severo de eficiência: Marketplace e Google Ads drenam recursos de canais de alto retorno.",
+          "grounded_metric": "Influenciador atinge ROAS 7.75x e CAC ponderado R$ 1,76; Marketplace opera com ROAS 3.02x e frete de 4,55%.",
+          "origin_test": "Teste 3.1 (CAC, ROAS e Atribuição de Mídia) & Alavanca ICE #5",
+          "strategic_mandate": "Migrar orçamento de canais saturados para Influenciadores e TikTok Ads com trava de retornos decrescentes."
+        }
+      ]
+    },
+    "clientes": {
+      "metrics": {
+        "total_clientes": 15000,
+        "total_ltv": 139092568.84,
+        "pareto_top_20_ltv_share": 61.05,
+        "segments": [
+          {
+            "segmento_rfm": "Campeão",
+            "clientes": 1268,
+            "ltv_total": 33818518.33,
+            "ltv_medio": 26670.76,
+            "pct_base": 8.45,
+            "pct_ltv": 24.31,
+            "pedidos": 2084,
+            "receita_bruta": 1588599.45,
+            "desconto": 128103.0,
+            "margem": 793847.37,
+            "devolucoes": 296,
+            "pct_desconto": 8.06,
+            "pct_margem": 49.97,
+            "taxa_devolucao": 14.2,
+            "profile": "Altíssima frequência e valor; clientes mais rentáveis da base.",
+            "action": "Tratamento VIP, acesso antecipado a lançamentos, zero desconto transacional.",
+            "color": "#a3e635"
+          },
+          {
+            "segmento_rfm": "Fiel",
+            "clientes": 2612,
+            "ltv_total": 44134322.9,
+            "ltv_medio": 16896.75,
+            "pct_base": 17.41,
+            "pct_ltv": 31.73,
+            "pedidos": 4117,
+            "receita_bruta": 3049791.19,
+            "desconto": 249615.38,
+            "margem": 1520609.98,
+            "devolucoes": 601,
+            "pct_desconto": 8.18,
+            "pct_margem": 49.86,
+            "taxa_devolucao": 14.6,
+            "profile": "Compradores recorrentes com bom ticket médio.",
+            "action": "Programas de fidelidade por pontos, cross-sell focado em produtos de maior margem.",
+            "color": "#38bdf8"
+          },
+          {
+            "segmento_rfm": "Promissor",
+            "clientes": 4127,
+            "ltv_total": 33337782.88,
+            "ltv_medio": 8077.97,
+            "pct_base": 27.51,
+            "pct_ltv": 23.97,
+            "pedidos": 13350,
+            "receita_bruta": 9865046.82,
+            "desconto": 783784.28,
+            "margem": 4939118.4,
+            "devolucoes": 1991,
+            "pct_desconto": 7.95,
+            "pct_margem": 50.07,
+            "taxa_devolucao": 14.91,
+            "profile": "Compraram recentemente, potencial de escalada para fiéis.",
+            "action": "Nurturing pós-primeira compra, recomendações orientadas por IA.",
+            "color": "#facc15"
+          },
+          {
+            "segmento_rfm": "Em Risco",
+            "clientes": 3269,
+            "ltv_total": 17663986.57,
+            "ltv_medio": 5403.48,
+            "pct_base": 21.79,
+            "pct_ltv": 12.7,
+            "pedidos": 7430,
+            "receita_bruta": 5455556.35,
+            "desconto": 427245.49,
+            "margem": 2735286.29,
+            "devolucoes": 1116,
+            "pct_desconto": 7.83,
+            "pct_margem": 50.14,
+            "taxa_devolucao": 15.02,
+            "profile": "Ficaram inativos há mais de 60-90 dias após compras recorrentes.",
+            "action": "Campanhas ativas de reengajamento com benefícios de frete condicionados a ticket > R$ 150.",
+            "color": "#fb923c"
+          },
+          {
+            "segmento_rfm": "Churn",
+            "clientes": 1796,
+            "ltv_total": 4996623.83,
+            "ltv_medio": 2782.08,
+            "pct_base": 11.97,
+            "pct_ltv": 3.59,
+            "pedidos": 145,
+            "receita_bruta": 112709.3,
+            "desconto": 12767.04,
+            "margem": 53017.36,
+            "devolucoes": 29,
+            "pct_desconto": 11.33,
+            "pct_margem": 47.04,
+            "taxa_devolucao": 20.0,
+            "profile": "Inativos prolongados com altíssima dependência de cupom (11,2%).",
+            "action": "Cessar cupons agressivos; ativar reativação focada em novos lançamentos selecionados.",
+            "color": "#f87171"
+          },
+          {
+            "segmento_rfm": "Hibernando",
+            "clientes": 1928,
+            "ltv_total": 5141334.33,
+            "ltv_medio": 2666.67,
+            "pct_base": 12.85,
+            "pct_ltv": 3.7,
+            "pedidos": 632,
+            "receita_bruta": 454430.73,
+            "desconto": 35284.64,
+            "margem": 228557.25,
+            "devolucoes": 94,
+            "pct_desconto": 7.76,
+            "pct_margem": 50.3,
+            "taxa_devolucao": 14.87,
+            "profile": "",
+            "action": "",
+            "color": "#94a3b8"
+          }
+        ],
+        "champions": {
+          "segmento_rfm": "Campeão",
+          "clientes": 1268,
+          "ltv_total": 33818518.33,
+          "ltv_medio": 26670.76,
+          "pct_base": 8.45,
+          "pct_ltv": 24.31,
+          "pedidos": 2084,
+          "receita_bruta": 1588599.45,
+          "desconto": 128103.0,
+          "margem": 793847.37,
+          "devolucoes": 296,
+          "pct_desconto": 8.06,
+          "pct_margem": 49.97,
+          "taxa_devolucao": 14.2,
+          "profile": "Altíssima frequência e valor; clientes mais rentáveis da base.",
+          "action": "Tratamento VIP, acesso antecipado a lançamentos, zero desconto transacional.",
+          "color": "#a3e635"
+        },
+        "loyal": {
+          "segmento_rfm": "Fiel",
+          "clientes": 2612,
+          "ltv_total": 44134322.9,
+          "ltv_medio": 16896.75,
+          "pct_base": 17.41,
+          "pct_ltv": 31.73,
+          "pedidos": 4117,
+          "receita_bruta": 3049791.19,
+          "desconto": 249615.38,
+          "margem": 1520609.98,
+          "devolucoes": 601,
+          "pct_desconto": 8.18,
+          "pct_margem": 49.86,
+          "taxa_devolucao": 14.6,
+          "profile": "Compradores recorrentes com bom ticket médio.",
+          "action": "Programas de fidelidade por pontos, cross-sell focado em produtos de maior margem.",
+          "color": "#38bdf8"
+        }
+      },
+      "alerts": [
+        {
+          "sector": "clientes",
+          "metric": "pareto_top_20_ltv_share",
+          "current_value": 61.05,
+          "threshold_value": 60.0,
+          "severity": "POSITIVO",
+          "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+          "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 8,
+          "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+          "sector": "clientes",
+          "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+          "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+          "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+          "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+        }
+      ]
+    },
+    "consolidated_alerts": [
+      {
+        "sector": "estoque",
+        "metric": "skus_descontinuados",
+        "current_value": 207.0,
+        "threshold_value": 100.0,
+        "severity": "CRITICO",
+        "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+        "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+      },
+      {
+        "sector": "atendimento",
+        "metric": "wismo_share_pct",
+        "current_value": 30.04,
+        "threshold_value": 25.0,
+        "severity": "ALERTA",
+        "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+        "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 30.0% do volume SAC total (teto 25.0%)."
+      },
+      {
+        "sector": "marketing",
+        "metric": "marketplace_frete_pct",
+        "current_value": 4.55,
+        "threshold_value": 4.0,
+        "severity": "ALERTA",
+        "headline": "Custo de frete abusivo no Marketplace comprimindo margem",
+        "grounded_evidence": "Frete consome 4.55% da receita em Marketplace (5x acima dos canais proprietários)."
+      },
+      {
+        "sector": "clientes",
+        "metric": "pareto_top_20_ltv_share",
+        "current_value": 61.05,
+        "threshold_value": 60.0,
+        "severity": "POSITIVO",
+        "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+        "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+      }
+    ],
+    "consolidated_levers": [
+      {
+        "rank": 1,
+        "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+        "sector": "estoque",
+        "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+        "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+        "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+        "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+      },
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 3,
+        "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+        "sector": "atendimento",
+        "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+        "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+        "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+        "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+      },
+      {
+        "rank": 4,
+        "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+        "sector": "atendimento",
+        "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+        "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+        "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+        "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+      },
+      {
+        "rank": 5,
+        "title": "Otimização de Portfólio de Canais e Realocação de Verba",
+        "sector": "marketing",
+        "primary_bottleneck": "Descompasso severo de eficiência: Marketplace e Google Ads drenam recursos de canais de alto retorno.",
+        "grounded_metric": "Influenciador atinge ROAS 7.75x e CAC ponderado R$ 1,76; Marketplace opera com ROAS 3.02x e frete de 4,55%.",
+        "origin_test": "Teste 3.1 (CAC, ROAS e Atribuição de Mídia) & Alavanca ICE #5",
+        "strategic_mandate": "Migrar orçamento de canais saturados para Influenciadores e TikTok Ads com trava de retornos decrescentes."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      },
+      {
+        "rank": 7,
+        "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+        "sector": "estoque",
+        "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+        "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+        "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+        "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+      },
+      {
+        "rank": 8,
+        "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+        "sector": "clientes",
+        "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+        "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+        "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+        "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+      }
+    ],
+    "dre": {
+      "gross_revenue": 20526133.84,
+      "net_revenue": 18889334.01,
+      "contribution_margin": 10270436.65,
+      "contribution_margin_pct": 50.04,
+      "post_friction_margin": 9874979.5,
+      "post_friction_margin_pct": 48.12,
+      "returns_drain": 1210000.0,
+      "discounts_total": 1636799.83,
+      "discounts_pct": 7.97,
+      "excess_stock_cost": 120045834.67,
+      "total_orders": 27758
+    },
+    "ice_levers": [
+      {
+        "rank": 1,
+        "title": "Liquidação e Desova de SKUs Descontinuados",
+        "area": "Custos & Capital de Giro",
+        "impact": 10,
+        "confidence": 9,
+        "ease": 8,
+        "ice_score": 72.0,
+        "badge": "Prioridade #1",
+        "timeframe": "Sprint 30-45 dias",
+        "economic_impact": "+ R$ 17,71M caixa líquido / + R$ 3,18M/ano juros estancados",
+        "description": "Desova acelerada dos 207 SKUs descontinuados que retêm capital parado no centro de distribuição, convertendo mercadoria estagnada em liquidez imediata.",
+        "operational_action": "Campanha promocional agressiva via canais próprios e outlet B2B com markup mínimo de recuperação.",
+        "premises": "207 SKUs; R$ 17.714.096,89 de custo contábil; custo de oportunidade WACC/CDI de 18% a.a."
+      },
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse Marketplace",
+        "area": "Receita Líquida & Logística",
+        "impact": 6,
+        "confidence": 10,
+        "ease": 10,
+        "ice_score": 60.0,
+        "badge": "Quick Win (7 dias)",
+        "timeframe": "7 dias (Imediato)",
+        "economic_impact": "+ R$ 90.000,00/ano em margem direta recuperada",
+        "description": "Instituição de piso de pedido para frete grátis e revisão das regras de subsídio no canal Marketplace.",
+        "operational_action": "Eliminar subsídio de frete para pedidos abaixo de R$ 150 e repassar taxa logística no Marketplace (onde o frete consome 4,55% da receita).",
+        "premises": "741 pedidos geraram margem de contribuição negativa em 2023 por conta do frete fixo proporcionalmente abusivo em tickets baixos."
+      },
+      {
+        "rank": 3,
+        "title": "Agente IA de Rastreio Proativo (WhatsApp/Webhook)",
+        "area": "Despesas de Atendimento (SAC)",
+        "impact": 7,
+        "confidence": 9,
+        "ease": 8,
+        "ice_score": 50.4,
+        "badge": "Sprint 30 dias",
+        "timeframe": "30 dias",
+        "economic_impact": "+ R$ 102.000,00/ano em redução de despesa operacional",
+        "description": "Implementação de bot inteligente integrado aos webhooks das transportadoras para disparo proativo de status no WhatsApp.",
+        "operational_action": "Defletir 90% das consultas repetitivas de rastreamento antes que o consumidor abra ticket de suporte com atendente humano.",
+        "premises": "10.765 tickets de 'Onde está meu pedido?' com custo médio de R$ 14,85 por chamado e FRT de 135 minutos."
+      },
+      {
+        "rank": 4,
+        "title": "Quarentena de Fornecedores & Provador Virtual",
+        "area": "Qualidade & Logística Reversa",
+        "impact": 8,
+        "confidence": 8,
+        "ease": 6,
+        "ice_score": 38.4,
+        "badge": "Plano 60 dias",
+        "timeframe": "60 dias",
+        "economic_impact": "+ R$ 338.900,00/ano em margem e custos reversos poupados",
+        "description": "Bloqueio cautelar de SKUs e fornecedores críticos por defeito e implantação de provador virtual inteligente para mitigar devoluções de tamanho.",
+        "operational_action": "5 fornecedores concentram 48% dos defeitos; ferramentas de recomendação de tamanho eliminam 30% dos retornos de vestuário.",
+        "premises": "4.127 devoluções anuais (14,87% do faturamento), gerando R$ 1,21M em perdas totais de margem, frete e handling."
+      },
+      {
+        "rank": 5,
+        "title": "Realocação de Verba de Mídia (-Marketplace / +Influenciadores)",
+        "area": "Marketing & Eficiência de Vendas",
+        "impact": 9,
+        "confidence": 6,
+        "ease": 7,
+        "ice_score": 37.8,
+        "badge": "Transição 90 dias",
+        "timeframe": "90 dias",
+        "economic_impact": "+ R$ 17.900.000,00 em margem gerada / ROAS salta de 4,2x para 5,1x",
+        "description": "Migração orçamentária estratégica desinvestindo de canais saturados e realocando em canais de alto ROAS e fidelização.",
+        "operational_action": "Reduzir R$ 10M de Marketplace e R$ 5M de Google Ads; aportar R$ 10M em Influenciadores e R$ 5M em TikTok Ads.",
+        "premises": "Influenciador possui ROAS de 7.75x e TikTok 4.67x; modelo incorpora penalidade de retornos decrescentes (-15% e -10%)."
+      }
+    ]
+  },
+  "narrative": {
+    "week": "consolidated",
+    "headline": "Memorando Executivo C-Level: Diagnóstico Integrado da Vértice Retail (consolidated) — Foco em Liquidez de Estoque, Estancamento de Sangrias e Otimização de Mídia",
+    "executive_synthesis": "A Vértice Retail encerrou o ciclo com robustez de margem de contribuição industrial <strong>(50,04% | R$ 10,27M)</strong>, porém com três focos de sangria estrutural comprovados no diagnóstico: (1) <strong>R$ 1,21M drenados</strong> em perdas pós-venda diretas de reversa e SAC; (2) <strong>R$ 17.714.096,89 imobilizados</strong> em 207 SKUs descontinuados, gerando custo financeiro WACC de R$ 3,19M/ano; e (3) dispersão orçamentária em canais com frete abusivo (Marketplace a 4,55%) enquanto canais de alta tração (Influenciadores com ROAS 7.75x e TikTok a 4.67x) demandam escala.",
+    "vendas": {
+      "headline": "Operação Comercial em Ritmo Estável: Receita de R$ 20.526.133,84 e Margem de Contribuição de 50,04%",
+      "executive_summary": "No período Consolidado 13 Meses (Jan/2023 - Jan/2024), a Vértice Retail processou <strong>27.758 pedidos</strong> gerando <strong>R$ 20.526.133,84 em receita bruta</strong> e <strong>R$ 10.270.436,65 de margem de contribuição (50,04%)</strong>. A concessão de descontos atingiu <strong>R$ 1.636.799,83 (7,97%)</strong>. A decomposição de variância indica impacto de volume de R$ 0,00 e impacto de preço de R$ 0,00 contra o ciclo anterior.",
+      "facts": [
+        {
+          "fact_id": "vendas_rec_bruta",
+          "label": "Receita Bruta Faturada",
+          "formatted_value": "R$ 20.526.133,84",
+          "source_origin": "DRE Auditada / vendas.csv",
+          "impact_assessment": "Base de faturamento bruto realizada no período."
+        },
+        {
+          "fact_id": "vendas_pedidos",
+          "label": "Volume de Pedidos",
+          "formatted_value": "27.758",
+          "source_origin": "vendas.csv",
+          "impact_assessment": "Ticket médio resultante de R$ 739,47 por pedido."
+        },
+        {
+          "fact_id": "vendas_descontos",
+          "label": "Descontos Concedidos",
+          "formatted_value": "R$ 1.636.799,83 (7,97%)",
+          "source_origin": "DRE Auditada / vendas.csv",
+          "impact_assessment": "Principal redutor de margem bruta entre receita faturada e realizada."
+        },
+        {
+          "fact_id": "vendas_margem",
+          "label": "Margem de Contribuição",
+          "formatted_value": "R$ 10.270.436,65 (50,04%)",
+          "source_origin": "DRE Auditada / vendas.csv",
+          "impact_assessment": "Resultado operacional gerado antes dos atritos de pós-venda."
+        }
+      ],
+      "alerts": [],
+      "levers": [
+        {
+          "rank": 2,
+          "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+          "sector": "vendas",
+          "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+          "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+          "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+          "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+        },
+        {
+          "rank": 6,
+          "title": "Calibragem de Desconto Comercial & Trava de Margem",
+          "sector": "vendas",
+          "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+          "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+          "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+          "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+        }
+      ],
+      "periodo": "Consolidado 13 Meses (Jan/2023 - Jan/2024)"
+    },
+    "estoque": {
+      "headline": "R$ 17.71M Imobilizados em 207 SKUs Descontinuados Drenam R$ 3.19M/ano em Custo WACC",
+      "executive_summary": "A estrutura de estoques da Vértice Retail apresenta o nó mais crítico de capital de giro da operação: <strong>207 SKUs classificados como Descontinuados</strong> retêm <strong>R$ 17.714.096,89 em valor contábil parado</strong> sem reposição ou demanda natural, impondo custo financeiro anual de <strong>R$ 3.188.537,44 (WACC 18% a.a.)</strong>. Além disso, o volume em excesso defensivo soma <strong>R$ 120,05M</strong>, superando o faturamento anual da companhia.",
+      "facts": [
+        {
+          "fact_id": "estoque_total_fisico",
+          "label": "Estoque Físico em Armazém",
+          "formatted_value": "R$ 348,70M (1,67M peças)",
+          "source_origin": "estoque.csv / Auditoria de Inventário",
+          "impact_assessment": "Cobertura teórica estimada de 45 anos com giro anual de 0.022x."
+        },
+        {
+          "fact_id": "estoque_excesso_defensivo",
+          "label": "Estoque Defensivo em Excesso",
+          "formatted_value": "R$ 120,05M",
+          "source_origin": "Diagnóstico Final - Teste 2.1",
+          "impact_assessment": "Custo financeiro de oportunidade de R$ 21,61M/ano a 18% a.a. WACC."
+        },
+        {
+          "fact_id": "estoque_descontinuados",
+          "label": "SKUs Descontinuados Parados",
+          "formatted_value": "207 SKUs (R$ 17,71M)",
+          "source_origin": "Diagnóstico Final - Teste 2.1 & Alavanca ICE #1",
+          "impact_assessment": "Liquidação imediata estanca dreno de R$ 3,19M/ano em juros bancários."
+        }
+      ],
+      "alerts": [
+        {
+          "sector": "estoque",
+          "metric": "skus_descontinuados",
+          "current_value": 207.0,
+          "threshold_value": 100.0,
+          "severity": "CRITICO",
+          "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+          "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 1,
+          "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+          "sector": "estoque",
+          "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+          "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+          "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+          "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+        },
+        {
+          "rank": 7,
+          "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+          "sector": "estoque",
+          "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+          "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+          "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+          "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+        }
+      ]
+    },
+    "atendimento": {
+      "headline": "Sobrecarga de Rastreio (WISMO: 30.0% dos Chamados) Oferece 90% de Potencial de Deflexão via Agente IA",
+      "executive_summary": "O canal de suporte ao cliente registrou <strong>35.840 atendimentos</strong> com custo operacional direto de <strong>R$ 532.260,00</strong>. A categoria 'Onde está meu pedido?' concentrou <strong>10.765 chamados (30.0% do total)</strong>, demonstrando dependência excessiva de atendentes humanos para consultas de rastreio de logística que possuem 90% de aderência a atendimento autônomo via agente conversacional em WhatsApp.",
+      "facts": [
+        {
+          "fact_id": "sac_total_tickets",
+          "label": "Volume de Atendimentos",
+          "formatted_value": "35.840 tickets (Custo: R$ 532.260,00)",
+          "source_origin": "atendimento.csv / SAC Operacional",
+          "impact_assessment": "Atendimento humano atual operando com custo médio de ~R$ 14,85 por chamado."
+        },
+        {
+          "fact_id": "sac_wismo",
+          "label": "Onde está meu pedido? (WISMO)",
+          "formatted_value": "10.765 chamados (30.0% do SAC)",
+          "source_origin": "Diagnóstico Final - Teste 3.2",
+          "impact_assessment": "Principal categoria geradora de atrito; automação via webhook reduz FRT para < 1 min."
+        }
+      ],
+      "alerts": [
+        {
+          "sector": "atendimento",
+          "metric": "wismo_share_pct",
+          "current_value": 30.04,
+          "threshold_value": 25.0,
+          "severity": "ALERTA",
+          "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+          "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 30.0% do volume SAC total (teto 25.0%)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 3,
+          "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+          "sector": "atendimento",
+          "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+          "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+          "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+          "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+        },
+        {
+          "rank": 4,
+          "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+          "sector": "atendimento",
+          "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+          "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+          "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+          "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+        }
+      ]
+    },
+    "marketing": {
+      "headline": "Disparidade de Eficiência em Mídia: Influenciadores (ROAS 7.75x, CAC R$ 1,76) vs Marketplace (ROAS 3.02x, Frete 4,55%)",
+      "executive_summary": "A auditoria integrada de mídia comprova forte assimetria no portfólio de aquisição. <strong>Influenciadores lideram com ROAS de 7.75x</strong> e <strong>CAC ponderado de R$ 1,76</strong>, seguidos por <strong>TikTok Ads (ROAS 4.67x, CAC R$ 1,75)</strong>. No extremo oposto, o canal <strong>Marketplace entrega ROAS de 3.02x com frete de 4,55% sobre a receita bruta</strong>, corroendo o resultado da companhia em pedidos de baixo ticket.",
+      "facts": [
+        {
+          "fact_id": "mkt_influencer",
+          "label": "Canal Influenciador (Top Tração)",
+          "formatted_value": "ROAS 7.75x | CAC Ponderado R$ 1.76",
+          "source_origin": "marketing.csv & vendas.csv (Auditados)",
+          "impact_assessment": "Maior ticket médio líquido (R$ 912,40, +38% vs base) e menor custo por aquisição."
+        },
+        {
+          "fact_id": "mkt_tiktok",
+          "label": "TikTok Ads (Escala Rentável)",
+          "formatted_value": "ROAS 4.67x | CAC Ponderado R$ 1.75",
+          "source_origin": "marketing.csv (Auditado)",
+          "impact_assessment": "Canal de escala acelerada com 17M conversões e taxa de retenção sadia."
+        },
+        {
+          "fact_id": "mkt_marketplace",
+          "label": "Marketplace (Sangria Operacional)",
+          "formatted_value": "ROAS 3.02x | Frete 4.55% da receita",
+          "source_origin": "Diagnóstico Final - Teste 3.1 & Teste 1.2",
+          "impact_assessment": "Frete 5x maior que canais próprios; 741 transações em margem de contribuição negativa."
+        }
+      ],
+      "alerts": [
+        {
+          "sector": "marketing",
+          "metric": "marketplace_frete_pct",
+          "current_value": 4.55,
+          "threshold_value": 4.0,
+          "severity": "ALERTA",
+          "headline": "Custo de frete abusivo no Marketplace comprimindo margem",
+          "grounded_evidence": "Frete consome 4.55% da receita em Marketplace (5x acima dos canais proprietários)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 5,
+          "title": "Otimização de Portfólio de Canais e Realocação de Verba",
+          "sector": "marketing",
+          "primary_bottleneck": "Descompasso severo de eficiência: Marketplace e Google Ads drenam recursos de canais de alto retorno.",
+          "grounded_metric": "Influenciador atinge ROAS 7.75x e CAC ponderado R$ 1,76; Marketplace opera com ROAS 3.02x e frete de 4,55%.",
+          "origin_test": "Teste 3.1 (CAC, ROAS e Atribuição de Mídia) & Alavanca ICE #5",
+          "strategic_mandate": "Migrar orçamento de canais saturados para Influenciadores e TikTok Ads com trava de retornos decrescentes."
+        }
+      ]
+    },
+    "clientes": {
+      "headline": "Concentração Estrutural: Top 20% da Base Concentram 61.05% do LTV (Champions e Fiéis Somam 56.0% do Valor)",
+      "executive_summary": "A análise da base de <strong>15.000 clientes</strong> evidencia elevada fidelização nos estratos superiores: os <strong>20% maiores clientes concentram 61.05% de todo o LTV</strong> da Vértice Retail. Os grupos <em>Campeões</em> e <em>Fiéis</em> reúnem <strong>25.9% dos consumidores e geram 56.0% do valor econômico total</strong>. Estratégias de retenção devem priorizar benefícios exclusivos e blindagem de serviço, eliminando cupons desnecessários para este público.",
+      "facts": [
+        {
+          "fact_id": "rfm_pareto",
+          "label": "Concentração Pareto 80/20",
+          "formatted_value": "Top 20% = 61.05% do LTV acumulado",
+          "source_origin": "clientes.csv / Diagnóstico RFM",
+          "impact_assessment": "Espinha dorsal da sustentabilidade de receita da empresa."
+        },
+        {
+          "fact_id": "rfm_champions_loyal",
+          "label": "Champions + Loyal Customers",
+          "formatted_value": "25.9% da base geram 56.0% do LTV",
+          "source_origin": "Diagnóstico Final - Teste 4.1",
+          "impact_assessment": "Segmentos com LTV médio de até R$ 26.670,76 que não demandam desconto transacional."
+        }
+      ],
+      "alerts": [
+        {
+          "sector": "clientes",
+          "metric": "pareto_top_20_ltv_share",
+          "current_value": 61.05,
+          "threshold_value": 60.0,
+          "severity": "POSITIVO",
+          "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+          "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+        }
+      ],
+      "levers": [
+        {
+          "rank": 8,
+          "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+          "sector": "clientes",
+          "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+          "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+          "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+          "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+        }
+      ]
+    },
+    "consolidated_alerts": [
+      {
+        "sector": "estoque",
+        "metric": "skus_descontinuados",
+        "current_value": 207.0,
+        "threshold_value": 100.0,
+        "severity": "CRITICO",
+        "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+        "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+      },
+      {
+        "sector": "atendimento",
+        "metric": "wismo_share_pct",
+        "current_value": 30.04,
+        "threshold_value": 25.0,
+        "severity": "ALERTA",
+        "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+        "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 30.0% do volume SAC total (teto 25.0%)."
+      },
+      {
+        "sector": "marketing",
+        "metric": "marketplace_frete_pct",
+        "current_value": 4.55,
+        "threshold_value": 4.0,
+        "severity": "ALERTA",
+        "headline": "Custo de frete abusivo no Marketplace comprimindo margem",
+        "grounded_evidence": "Frete consome 4.55% da receita em Marketplace (5x acima dos canais proprietários)."
+      },
+      {
+        "sector": "clientes",
+        "metric": "pareto_top_20_ltv_share",
+        "current_value": 61.05,
+        "threshold_value": 60.0,
+        "severity": "POSITIVO",
+        "headline": "Elevada concentração de valor nos clientes mais fiéis da base",
+        "grounded_evidence": "Top 20% clientes concentram 61.05% do LTV total (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+      }
+    ],
+    "consolidated_levers": [
+      {
+        "rank": 1,
+        "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+        "sector": "estoque",
+        "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+        "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+        "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+        "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+      },
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 3,
+        "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+        "sector": "atendimento",
+        "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+        "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+        "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+        "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+      },
+      {
+        "rank": 4,
+        "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+        "sector": "atendimento",
+        "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+        "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+        "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+        "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+      },
+      {
+        "rank": 5,
+        "title": "Otimização de Portfólio de Canais e Realocação de Verba",
+        "sector": "marketing",
+        "primary_bottleneck": "Descompasso severo de eficiência: Marketplace e Google Ads drenam recursos de canais de alto retorno.",
+        "grounded_metric": "Influenciador atinge ROAS 7.75x e CAC ponderado R$ 1,76; Marketplace opera com ROAS 3.02x e frete de 4,55%.",
+        "origin_test": "Teste 3.1 (CAC, ROAS e Atribuição de Mídia) & Alavanca ICE #5",
+        "strategic_mandate": "Migrar orçamento de canais saturados para Influenciadores e TikTok Ads com trava de retornos decrescentes."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      },
+      {
+        "rank": 7,
+        "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+        "sector": "estoque",
+        "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+        "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+        "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+        "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+      },
+      {
+        "rank": 8,
+        "title": "Programa de Proteção VIP para Clientes Campeões & Fiéis",
+        "sector": "clientes",
+        "primary_bottleneck": "Clientes de altíssimo LTV recebendo os mesmos descontos e SLAs de clientes eventuais.",
+        "grounded_metric": "25,8% dos clientes (Champions + Loyal) concentram 56,0% do LTV total da empresa.",
+        "origin_test": "Teste 4.1 (Segmentação RFM e Concentração de LTV)",
+        "strategic_mandate": "Blindar base de alto valor com atendimento prioritário, acesso antecipado a coleções e corte total de cupons generalistas."
+      }
+    ],
+    "dre": {
+      "gross_revenue": 20526133.84,
+      "net_revenue": 18889334.01,
+      "contribution_margin": 10270436.65,
+      "contribution_margin_pct": 50.04,
+      "post_friction_margin": 9874979.5,
+      "post_friction_margin_pct": 48.12,
+      "returns_drain": 1210000.0,
+      "discounts_total": 1636799.83,
+      "discounts_pct": 7.97,
+      "excess_stock_cost": 120045834.67,
+      "total_orders": 27758
+    }
+  }
+}

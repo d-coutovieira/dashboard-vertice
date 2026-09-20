@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "sector": "vendas",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "metrics": {
+      "periodo": "2023-W51",
+      "receita_bruta": 567805.87,
+      "pedidos": 758,
+      "receita_liquida": 525442.03,
+      "descontos": 42363.84,
+      "taxa_desconto_pct": 7.46,
+      "cmv": 227789.44,
+      "frete": 9118.78,
+      "margem_contribuicao": 288533.81,
+      "margem_contribuicao_pct": 50.82,
+      "ticket_medio": 749.08,
+      "devolucoes": 107,
+      "taxa_devolucao_pct": 14.12
+    },
+    "previous_metrics": {
+      "periodo": "2023-W50",
+      "receita_bruta": 519568.6,
+      "pedidos": 711,
+      "receita_liquida": 478684.27,
+      "descontos": 40884.33,
+      "taxa_desconto_pct": 7.87,
+      "cmv": 207162.79,
+      "frete": 8440.29,
+      "margem_contribuicao": 263081.19,
+      "margem_contribuicao_pct": 50.63,
+      "ticket_medio": 730.76,
+      "devolucoes": 93,
+      "taxa_devolucao_pct": 13.08
+    },
+    "variations": {
+      "receita": {
+        "absolute_delta": 48237.27,
+        "pct_change": 9.28,
+        "direction": "up",
+        "has_previous": true
+      },
+      "pedidos": {
+        "absolute_delta": 47,
+        "pct_change": 6.61,
+        "direction": "up",
+        "has_previous": true
+      },
+      "ticket_medio": {
+        "absolute_delta": 18.32,
+        "pct_change": 2.51,
+        "direction": "up",
+        "has_previous": true
+      },
+      "margem_pct": {
+        "absolute_delta": 0.19,
+        "pct_change": 0.38,
+        "direction": "up",
+        "has_previous": true
+      },
+      "desconto_pct": {
+        "absolute_delta": -0.41,
+        "pct_change": -5.21,
+        "direction": "down",
+        "has_previous": true
+      }
+    },
+    "variance_decomposition": {
+      "delta_volume_reais": 34345.72,
+      "delta_price_reais": 13886.56
+    },
+    "alerts": [],
+    "levers": [
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      }
+    ]
+  },
+  "narrative": {
+    "headline": "Crescimento de Receita (+9.28%) Sustentado por Volume com Margem de Contribuição em 50,82%",
+    "executive_summary": "No período 2023-W51, a Vértice Retail processou <strong>758 pedidos</strong> gerando <strong>R$ 567.805,87 em receita bruta</strong> e <strong>R$ 288.533,81 de margem de contribuição (50,82%)</strong>. A concessão de descontos atingiu <strong>R$ 42.363,84 (7,46%)</strong>. A decomposição de variância indica impacto de volume de R$ 34.345,72 e impacto de preço de R$ 13.886,56 contra o ciclo anterior.",
+    "facts": [
+      {
+        "fact_id": "vendas_rec_bruta",
+        "label": "Receita Bruta Faturada",
+        "formatted_value": "R$ 567.805,87",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Base de faturamento bruto realizada no período."
+      },
+      {
+        "fact_id": "vendas_pedidos",
+        "label": "Volume de Pedidos",
+        "formatted_value": "758",
+        "source_origin": "vendas.csv",
+        "impact_assessment": "Ticket médio resultante de R$ 749,08 por pedido."
+      },
+      {
+        "fact_id": "vendas_descontos",
+        "label": "Descontos Concedidos",
+        "formatted_value": "R$ 42.363,84 (7,46%)",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Principal redutor de margem bruta entre receita faturada e realizada."
+      },
+      {
+        "fact_id": "vendas_margem",
+        "label": "Margem de Contribuição",
+        "formatted_value": "R$ 288.533,81 (50,82%)",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Resultado operacional gerado antes dos atritos de pós-venda."
+      }
+    ],
+    "alerts": [],
+    "levers": [
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      }
+    ],
+    "periodo": "2023-W51"
+  }
+}

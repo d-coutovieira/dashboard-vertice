@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "sector": "vendas",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "metrics": {
+      "periodo": "2023-W47",
+      "receita_bruta": 889225.25,
+      "pedidos": 1219,
+      "receita_liquida": 771223.65,
+      "descontos": 118001.6,
+      "taxa_desconto_pct": 13.27,
+      "cmv": 363044.04,
+      "frete": 16293.21,
+      "margem_contribuicao": 391886.4,
+      "margem_contribuicao_pct": 44.07,
+      "ticket_medio": 729.47,
+      "devolucoes": 174,
+      "taxa_devolucao_pct": 14.27
+    },
+    "previous_metrics": {
+      "periodo": "2023-W46",
+      "receita_bruta": 614135.02,
+      "pedidos": 852,
+      "receita_liquida": 564825.49,
+      "descontos": 49309.53,
+      "taxa_desconto_pct": 8.03,
+      "cmv": 247051.45,
+      "frete": 11395.8,
+      "margem_contribuicao": 306378.24,
+      "margem_contribuicao_pct": 49.89,
+      "ticket_medio": 720.82,
+      "devolucoes": 126,
+      "taxa_devolucao_pct": 14.79
+    },
+    "variations": {
+      "receita": {
+        "absolute_delta": 275090.23,
+        "pct_change": 44.79,
+        "direction": "up",
+        "has_previous": true
+      },
+      "pedidos": {
+        "absolute_delta": 367,
+        "pct_change": 43.08,
+        "direction": "up",
+        "has_previous": true
+      },
+      "ticket_medio": {
+        "absolute_delta": 8.65,
+        "pct_change": 1.2,
+        "direction": "up",
+        "has_previous": true
+      },
+      "margem_pct": {
+        "absolute_delta": -5.82,
+        "pct_change": -11.67,
+        "direction": "down",
+        "has_previous": true
+      },
+      "desconto_pct": {
+        "absolute_delta": 5.24,
+        "pct_change": 65.26,
+        "direction": "up",
+        "has_previous": true
+      }
+    },
+    "variance_decomposition": {
+      "delta_volume_reais": 264540.94,
+      "delta_price_reais": 10544.35
+    },
+    "alerts": [
+      {
+        "sector": "vendas",
+        "metric": "taxa_desconto_pct",
+        "current_value": 13.27,
+        "threshold_value": 9.0,
+        "severity": "CRITICO",
+        "headline": "Concessão crítica de descontos comerciais",
+        "grounded_evidence": "Desconto atingiu 13.27% (limite crítico 9.0%)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      }
+    ]
+  },
+  "narrative": {
+    "headline": "Semana de Forte Volume (1.219 pedidos), mas com Erosão Severa de Margem por Descontos (13,27%)",
+    "executive_summary": "No período 2023-W47, a Vértice Retail processou <strong>1.219 pedidos</strong> gerando <strong>R$ 889.225,25 em receita bruta</strong> e <strong>R$ 391.886,40 de margem de contribuição (44,07%)</strong>. A concessão de descontos atingiu <strong>R$ 118.001,60 (13,27%)</strong>. A decomposição de variância indica impacto de volume de R$ 264.540,94 e impacto de preço de R$ 10.544,35 contra o ciclo anterior.",
+    "facts": [
+      {
+        "fact_id": "vendas_rec_bruta",
+        "label": "Receita Bruta Faturada",
+        "formatted_value": "R$ 889.225,25",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Base de faturamento bruto realizada no período."
+      },
+      {
+        "fact_id": "vendas_pedidos",
+        "label": "Volume de Pedidos",
+        "formatted_value": "1.219",
+        "source_origin": "vendas.csv",
+        "impact_assessment": "Ticket médio resultante de R$ 729,47 por pedido."
+      },
+      {
+        "fact_id": "vendas_descontos",
+        "label": "Descontos Concedidos",
+        "formatted_value": "R$ 118.001,60 (13,27%)",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Principal redutor de margem bruta entre receita faturada e realizada."
+      },
+      {
+        "fact_id": "vendas_margem",
+        "label": "Margem de Contribuição",
+        "formatted_value": "R$ 391.886,40 (44,07%)",
+        "source_origin": "DRE Auditada / vendas.csv",
+        "impact_assessment": "Resultado operacional gerado antes dos atritos de pós-venda."
+      }
+    ],
+    "alerts": [
+      {
+        "sector": "vendas",
+        "metric": "taxa_desconto_pct",
+        "current_value": 13.27,
+        "threshold_value": 9.0,
+        "severity": "CRITICO",
+        "headline": "Concessão crítica de descontos comerciais",
+        "grounded_evidence": "Desconto atingiu 13.27% (limite crítico 9.0%)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 2,
+        "title": "Piso de Frete Mínimo (R$ 150) & Repasse de Frete em Marketplace",
+        "sector": "vendas",
+        "primary_bottleneck": "Subsídio abusivo de frete corroendo margem em pedidos de baixo ticket.",
+        "grounded_metric": "741 transações em margem negativa identificadas no diagnóstico; frete atinge 4,55% da receita.",
+        "origin_test": "Teste 1.2 (Margem por Canal & Faixa de Ticket) & Alavanca ICE #2",
+        "strategic_mandate": "Extinguir frete grátis abaixo de R$ 150 e estancar transações deficitárias de canal terceiro."
+      },
+      {
+        "rank": 6,
+        "title": "Calibragem de Desconto Comercial & Trava de Margem",
+        "sector": "vendas",
+        "primary_bottleneck": "Descontos promocionais excessivos em campanhas sazonais comprimindo a DRE.",
+        "grounded_metric": "R$ 1.636.799,83 em descontos (7,97% da receita); pico de 9,55% na Black Friday.",
+        "origin_test": "Teste 1.1 (DRE & Composição da Margem de Contribuição)",
+        "strategic_mandate": "Instituir trava sistêmica de desconto máximo com alçada executiva obrigatória."
+      }
+    ],
+    "periodo": "2023-W47"
+  }
+}

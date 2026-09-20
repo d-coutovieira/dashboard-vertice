@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diagnóstico de Analytics & Engenharia Financeira — Vértice Retail</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 12mm 10mm;
+    @bottom-right {
+      content: "Página " counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8pt;
+    line-height: 1.4;
+  }
+
+  .page {
+    page-break-after: always;
+    padding-bottom: 2mm;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Header & Branding */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4338ca;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  .brand-title {
+    font-size: 12pt;
+    font-weight: 800;
+    color: #1e1b4b;
+    letter-spacing: -0.3px;
+  }
+  .brand-sub {
+    font-size: 7pt;
+    font-weight: 600;
+    color: #4338ca;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .meta-tag {
+    font-size: 7pt;
+    font-weight: 600;
+    background: #f1f5f9;
+    padding: 3px 7px;
+    border-radius: 4px;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+  }
+
+  /* Typography */
+  h1 {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  h2 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1e1b4b;
+    border-left: 3.5px solid #4338ca;
+    padding-left: 7px;
+    margin: 8px 0 5px 0;
+    letter-spacing: -0.2px;
+  }
+  h3 {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #334155;
+    margin: 6px 0 3px 0;
+  }
+  p {
+    margin-bottom: 5px;
+    text-align: justify;
+    font-size: 7.8pt;
+  }
+
+  /* Metric Cards Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    margin: 8px 0 10px 0;
+  }
+  .kpi-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 6px 8px;
+    border-top: 3px solid #4338ca;
+  }
+  .kpi-card.danger { border-top-color: #e11d48; background: #fff1f2; }
+  .kpi-card.warning { border-top-color: #d97706; background: #fffbeb; }
+  .kpi-card.success { border-top-color: #059669; background: #f0fdf4; }
+  .kpi-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .kpi-value {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.3px;
+    margin: 1px 0;
+  }
+  .kpi-sub {
+    font-size: 6.5pt;
+    color: #64748b;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 8px 0;
+    font-size: 7.2pt;
+  }
+  th {
+    background: #1e1b4b;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 4px 5px;
+    border: 1px solid #1e1b4b;
+    font-size: 7pt;
+  }
+  td {
+    padding: 3.5px 5px;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .font-bold { font-weight: 700; }
+  .text-danger { color: #be123c; font-weight: 600; }
+  .text-success { color: #047857; font-weight: 600; }
+  .text-warning { color: #b45309; font-weight: 600; }
+
+  /* Callout Alert Box */
+  .callout {
+    background: #f8fafc;
+    border-left: 3.5px solid #4338ca;
+    padding: 6px 8px;
+    border-radius: 0 5px 5px 0;
+    margin: 6px 0 8px 0;
+    font-size: 7.5pt;
+    border-top: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .callout.danger {
+    border-left-color: #e11d48;
+    background: #fff1f2;
+    border-color: #fecdd3;
+  }
+  .callout.warning {
+    border-left-color: #d97706;
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  .callout.success {
+    border-left-color: #059669;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .callout-title {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 7.8pt;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 6.2pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-danger { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+  .badge-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+  .badge-warning { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .badge-info { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+
+  /* 2 and 3 columns */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 5px 0;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin: 6px 0;
+  }
+  .card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 6px 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: EMPIRICAL VALIDATION MATRIX -->
+<div class="page">
+  <div class="header-bar">
+    <div>
+      <div class="brand-sub">Especialista em Analytics & Engenharia Financeira</div>
+      <div class="brand-title">Diagnóstico Estratégico & Validação Empírica da Árvore</div>
+    </div>
+    <div class="meta-tag">VÉRTICE RETAIL · AUDITORIA EXECUTIVA</div>
+  </div>
+
+  <h1>Validação Empírica da Árvore de Lucratividade</h1>
+  <p>
+    Cruzamento quantitativo estrito entre as hipóteses documentadas em <code>arvore_ebit.md</code> e as métricas auditadas
+    das bases transacionais <code>vendas.csv</code>, <code>estoque.csv</code>, <code>atendimento.csv</code> e <code>marketing.csv</code>.
+  </p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Receita Bruta Faturada</div>
+      <div class="kpi-value">R$ 20,53M</div>
+      <div class="kpi-sub">Anualizado: R$ 19,19M/ano</div>
+    </div>
+    <div class="kpi-card danger">
+      <div class="kpi-label">Estoque Defensivo Excedente</div>
+      <div class="kpi-value">R$ 120,05M</div>
+      <div class="kpi-sub">Custo Oportunidade: R$ 21,6M/ano</div>
+    </div>
+    <div class="kpi-card warning">
+      <div class="kpi-label">Dreno Direto Devoluções</div>
+      <div class="kpi-value">R$ 1,21M</div>
+      <div class="kpi-sub">69,6% falhas operacionais</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-label">Potencial Desova Caixa 90d</div>
+      <div class="kpi-value">R$ 9,52M</div>
+      <div class="kpi-sub">Fluxo líquido ROI 61,4x</div>
+    </div>
+  </div>
+
+  <h2>Bloco 1: Matriz de Validação Empírica da Árvore</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 13%;">Raiz DRE</th>
+        <th style="width: 7%;" class="text-center">Teste</th>
+        <th style="width: 17%;">Hipótese</th>
+        <th style="width: 33%;">Métricas Auditadas</th>
+        <th style="width: 10%;" class="text-center">Conclusão</th>
+        <th style="width: 20%;" class="text-right">Impacto Anualizado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="font-bold">Receita Líquida</td>
+        <td class="text-center font-bold">1.5</td>
+        <td><strong>Desconto Black Friday & Promoções:</strong> Concessão agressiva comprime a contribuição sem alavancagem de volume.</td>
+        <td>Desconto médio anual de <strong>7,97%</strong> (R$ 1,64M no período). Na Black Friday (Nov/23), saltou para <strong>9,55%</strong> (+2,34 p.p. vs. Jan/23), derrubando a margem para a mínima de <strong>48,14%</strong>. Clientes <em>Churn</em> recebem cupom médio de 11,2%.</td>
+        <td class="text-center"><span class="badge badge-danger">Confirmada</span></td>
+        <td class="text-right text-success font-bold">+ R$ 340.000,00<br/><span style="font-size:6.2pt;color:#64748b;font-weight:normal;">Calibragem de tetos e cupons</span></td>
+      </tr>
+      <tr>
+        <td class="font-bold">Custos Variáveis</td>
+        <td class="text-center font-bold">2.2</td>
+        <td><strong>Frete Marketplace / Baixo Ticket:</strong> Subsídio de frete em compras &le; R$ 100 e no Marketplace gera margem negativa.</td>
+        <td>Frete geral médio de 1,66% da receita. No <strong>Marketplace</strong>, consome <strong>4,55%</strong> (5x demais canais). Em tickets &le; R$ 100: na faixa R$ 0-50, consome <strong>73,9%</strong> (68% pedidos negativos); faixa R$ 50-100 consome <strong>41,7%</strong>. Total de 741 pedidos operando no prejuízo.</td>
+        <td class="text-center"><span class="badge badge-danger">Confirmada</span></td>
+        <td class="text-right text-success font-bold">+ R$ 90.000,00<br/><span style="font-size:6.2pt;color:#64748b;font-weight:normal;">Piso de frete mínimo (R$ 150)</span></td>
+      </tr>
+      <tr>
+        <td class="font-bold">Custos Variáveis</td>
+        <td class="text-center font-bold">2.3.1</td>
+        <td><strong>Devoluções Defeito & Tamanho:</strong> Falhas de fornecedores e modelagem concentram perdas reversas.</td>
+        <td>4.127 devoluções (taxa de <strong>14,87%</strong>). <strong>69,59%</strong> são falhas evitáveis: Defeito (1.039 pedidos; R$ 792k estornados), Tamanho (1.025 pedidos; R$ 749k estornados), Atraso (808 pedidos; R$ 579k estornados). Dreno direto de R$ 1,21M. 5 fornecedores concentram 48% dos defeitos.</td>
+        <td class="text-center"><span class="badge badge-danger">Confirmada</span></td>
+        <td class="text-right text-success font-bold">+ R$ 338.900,00<br/><span style="font-size:6.2pt;color:#64748b;font-weight:normal;">Quarentena e provador virtual</span></td>
+      </tr>
+      <tr>
+        <td class="font-bold">Despesas Operacionais</td>
+        <td class="text-center font-bold">3.2.1 3.2.2</td>
+        <td><strong>SAC Rastreio ("Onde está meu pedido?"):</strong> Falhas logísticas sobrecarregam atendimento com tickets repetitivos.</td>
+        <td>35.840 tickets (custo de R$ 532k). <em>"Onde está meu pedido?"</em> soma <strong>10.765 tickets (30,04% do volume)</strong> com custo de R$ 159,7k e FRT de 135 min. Custo humano de R$ 14,85/ticket. <strong>67,6%</strong> dos chamados do suporte são 100% defletíveis via IA e automação.</td>
+        <td class="text-center"><span class="badge badge-danger">Confirmada</span></td>
+        <td class="text-right text-success font-bold">+ R$ 102.000,00<br/><span style="font-size:6.2pt;color:#64748b;font-weight:normal;">Bot de rastreio proativo WhatsApp</span></td>
+      </tr>
+      <tr style="background:#fff1f2;">
+        <td class="font-bold text-danger">Custos & Capital</td>
+        <td class="text-center font-bold">2.3.2</td>
+        <td><strong>Excesso de Estoque & Capital Parado:</strong> Superestocagem defensiva gera custo financeiro que supera o faturamento anual.</td>
+        <td>Estoque físico de <strong>R$ 348,70M</strong> (1,67M peças). Excesso defensivo (>3x ponto de pedido) soma <strong>R$ 120.045.834,67</strong> (52,9% dos SKUs). Giro de 0,022x (cobertura de 45 anos). 207 SKUs descontinuados retêm <strong>R$ 17.714.096,89</strong> parados.</td>
+        <td class="text-center"><span class="badge badge-danger font-bold">Crítica</span></td>
+        <td class="text-right text-danger font-bold">+ R$ 21.608.250,24/ano<br/><span style="font-size:6.2pt;color:#047857;font-weight:bold;">+ R$ 17,71M caixa desovado</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <div class="callout-title">Síntese do Diagnóstico de Analytics:</div>
+    A Vértice Retail opera com uma margem de contribuição bruta saudável de 50,04%, mas sofre um colapso simultâneo no pós-venda: <strong>R$ 1,21 milhão</strong> em dreno de devoluções evitáveis, <strong>R$ 395 mil</strong> em custos diretos de atrito (reversa e SAC) e uma sangria patrimonial de <strong>R$ 21,6 milhões/ano</strong> para carregar estoques defensivos no galpão.
+  </div>
+</div>
+
+<!-- PAGE 2: DRE CASCADE & ICE PRIORITIZATION -->
+<div class="page">
+  <div class="header-bar">
+    <div>
+      <div class="brand-sub">Especialista em Analytics & Engenharia Financeira</div>
+      <div class="brand-title">Decomposição da DRE & Ranqueamento Algorítmico</div>
+    </div>
+    <div class="meta-tag">DRE CONCILIADA & SCORE ICE</div>
+  </div>
+
+  <h2>Bloco 2: Decomposição da DRE Gerencial Conciliada</h2>
+  <p>Estrutura de resultados auditada da formação da receita bruta até a margem pós-atrito operacional e o impacto do capital de giro:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Linha da Cascata DRE Gerencial</th>
+        <th class="text-right">Período (13m)</th>
+        <th class="text-right">Anualizado (12m)</th>
+        <th class="text-center">% Rec. Bruta</th>
+        <th>Análise Financeira & Diagnóstico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="font-bold" style="background:#f1f5f9;">
+        <td>(=) RECEITA BRUTA FATURADA</td>
+        <td class="text-right">R$ 20.526.133,84</td>
+        <td class="text-right">R$ 19.188.202,13</td>
+        <td class="text-center">100,00%</td>
+        <td>Volume de 27.758 pedidos; 5 clientes corporativos concentram 74% da receita total.</td>
+      </tr>
+      <tr>
+        <td>(-) Descontos Comerciais Concedidos</td>
+        <td class="text-right text-danger">- R$ 1.636.799,83</td>
+        <td class="text-right text-danger">- R$ 1.530.125,56</td>
+        <td class="text-center text-danger">7,97%</td>
+        <td>Erosão agressiva em Google Ads (8,46%) e na Black Friday (9,55%).</td>
+      </tr>
+      <tr class="font-bold">
+        <td>(=) RECEITA LÍQUIDA OPERACIONAL</td>
+        <td class="text-right">R$ 18.889.334,01</td>
+        <td class="text-right">R$ 17.658.076,57</td>
+        <td class="text-center">92,03%</td>
+        <td>Receita líquida efetiva realizada antes dos custos variáveis de mercadoria e frete.</td>
+      </tr>
+      <tr>
+        <td>(-) Custo das Mercadorias Vendidas (CMV)</td>
+        <td class="text-right text-danger">- R$ 8.278.603,59</td>
+        <td class="text-right text-danger">- R$ 7.738.988,76</td>
+        <td class="text-center text-danger">40,33%</td>
+        <td>Mark-up comercial médio de 2,47x sobre o custo fabril unitário.</td>
+      </tr>
+      <tr>
+        <td>(-) Frete de Envio Subsidiado</td>
+        <td class="text-right text-danger">- R$ 340.293,77</td>
+        <td class="text-right text-danger">- R$ 318.118,52</td>
+        <td class="text-center text-danger">1,66%</td>
+        <td>Frete outbound; distorção no Marketplace (4,55%) e tickets &lt; R$ 100 (43,0%).</td>
+      </tr>
+      <tr class="font-bold" style="background:#e0e7ff;">
+        <td>(=) MARGEM DE CONTRIBUIÇÃO BRUTA</td>
+        <td class="text-right text-success">R$ 10.270.436,65</td>
+        <td class="text-right text-success">R$ 9.600.969,29</td>
+        <td class="text-center text-success">50,04%</td>
+        <td>Margem saudável na venda bruta antes das sangrias e atritos operacionais.</td>
+      </tr>
+      <tr>
+        <td>(-) Frete de Envio Perdido em Devoluções</td>
+        <td class="text-right text-danger">- R$ 51.006,15</td>
+        <td class="text-right text-danger">- R$ 47.681,87</td>
+        <td class="text-center text-danger">0,25%</td>
+        <td>Frete pago para o envio de 4.127 pedidos que retornaram cancelados ao CD.</td>
+      </tr>
+      <tr>
+        <td>(-) Logística Reversa & Manuseio (R$ 40/caso)</td>
+        <td class="text-right text-danger">- R$ 165.080,00</td>
+        <td class="text-right text-danger">- R$ 154.321,13</td>
+        <td class="text-center text-danger">0,80%</td>
+        <td>Custo operacional de transporte reverso, conferência técnica e reestocagem.</td>
+      </tr>
+      <tr>
+        <td>(-) Custo Operacional de Atendimento (SAC 2023)</td>
+        <td class="text-right text-danger">- R$ 179.371,00</td>
+        <td class="text-right text-danger">- R$ 167.679,25</td>
+        <td class="text-center text-danger">0,87%</td>
+        <td>11.977 tickets no ano de 2023; 63% provocados por rastreio e defeitos de produto.</td>
+      </tr>
+      <tr class="font-bold" style="background:#fee2e2;">
+        <td>Subtotal Perdas Reversas & SAC</td>
+        <td class="text-right text-danger">- R$ 395.457,15</td>
+        <td class="text-right text-danger">- R$ 369.682,25</td>
+        <td class="text-center text-danger">1,93%</td>
+        <td>Sangria direta de pós-venda que corrói o resultado operacional.</td>
+      </tr>
+      <tr class="font-bold" style="background:#dcfce7;">
+        <td>(=) MARGEM OPERACIONAL PÓS-ATRITO</td>
+        <td class="text-right text-success">R$ 9.874.979,50</td>
+        <td class="text-right text-success">R$ 9.231.287,04</td>
+        <td class="text-center text-success">48,12%</td>
+        <td>Margem líquida operacional remanescente na operação de varejo.</td>
+      </tr>
+      <tr style="background:#fff1f2;">
+        <td class="font-bold text-danger">(-) Custo de Oportunidade do Estoque (18% a.a.)</td>
+        <td class="text-right text-danger font-bold">- R$ 21.608.250,24</td>
+        <td class="text-right text-danger font-bold">- R$ 21.608.250,24</td>
+        <td class="text-center text-danger font-bold">-112,61%</td>
+        <td>Custo financeiro CDI/WACC de carregar R$ 120M excedentes (supera o faturamento anual).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Bloco 3: Definição Algorítmica da Prioridade #1</h2>
+  <p>
+    Ranqueamento algorítmico das iniciativas estratégicas via <strong>Score ICE</strong> (Impacto financeiro, Confiança dos dados auditados e Facilidade de execução em 90 dias):
+    $$	ext{Score ICE} = rac{	ext{Impacto (1-10)} 	imes 	ext{Confiança (1-10)} 	imes 	ext{Facilidade (1-10)}}{10}$$
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">Rank</th>
+        <th>Iniciativa Estratégica</th>
+        <th>Frente DRE</th>
+        <th class="text-center">Impacto (I)</th>
+        <th class="text-center">Confiança (C)</th>
+        <th class="text-center">Facilidade (E)</th>
+        <th class="text-center">Score ICE</th>
+        <th>Veredito & Ação Imediata</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#f0fdf4;">
+        <td class="text-center font-bold text-success">#1</td>
+        <td class="font-bold text-success">Liquidação e Desova de SKUs Descontinuados</td>
+        <td>Custos / Capital</td>
+        <td class="text-center font-bold">10</td>
+        <td class="text-center font-bold">9</td>
+        <td class="text-center font-bold">8</td>
+        <td class="text-center font-bold text-success" style="font-size:9pt;">72,0</td>
+        <td><strong>Prioridade #1:</strong> Desova de R$ 17,7M retidos; estanca R$ 3,18M/ano em juros.</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">#2</td>
+        <td class="font-bold">Piso de Frete Mínimo (R$ 150) & Repasse Mktplace</td>
+        <td>Receita / Logística</td>
+        <td class="text-center">6</td>
+        <td class="text-center">10</td>
+        <td class="text-center">10</td>
+        <td class="text-center font-bold">60,0</td>
+        <td><strong>Quick Win (7 dias):</strong> Zera margem negativa em 741 pedidos de baixo ticket.</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">#3</td>
+        <td class="font-bold">Agente IA de Rastreio Proativo (WhatsApp/Webhook)</td>
+        <td>Despesas SAC</td>
+        <td class="text-center">7</td>
+        <td class="text-center">9</td>
+        <td class="text-center">8</td>
+        <td class="text-center font-bold">50,4</td>
+        <td><strong>Sprint 30d:</strong> Deflete 90% dos 10.765 tickets de rastreio; corta R$ 102k/ano.</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">#4</td>
+        <td class="font-bold">Quarentena de Fornecedores & Provador Virtual</td>
+        <td>Custos / Devolução</td>
+        <td class="text-center">8</td>
+        <td class="text-center">8</td>
+        <td class="text-center">6</td>
+        <td class="text-center font-bold">38,4</td>
+        <td><strong>Plano 60d:</strong> Bloqueia compras ofensoras e reduz 30% devoluções de moda.</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">#5</td>
+        <td class="font-bold">Realocação de Verba de Mídia (-Mktplace / +Influenc.)</td>
+        <td>Marketing / ROAS</td>
+        <td class="text-center">9</td>
+        <td class="text-center">6</td>
+        <td class="text-center">7</td>
+        <td class="text-center font-bold">37,8</td>
+        <td><strong>Transição 90d:</strong> Otimiza ROAS de 4,2x para 5,1x e ganha R$ 17,9M de margem.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAGE 3: BUSINESS CASE DETALHADO -->
+<div class="page">
+  <div class="header-bar">
+    <div>
+      <div class="brand-sub">Especialista em Analytics & Engenharia Financeira</div>
+      <div class="brand-title">Business Case Detalhado & Fluxo de Caixa (90 Dias)</div>
+    </div>
+    <div class="meta-tag">EXECUÇÃO PRIORIDADE #1</div>
+  </div>
+
+  <h2>Bloco 4: Business Case Detalhado (Prioridade #1)</h2>
+  
+  <h3>1. Comparativo de Abordagens Técnicas de Monetização</h3>
+  <div class="grid-3">
+    <div class="card-box">
+      <div class="font-bold text-danger" style="margin-bottom:2px;">Abordagem A: Lote B2B</div>
+      <p style="font-size:6.8pt;margin-bottom:3px;">Venda em bloco para atacadistas de saldos / leilão.</p>
+      <div style="font-size:6.5pt;color:#047857;"><strong>Prós:</strong> Liquidez em 15 dias; esvaziamento imediato do galpão.</div>
+      <div style="font-size:6.5pt;color:#be123c;"><strong>Contras:</strong> Deságio severo (recupera apenas 30-35% do custo).</div>
+    </div>
+    <div class="card-box">
+      <div class="font-bold text-warning" style="margin-bottom:2px;">Abordagem B: Outlet D2C</div>
+      <p style="font-size:6.8pt;margin-bottom:3px;">Página de saldão no e-commerce próprio.</p>
+      <div style="font-size:6.5pt;color:#047857;"><strong>Prós:</strong> Maior margem bruta unitária (recupera 70-80% custo).</div>
+      <div style="font-size:6.5pt;color:#be123c;"><strong>Contras:</strong> Risco de canibalização e giro lento (>180 dias).</div>
+    </div>
+    <div class="card-box" style="border: 1.5px solid #059669; background:#f0fdf4;">
+      <div class="font-bold text-success" style="margin-bottom:2px;">Abordagem C: Híbrido (Recomendado)</div>
+      <p style="font-size:6.8pt;margin-bottom:3px;">Fase 1 VIP (CRM) + Fase 2 Lote B2B Residual.</p>
+      <div style="font-size:6.5pt;color:#047857;"><strong>Prós:</strong> Maximiza caixa no D2C e zera resíduo no B2B em 90d.</div>
+      <div style="font-size:6.5pt;color:#1e293b;"><strong>Hardware:</strong> Script Python leve em CPU; zero VRAM.</div>
+    </div>
+  </div>
+
+  <h3>2. Premissas Quantitativas</h3>
+  <p>
+    <strong>Ativo Alvo:</strong> 207 SKUs descontinuados com custo imobilizado de <strong>R$ 17.714.096,89</strong>. 
+    <strong>Taxa de Conversão de Caixa:</strong> 50,0% do custo contábil recuperado = <strong>R$ 8.857.048,45</strong>. 
+    <strong>Custo de Capital Evitado:</strong> CDI/WACC de 18% a.a. (1,39%/mês), eliminando R$ 3.188.537,44/ano em juros (R$ 797.134,36 nos 90d). 
+    <strong>Piso de Frete:</strong> Estanca R$ 22.500 no trimestre. 
+    <strong>Investimento:</strong> CAPEX de R$ 35.000 (landing page / checkout) e OPEX de R$ 120.000 (comissão B2B e disparos CRM).
+  </p>
+
+  <h3>3. Projeção de Fluxo de Caixa Projetado para 90 Dias</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Linha de Fluxo de Caixa (R$)</th>
+        <th class="text-right">Mês 1 (VIP & Quick Win)</th>
+        <th class="text-right">Mês 2 (Lote B2B 1)</th>
+        <th class="text-right">Mês 3 (Liquidação Final)</th>
+        <th class="text-right">Total 90 Dias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="font-bold">Monetização de Estoque — Venda Flash VIP D2C</td>
+        <td class="text-right">R$ 2.214.262,11</td>
+        <td class="text-right">R$ 885.704,85</td>
+        <td class="text-right">R$ 0,00</td>
+        <td class="text-right font-bold">R$ 3.099.966,96</td>
+      </tr>
+      <tr>
+        <td class="font-bold">Monetização de Estoque — Lote Atacadista B2B</td>
+        <td class="text-right">R$ 0,00</td>
+        <td class="text-right">R$ 3.100.000,00</td>
+        <td class="text-right">R$ 2.657.081,49</td>
+        <td class="text-right font-bold">R$ 5.757.081,49</td>
+      </tr>
+      <tr>
+        <td>Economia Direta: Eliminação de Frete Negativo</td>
+        <td class="text-right">R$ 7.500,00</td>
+        <td class="text-right">R$ 7.500,00</td>
+        <td class="text-right">R$ 7.500,00</td>
+        <td class="text-right">R$ 22.500,00</td>
+      </tr>
+      <tr>
+        <td>Economia Financeira: Custo Carregamento Evitado</td>
+        <td class="text-right">R$ 132.855,73</td>
+        <td class="text-right">R$ 265.711,45</td>
+        <td class="text-right">R$ 398.567,18</td>
+        <td class="text-right">R$ 797.134,36</td>
+      </tr>
+      <tr class="font-bold" style="background:#f1f5f9;">
+        <td>Total de Entradas Operacionais & Caixa</td>
+        <td class="text-right text-success">R$ 2.354.617,84</td>
+        <td class="text-right text-success">R$ 4.258.916,30</td>
+        <td class="text-right text-success">R$ 3.063.148,67</td>
+        <td class="text-right text-success font-bold">R$ 9.676.682,81</td>
+      </tr>
+      <tr>
+        <td class="text-danger">(-) CAPEX de Implementação Técnica (Checkout & Webhook)</td>
+        <td class="text-right text-danger">- R$ 35.000,00</td>
+        <td class="text-right text-danger">R$ 0,00</td>
+        <td class="text-right text-danger">R$ 0,00</td>
+        <td class="text-right text-danger">- R$ 35.000,00</td>
+      </tr>
+      <tr>
+        <td class="text-danger">(-) OPEX Operacional, Comissões B2B & Disparos CRM</td>
+        <td class="text-right text-danger">- R$ 40.000,00</td>
+        <td class="text-right text-danger">- R$ 50.000,00</td>
+        <td class="text-right text-danger">- R$ 30.000,00</td>
+        <td class="text-right text-danger">- R$ 120.000,00</td>
+      </tr>
+      <tr class="font-bold" style="background:#fee2e2;">
+        <td>Total de Saídas de Caixa (Investimentos)</td>
+        <td class="text-right text-danger">- R$ 75.000,00</td>
+        <td class="text-right text-danger">- R$ 50.000,00</td>
+        <td class="text-right text-danger">- R$ 30.000,00</td>
+        <td class="text-right text-danger font-bold">- R$ 155.000,00</td>
+      </tr>
+      <tr class="font-bold" style="background:#dcfce7;">
+        <td>(=) FLUXO DE CAIXA LÍQUIDO DO PERÍODO</td>
+        <td class="text-right text-success">+ R$ 2.279.617,84</td>
+        <td class="text-right text-success">+ R$ 4.208.916,30</td>
+        <td class="text-right text-success">+ R$ 3.033.148,67</td>
+        <td class="text-right text-success font-bold">+ R$ 9.521.682,81</td>
+      </tr>
+      <tr class="font-bold" style="background:#e0e7ff;">
+        <td>Fluxo de Caixa Líquido Acumulado</td>
+        <td class="text-right text-success">R$ 2.279.617,84</td>
+        <td class="text-right text-success">R$ 6.488.534,14</td>
+        <td class="text-right text-success font-bold">R$ 9.521.682,81</td>
+        <td class="text-right text-success font-bold">R$ 9.521.682,81</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-grid" style="margin-top:8px;">
+    <div class="kpi-card success">
+      <div class="kpi-label">Caixa Líquido Gerado 90d</div>
+      <div class="kpi-value">R$ 9,52M</div>
+      <div class="kpi-sub">Liquidez imediata liberada</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-label">Payback do Investimento</div>
+      <div class="kpi-value">&lt; 15 dias</div>
+      <div class="kpi-sub">Coberto na 1ª semana VIP</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-label">ROI do Projeto (90d)</div>
+      <div class="kpi-value">61,4x</div>
+      <div class="kpi-sub">Retorno s/ R$ 155k investidos</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">EBIT Anual Recorrente</div>
+      <div class="kpi-value">+ R$ 3,27M</div>
+      <div class="kpi-sub">Juros + Frete estancados</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

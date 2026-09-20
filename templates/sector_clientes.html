@@ -1,0 +1,113 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+<!-- KPI Highlights Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Base de Clientes Ativa</div>
+    <div class="kpi-value">{{ current.total_clientes_fmt }}</div>
+    <div class="kpi-subtext">LTV total acumulado: {{ current.total_ltv_fmt }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Concentração Pareto (Top 20%)</div>
+    <div class="kpi-value" style="color:#34d399;">{{ current.pareto_top_20_ltv_share_fmt }}</div>
+    <div class="kpi-subtext">3.000 clientes concentram mais de 61% do LTV</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">Champions + Loyal Customers</div>
+    <div class="kpi-value" style="color:#34d399;">56,0% do LTV</div>
+    <div class="kpi-subtext">Gerado por 25,8% da base total de clientes</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-label">LTV Médio Segmento Campeão</div>
+    <div class="kpi-value" style="color:#38bdf8;">{{ current.ltv_medio_campeao_fmt }}</div>
+    <div class="kpi-subtext">Clientes de altíssima recorrência e valor</div>
+  </div>
+</div>
+
+<!-- Anomaly Alerts Banner -->
+{% if alerts %}
+<div class="alert-container">
+  {% for alert in alerts %}
+  <div class="alert-banner {{ alert.severity }}">
+    <span class="alert-badge">{{ alert.severity }}</span>
+    <div class="alert-content">
+      <h4>{{ alert.headline }}</h4>
+      <p>{{ alert.grounded_evidence }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Executive Narrative Analysis -->
+<div class="narrative-block">
+  <h3>Diagnóstico de Fidelização & Concentração de LTV</h3>
+  <p>{{ executive_summary | safe }}</p>
+</div>
+
+<!-- RFM Segments Table -->
+<div class="table-wrapper">
+  <table class="exec-table">
+    <thead>
+      <tr>
+        <th>Segmento RFM</th>
+        <th style="text-align:right;">Clientes</th>
+        <th style="text-align:right;">% Base</th>
+        <th style="text-align:right;">LTV Total</th>
+        <th style="text-align:right;">% LTV</th>
+        <th style="text-align:right;">LTV Médio</th>
+        <th>Direcionamento Estratégico</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for seg in segments %}
+      <tr>
+        <td><strong style="color:{{ seg.color }};">● {{ seg.segmento_rfm }}</strong></td>
+        <td class="num">{{ seg.clientes_fmt }}</td>
+        <td class="num">{{ seg.pct_base_fmt }}</td>
+        <td class="num">{{ seg.ltv_total_fmt }}</td>
+        <td class="num" style="font-weight:700;">{{ seg.pct_ltv_fmt }}</td>
+        <td class="num">{{ seg.ltv_medio_fmt }}</td>
+        <td><span style="font-size:0.8rem; color:#94a3b8;">{{ seg.action }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Action Levers Prioritization -->
+<div class="narrative-block">
+  <h3>Alavancas Identificadas pelo Diagnóstico (Priorização Estratégica)</h3>
+  <div class="table-wrapper" style="margin-bottom:12px;">
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Alavanca / Iniciativa</th>
+          <th>Gargalo Causal Auditado</th>
+          <th>Métrica de Grounding</th>
+          <th>Direcionamento Estratégico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lever in levers %}
+        <tr>
+          <td><span class="alert-badge" style="background:#1e293b; color:#34d399;">Prioridade #{{ lever.rank }}</span></td>
+          <td><strong>{{ lever.title }}</strong></td>
+          <td>{{ lever.primary_bottleneck }}</td>
+          <td><strong style="color:#34d399;">{{ lever.grounded_metric }}</strong></td>
+          <td>{{ lever.strategic_mandate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="scope-advisory">
+    <strong>Nota Metodológica de Escopo:</strong> O detalhamento executivo de prazos por sprint, metas graduais, dimensionamento de equipes e modelagem de retorno incremental constitui o <em>Plano de Ação do Business Case</em> (documento complementar independente). As alavancas acima refletem estritamente as causas-raiz validadas no Diagnóstico Final.
+  </div>
+</div>
+{% endblock %}

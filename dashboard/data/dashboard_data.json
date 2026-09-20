@@ -1,0 +1,1561 @@
+{
+  "metadata": {
+    "title": "Executive Dashboard - Vértice Retail & EloGroup",
+    "version": "2.0.0",
+    "generated_at": "2026-09-20T18:18:46.043004",
+    "source_reference": "diagnostico_executivo_vertice.html & relatorio_executivo_vertice.html",
+    "branding": {
+      "client": "Vértice Retail",
+      "consulting": "EloGroup Transformation, Strategy & Analytics",
+      "primary_color": "#1a1a2e",
+      "accent_color": "#a3e635",
+      "card_color": "#16213e",
+      "elevated_color": "#0f3460"
+    }
+  },
+  "dre": {
+    "summary": {
+      "gross_revenue": 20526133.84,
+      "net_revenue": 18889334.01,
+      "contribution_margin": 10270436.65,
+      "contribution_margin_pct": 50.04,
+      "post_friction_margin": 9874979.5,
+      "post_friction_margin_pct": 48.12,
+      "returns_drain": 1210000.0,
+      "discounts_total": 1636799.83,
+      "discounts_pct": 7.97,
+      "excess_stock_cost": 120045834.67,
+      "total_orders": 27758
+    },
+    "waterfall_items": [
+      {
+        "id": "gross_revenue",
+        "name": "(=) RECEITA BRUTA FATURADA",
+        "period_13m": 20526133.84,
+        "annualized_12m": 19188202.13,
+        "share_pct": 100.0,
+        "type": "positive",
+        "diagnosis": "Volume de 27.758 pedidos; top 20% clientes concentram 61,05% do LTV (Champions + Loyal somam 56,0% do LTV com 25,8% da base)."
+      },
+      {
+        "id": "discounts",
+        "name": "(-) Descontos Comerciais Concedidos",
+        "period_13m": -1636799.83,
+        "annualized_12m": -1530125.56,
+        "share_pct": 7.97,
+        "type": "negative",
+        "diagnosis": "Erosão agressiva em Google Ads (8,46%) e na Black Friday (9,55%)."
+      },
+      {
+        "id": "net_revenue",
+        "name": "(=) RECEITA LÍQUIDA OPERACIONAL",
+        "period_13m": 18889334.01,
+        "annualized_12m": 17658076.57,
+        "share_pct": 92.03,
+        "type": "subtotal",
+        "diagnosis": "Receita líquida efetiva realizada antes dos custos variáveis de mercadoria e frete."
+      },
+      {
+        "id": "cmv",
+        "name": "(-) Custo das Mercadorias Vendidas (CMV)",
+        "period_13m": -8278603.59,
+        "annualized_12m": -7738988.76,
+        "share_pct": 40.33,
+        "type": "negative",
+        "diagnosis": "Mark-up comercial médio de 2,47x sobre o custo fabril unitário."
+      },
+      {
+        "id": "outbound_freight",
+        "name": "(-) Frete de Envio Subsidiado",
+        "period_13m": -340293.77,
+        "annualized_12m": -318118.52,
+        "share_pct": 1.66,
+        "type": "negative",
+        "diagnosis": "Frete outbound; distorção no Marketplace (4,55%) e tickets <= R$ 100 (43,0%)."
+      },
+      {
+        "id": "contribution_margin",
+        "name": "(=) MARGEM DE CONTRIBUIÇÃO BRUTA",
+        "period_13m": 10270436.65,
+        "annualized_12m": 9600969.29,
+        "share_pct": 50.04,
+        "type": "subtotal",
+        "diagnosis": "Margem saudável na venda bruta antes das sangrias e atritos operacionais."
+      },
+      {
+        "id": "freight_lost_returns",
+        "name": "(-) Frete de Envio Perdido em Devoluções",
+        "period_13m": -51006.15,
+        "annualized_12m": -47681.87,
+        "share_pct": 0.25,
+        "type": "negative",
+        "diagnosis": "Frete pago para o envio de 4.127 pedidos que retornaram cancelados ao CD."
+      },
+      {
+        "id": "reverse_logistics",
+        "name": "(-) Logística Reversa & Manuseio (R$ 40/caso)",
+        "period_13m": -165080.0,
+        "annualized_12m": -154321.13,
+        "share_pct": 0.8,
+        "type": "negative",
+        "diagnosis": "Custo operacional de transporte reverso, conferência técnica e reestocagem."
+      },
+      {
+        "id": "sac_operational_cost",
+        "name": "(-) Custo Operacional de Atendimento (SAC 2023)",
+        "period_13m": -179371.0,
+        "annualized_12m": -167679.25,
+        "share_pct": 0.87,
+        "type": "negative",
+        "diagnosis": "11.977 tickets no ano de 2023; 63% provocados por rastreio e defeitos de produto."
+      },
+      {
+        "id": "subtotal_reverse_sac",
+        "name": "Subtotal Perdas Reversas & SAC",
+        "period_13m": -395457.15,
+        "annualized_12m": -369682.25,
+        "share_pct": 1.93,
+        "type": "subtotal_loss",
+        "diagnosis": "Sangria direta de pós-venda que corrói o resultado operacional."
+      },
+      {
+        "id": "operating_margin_post_friction",
+        "name": "(=) MARGEM OPERACIONAL PÓS-ATRITO",
+        "period_13m": 9874979.5,
+        "annualized_12m": 9231287.04,
+        "share_pct": 48.12,
+        "type": "final_margin",
+        "diagnosis": "Margem líquida operacional remanescente na operação de varejo."
+      },
+      {
+        "id": "inventory_opportunity_cost",
+        "name": "(-) Custo de Oportunidade do Estoque (18% a.a.)",
+        "period_13m": -21608250.24,
+        "annualized_12m": -21608250.24,
+        "share_pct": -112.61,
+        "type": "opportunity_cost",
+        "diagnosis": "Custo financeiro CDI/WACC de carregar R$ 120M excedentes (supera o faturamento anual)."
+      }
+    ]
+  },
+  "temporal_series": [
+    {
+      "mes": "2023-01",
+      "pedidos": 1381,
+      "receita_bruta": 1009576.21,
+      "desconto": 72785.21,
+      "receita_liquida": 936791.0,
+      "cmv": 406513.45,
+      "frete": 16544.3,
+      "margem": 513733.25,
+      "devolucoes": 191,
+      "ticket_medio": 731.05,
+      "taxa_desconto_pct": 7.21,
+      "margem_pct": 50.89,
+      "taxa_devolucao_pct": 13.83
+    },
+    {
+      "mes": "2023-02",
+      "pedidos": 1356,
+      "receita_bruta": 987724.54,
+      "desconto": 73689.33,
+      "receita_liquida": 914035.21,
+      "cmv": 399764.75,
+      "frete": 16192.77,
+      "margem": 498077.69,
+      "devolucoes": 178,
+      "ticket_medio": 728.41,
+      "taxa_desconto_pct": 7.46,
+      "margem_pct": 50.43,
+      "taxa_devolucao_pct": 13.13
+    },
+    {
+      "mes": "2023-03",
+      "pedidos": 3144,
+      "receita_bruta": 2435643.05,
+      "desconto": 190802.72,
+      "receita_liquida": 2244840.33,
+      "cmv": 983519.93,
+      "frete": 37462.45,
+      "margem": 1223857.95,
+      "devolucoes": 473,
+      "ticket_medio": 774.7,
+      "taxa_desconto_pct": 7.83,
+      "margem_pct": 50.25,
+      "taxa_devolucao_pct": 15.04
+    },
+    {
+      "mes": "2023-04",
+      "pedidos": 1556,
+      "receita_bruta": 1189527.98,
+      "desconto": 91653.78,
+      "receita_liquida": 1097874.2,
+      "cmv": 481478.99,
+      "frete": 18922.96,
+      "margem": 597472.25,
+      "devolucoes": 249,
+      "ticket_medio": 764.48,
+      "taxa_desconto_pct": 7.71,
+      "margem_pct": 50.23,
+      "taxa_devolucao_pct": 16.0
+    },
+    {
+      "mes": "2023-05",
+      "pedidos": 3560,
+      "receita_bruta": 2584966.54,
+      "desconto": 188345.93,
+      "receita_liquida": 2396620.61,
+      "cmv": 1043186.52,
+      "frete": 44376.16,
+      "margem": 1309057.93,
+      "devolucoes": 554,
+      "ticket_medio": 726.11,
+      "taxa_desconto_pct": 7.29,
+      "margem_pct": 50.64,
+      "taxa_devolucao_pct": 15.56
+    },
+    {
+      "mes": "2023-06",
+      "pedidos": 1540,
+      "receita_bruta": 1150096.9,
+      "desconto": 86393.84,
+      "receita_liquida": 1063703.06,
+      "cmv": 461392.65,
+      "frete": 19029.96,
+      "margem": 583280.45,
+      "devolucoes": 221,
+      "ticket_medio": 746.82,
+      "taxa_desconto_pct": 7.51,
+      "margem_pct": 50.72,
+      "taxa_devolucao_pct": 14.35
+    },
+    {
+      "mes": "2023-07",
+      "pedidos": 1538,
+      "receita_bruta": 1151659.51,
+      "desconto": 92271.63,
+      "receita_liquida": 1059387.88,
+      "cmv": 464082.1,
+      "frete": 19491.09,
+      "margem": 575814.69,
+      "devolucoes": 233,
+      "ticket_medio": 748.8,
+      "taxa_desconto_pct": 8.01,
+      "margem_pct": 50.0,
+      "taxa_devolucao_pct": 15.15
+    },
+    {
+      "mes": "2023-08",
+      "pedidos": 1627,
+      "receita_bruta": 1184261.24,
+      "desconto": 98294.44,
+      "receita_liquida": 1085966.8,
+      "cmv": 478124.36,
+      "frete": 18813.2,
+      "margem": 589029.24,
+      "devolucoes": 249,
+      "ticket_medio": 727.88,
+      "taxa_desconto_pct": 8.3,
+      "margem_pct": 49.74,
+      "taxa_devolucao_pct": 15.3
+    },
+    {
+      "mes": "2023-09",
+      "pedidos": 1727,
+      "receita_bruta": 1265119.39,
+      "desconto": 96191.8,
+      "receita_liquida": 1168927.59,
+      "cmv": 511411.61,
+      "frete": 19839.86,
+      "margem": 637676.12,
+      "devolucoes": 265,
+      "ticket_medio": 732.55,
+      "taxa_desconto_pct": 7.6,
+      "margem_pct": 50.4,
+      "taxa_devolucao_pct": 15.34
+    },
+    {
+      "mes": "2023-10",
+      "pedidos": 1709,
+      "receita_bruta": 1273685.16,
+      "desconto": 106240.11,
+      "receita_liquida": 1167445.05,
+      "cmv": 513978.49,
+      "frete": 20976.33,
+      "margem": 632490.23,
+      "devolucoes": 254,
+      "ticket_medio": 745.28,
+      "taxa_desconto_pct": 8.34,
+      "margem_pct": 49.66,
+      "taxa_devolucao_pct": 14.86
+    },
+    {
+      "mes": "2023-11",
+      "pedidos": 4120,
+      "receita_bruta": 3000221.19,
+      "desconto": 286472.34,
+      "receita_liquida": 2713748.85,
+      "cmv": 1215784.38,
+      "frete": 53691.44,
+      "margem": 1444273.03,
+      "devolucoes": 638,
+      "ticket_medio": 728.21,
+      "taxa_desconto_pct": 9.55,
+      "margem_pct": 48.14,
+      "taxa_devolucao_pct": 15.49
+    },
+    {
+      "mes": "2023-12",
+      "pedidos": 3280,
+      "receita_bruta": 2421411.67,
+      "desconto": 183957.09,
+      "receita_liquida": 2237454.58,
+      "cmv": 969799.44,
+      "frete": 39486.03,
+      "margem": 1228169.11,
+      "devolucoes": 448,
+      "ticket_medio": 738.24,
+      "taxa_desconto_pct": 7.6,
+      "margem_pct": 50.72,
+      "taxa_devolucao_pct": 13.66
+    },
+    {
+      "mes": "2024-01",
+      "pedidos": 1220,
+      "receita_bruta": 872240.46,
+      "desconto": 69701.61,
+      "receita_liquida": 802538.85,
+      "cmv": 349566.92,
+      "frete": 15467.22,
+      "margem": 437504.71,
+      "devolucoes": 174,
+      "ticket_medio": 714.95,
+      "taxa_desconto_pct": 7.99,
+      "margem_pct": 50.16,
+      "taxa_devolucao_pct": 14.26
+    }
+  ],
+  "channels": [
+    {
+      "canal": "Email Marketing",
+      "pedidos": 2812,
+      "receita_bruta": 2038419.06,
+      "receita_liquida": 1891602.25,
+      "desconto": 146816.81,
+      "cmv": 820952.24,
+      "frete": 18975.65,
+      "margem": 1051674.36,
+      "devolucoes": 410,
+      "investimento": 29700531.98,
+      "receita_gerada": 91046211.86,
+      "conversoes": 16563197,
+      "cac_medio": 4.29,
+      "cac_weighted": 1.79,
+      "roas": 3.07,
+      "frete_pct": 0.93,
+      "desconto_pct": 7.2,
+      "margem_pct": 51.59,
+      "taxa_devolucao_pct": 14.58,
+      "ticket_medio": 724.9,
+      "ticket_medio_liquido": 672.69,
+      "tier": "Tier 2 - Rentável",
+      "strategy": "Canal de altíssima eficiência orgânica, ROAS 3.07x"
+    },
+    {
+      "canal": "Google Ads",
+      "pedidos": 5504,
+      "receita_bruta": 3979241.06,
+      "receita_liquida": 3642784.4,
+      "desconto": 336456.66,
+      "cmv": 1608134.86,
+      "frete": 36878.31,
+      "margem": 1997771.23,
+      "devolucoes": 839,
+      "investimento": 30224839.25,
+      "receita_gerada": 106557384.47,
+      "conversoes": 16118323,
+      "cac_medio": 4.27,
+      "cac_weighted": 1.88,
+      "roas": 3.53,
+      "frete_pct": 0.93,
+      "desconto_pct": 8.46,
+      "margem_pct": 50.2,
+      "taxa_devolucao_pct": 15.24,
+      "ticket_medio": 722.97,
+      "ticket_medio_liquido": 661.84,
+      "tier": "Tier 3 - Alerta Margem",
+      "strategy": "Reduzir -R$ 5M; alta dependência de desconto (8,46%)"
+    },
+    {
+      "canal": "Influenciador",
+      "pedidos": 2263,
+      "receita_bruta": 2250914.31,
+      "receita_liquida": 2064752.77,
+      "desconto": 186161.54,
+      "cmv": 908948.59,
+      "frete": 8719.51,
+      "margem": 1147084.67,
+      "devolucoes": 339,
+      "investimento": 28061599.02,
+      "receita_gerada": 217577980.41,
+      "conversoes": 15940484,
+      "cac_medio": 4.17,
+      "cac_weighted": 1.76,
+      "roas": 7.75,
+      "frete_pct": 0.39,
+      "desconto_pct": 8.27,
+      "margem_pct": 50.96,
+      "taxa_devolucao_pct": 14.98,
+      "ticket_medio": 994.66,
+      "ticket_medio_liquido": 912.4,
+      "tier": "Tier 1 - Tração Alta",
+      "strategy": "Aumentar investimento (+R$ 10M), ROAS 7.75x"
+    },
+    {
+      "canal": "Instagram Ads",
+      "pedidos": 4965,
+      "receita_bruta": 3555245.17,
+      "receita_liquida": 3270791.31,
+      "desconto": 284453.86,
+      "cmv": 1436515.29,
+      "frete": 34047.67,
+      "margem": 1800228.35,
+      "devolucoes": 748,
+      "investimento": 30165772.33,
+      "receita_gerada": 135938587.47,
+      "conversoes": 15360484,
+      "cac_medio": 4.72,
+      "cac_weighted": 1.96,
+      "roas": 4.51,
+      "frete_pct": 0.96,
+      "desconto_pct": 8.0,
+      "margem_pct": 50.64,
+      "taxa_devolucao_pct": 15.07,
+      "ticket_medio": 716.06,
+      "ticket_medio_liquido": 658.77,
+      "tier": "Tier 2 - Rentável",
+      "strategy": "Manter verba e otimizar criativos, ROAS 4.51x"
+    },
+    {
+      "canal": "Marketplace",
+      "pedidos": 6040,
+      "receita_bruta": 4320195.69,
+      "receita_liquida": 3986568.87,
+      "desconto": 333626.82,
+      "cmv": 1739813.19,
+      "frete": 196721.45,
+      "margem": 2050034.23,
+      "devolucoes": 903,
+      "investimento": 32682629.69,
+      "receita_gerada": 98795912.77,
+      "conversoes": 17894187,
+      "cac_medio": 4.39,
+      "cac_weighted": 1.83,
+      "roas": 3.02,
+      "frete_pct": 4.55,
+      "desconto_pct": 7.72,
+      "margem_pct": 47.45,
+      "taxa_devolucao_pct": 14.95,
+      "ticket_medio": 715.26,
+      "ticket_medio_liquido": 660.03,
+      "tier": "Tier 4 - Sangria Operacional",
+      "strategy": "Reduzir -R$ 10M; frete abusivo (4,55%) e devoluções"
+    },
+    {
+      "canal": "Orgânico",
+      "pedidos": 3246,
+      "receita_bruta": 2316434.49,
+      "receita_liquida": 2137746.01,
+      "desconto": 178688.48,
+      "cmv": 934913.24,
+      "frete": 23680.92,
+      "margem": 1179151.85,
+      "devolucoes": 468,
+      "investimento": 29808867.75,
+      "receita_gerada": 89649257.14,
+      "conversoes": 16401820,
+      "cac_medio": 4.66,
+      "cac_weighted": 1.82,
+      "roas": 3.01,
+      "frete_pct": 1.02,
+      "desconto_pct": 7.71,
+      "margem_pct": 50.9,
+      "taxa_devolucao_pct": 14.42,
+      "ticket_medio": 713.63,
+      "ticket_medio_liquido": 658.58,
+      "tier": "Outro",
+      "strategy": "Analisar individualmente"
+    },
+    {
+      "canal": "TikTok Ads",
+      "pedidos": 2928,
+      "receita_bruta": 2065684.06,
+      "receita_liquida": 1895088.4,
+      "desconto": 170595.66,
+      "cmv": 829326.18,
+      "frete": 21270.26,
+      "margem": 1044491.96,
+      "devolucoes": 420,
+      "investimento": 29770101.07,
+      "receita_gerada": 139063375.68,
+      "conversoes": 17009948,
+      "cac_medio": 3.95,
+      "cac_weighted": 1.75,
+      "roas": 4.67,
+      "frete_pct": 1.03,
+      "desconto_pct": 8.26,
+      "margem_pct": 50.56,
+      "taxa_devolucao_pct": 14.34,
+      "ticket_medio": 705.49,
+      "ticket_medio_liquido": 647.23,
+      "tier": "Tier 1 - Tração Alta",
+      "strategy": "Acelerar escala (+R$ 5M), ROAS 4.67x"
+    }
+  ],
+  "customers_rfm": {
+    "total_customers": 15000,
+    "total_ltv": 139092568.84,
+    "top_tiers_ltv_share": 52.8,
+    "pareto": {
+      "top_20_ltv_share_pct": 61.05,
+      "top_20_clients_count": 3000,
+      "top_20_ltv_total": 84910493.47
+    },
+    "segments": [
+      {
+        "segmento_rfm": "Campeão",
+        "clientes": 1268,
+        "ltv_total": 33818518.33,
+        "ltv_medio": 26670.76,
+        "pct_base": 8.45,
+        "pct_ltv": 24.31,
+        "pedidos": 2084,
+        "receita_bruta": 1588599.45,
+        "desconto": 128103.0,
+        "margem": 793847.37,
+        "devolucoes": 296,
+        "pct_desconto": 8.06,
+        "pct_margem": 49.97,
+        "taxa_devolucao": 14.2,
+        "profile": "Altíssima frequência e valor; clientes mais rentáveis da base.",
+        "action": "Tratamento VIP, acesso antecipado a lançamentos, zero desconto transacional.",
+        "color": "#a3e635"
+      },
+      {
+        "segmento_rfm": "Fiel",
+        "clientes": 2612,
+        "ltv_total": 44134322.9,
+        "ltv_medio": 16896.75,
+        "pct_base": 17.41,
+        "pct_ltv": 31.73,
+        "pedidos": 4117,
+        "receita_bruta": 3049791.19,
+        "desconto": 249615.38,
+        "margem": 1520609.98,
+        "devolucoes": 601,
+        "pct_desconto": 8.18,
+        "pct_margem": 49.86,
+        "taxa_devolucao": 14.6,
+        "profile": "Compradores recorrentes com bom ticket médio.",
+        "action": "Programas de fidelidade por pontos, cross-sell focado em produtos de maior margem.",
+        "color": "#38bdf8"
+      },
+      {
+        "segmento_rfm": "Promissor",
+        "clientes": 4127,
+        "ltv_total": 33337782.88,
+        "ltv_medio": 8077.97,
+        "pct_base": 27.51,
+        "pct_ltv": 23.97,
+        "pedidos": 13350,
+        "receita_bruta": 9865046.82,
+        "desconto": 783784.28,
+        "margem": 4939118.4,
+        "devolucoes": 1991,
+        "pct_desconto": 7.95,
+        "pct_margem": 50.07,
+        "taxa_devolucao": 14.91,
+        "profile": "Compraram recentemente, potencial de escalada para fiéis.",
+        "action": "Nurturing pós-primeira compra, recomendações orientadas por IA.",
+        "color": "#facc15"
+      },
+      {
+        "segmento_rfm": "Em Risco",
+        "clientes": 3269,
+        "ltv_total": 17663986.57,
+        "ltv_medio": 5403.48,
+        "pct_base": 21.79,
+        "pct_ltv": 12.7,
+        "pedidos": 7430,
+        "receita_bruta": 5455556.35,
+        "desconto": 427245.49,
+        "margem": 2735286.29,
+        "devolucoes": 1116,
+        "pct_desconto": 7.83,
+        "pct_margem": 50.14,
+        "taxa_devolucao": 15.02,
+        "profile": "Ficaram inativos há mais de 60-90 dias após compras recorrentes.",
+        "action": "Campanhas ativas de reengajamento com benefícios de frete condicionados a ticket > R$ 150.",
+        "color": "#fb923c"
+      },
+      {
+        "segmento_rfm": "Churn",
+        "clientes": 1796,
+        "ltv_total": 4996623.83,
+        "ltv_medio": 2782.08,
+        "pct_base": 11.97,
+        "pct_ltv": 3.59,
+        "pedidos": 145,
+        "receita_bruta": 112709.3,
+        "desconto": 12767.04,
+        "margem": 53017.36,
+        "devolucoes": 29,
+        "pct_desconto": 11.33,
+        "pct_margem": 47.04,
+        "taxa_devolucao": 20.0,
+        "profile": "Inativos prolongados com altíssima dependência de cupom (11,2%).",
+        "action": "Cessar cupons agressivos; ativar reativação focada em novos lançamentos selecionados.",
+        "color": "#f87171"
+      },
+      {
+        "segmento_rfm": "Hibernando",
+        "clientes": 1928,
+        "ltv_total": 5141334.33,
+        "ltv_medio": 2666.67,
+        "pct_base": 12.85,
+        "pct_ltv": 3.7,
+        "pedidos": 632,
+        "receita_bruta": 454430.73,
+        "desconto": 35284.64,
+        "margem": 228557.25,
+        "devolucoes": 94,
+        "pct_desconto": 7.76,
+        "pct_margem": 50.3,
+        "taxa_devolucao": 14.87,
+        "profile": "",
+        "action": "",
+        "color": "#94a3b8"
+      }
+    ]
+  },
+  "customer_service": {
+    "total_tickets": 35840,
+    "total_cost": 532260.0,
+    "deflection_rate_pct": 70.1,
+    "total_deflected_tickets": 25123,
+    "post_ai_cost": 200435.84,
+    "annual_savings": 331824.16,
+    "human_hours_saved": 6280.8,
+    "categories": [
+      {
+        "categoria_normalizada": "Onde está meu pedido?",
+        "tickets": 10765,
+        "custo_total": 159660.0,
+        "custo_medio": 14.83,
+        "share_pct": 30.04,
+        "potencial_ia_pct": 90.0,
+        "tier": "Tier 1 - Totalmente Automatizável",
+        "sla_estimado_ia": "1 min",
+        "economia_potencial": 129156.09
+      },
+      {
+        "categoria_normalizada": "Produto com defeito",
+        "tickets": 6509,
+        "custo_total": 96592.0,
+        "custo_medio": 14.84,
+        "share_pct": 18.16,
+        "potencial_ia_pct": 25.0,
+        "tier": "Tier 3 - Triage IA + Especialista",
+        "sla_estimado_ia": "15 min",
+        "economia_potencial": 16008.12
+      },
+      {
+        "categoria_normalizada": "Troca de tamanho",
+        "tickets": 5360,
+        "custo_total": 79325.0,
+        "custo_medio": 14.8,
+        "share_pct": 14.96,
+        "potencial_ia_pct": 60.0,
+        "tier": "Tier 2 - Autoatendimento Guiado",
+        "sla_estimado_ia": "4 min",
+        "economia_potencial": 41161.8
+      },
+      {
+        "categoria_normalizada": "Dúvida técnica",
+        "tickets": 5314,
+        "custo_total": 78888.0,
+        "custo_medio": 14.85,
+        "share_pct": 14.83,
+        "potencial_ia_pct": 75.0,
+        "tier": "Tier 1 - Totalmente Automatizável",
+        "sla_estimado_ia": "2 min",
+        "economia_potencial": 53174.85
+      },
+      {
+        "categoria_normalizada": "Pagamento não aprovado",
+        "tickets": 4281,
+        "custo_total": 63856.0,
+        "custo_medio": 14.92,
+        "share_pct": 11.94,
+        "potencial_ia_pct": 70.0,
+        "tier": "Tier 2 - Autoatendimento Guiado",
+        "sla_estimado_ia": "3 min",
+        "economia_potencial": 40189.8
+      },
+      {
+        "categoria_normalizada": "Elogio",
+        "tickets": 3611,
+        "custo_total": 53939.0,
+        "custo_medio": 14.94,
+        "share_pct": 10.08,
+        "potencial_ia_pct": 100.0,
+        "tier": "Tier 1 - Totalmente Automatizável",
+        "sla_estimado_ia": "0 min",
+        "economia_potencial": 52133.5
+      }
+    ],
+    "ai_productivity_kpis": [
+      {
+        "kpi": "Taxa de Deflexão Autônoma de Chamados",
+        "estimated_value": "67,6%",
+        "formula": "Sum(Tickets_i * Taxa_Deflexao_i) / Total_Tickets",
+        "premise": "90% deflexão em 'Onde está meu pedido', 75% em dúvidas técnicas e 60% em trocas de tamanho.",
+        "status": "Projetado"
+      },
+      {
+        "kpi": "Redução do Custo por Contato (CPTC)",
+        "estimated_value": "R$ 14,85 -> R$ 4,92 (-66,9%)",
+        "formula": "(Custo_Bots + Custo_Humano_Remanescente) / Total_Tickets",
+        "premise": "Custo médio de bot de IA a R$ 1,50 por atendimento concluído vs R$ 14,85 no modelo humano.",
+        "status": "Projetado"
+      },
+      {
+        "kpi": "Tempo Médio de Primeira Resposta (FRT)",
+        "estimated_value": "135 min -> < 1 min (-99,3%)",
+        "formula": "Tempo médio ponderado de resposta instantânea via Webhook WhatsApp / Chatbot.",
+        "premise": "Respostas instantâneas para rastreamento de carga 24/7 sem fila humana.",
+        "status": "Projetado"
+      },
+      {
+        "kpi": "Horas Produtivas Humanas Poupadas",
+        "estimated_value": "6.055 horas/ano",
+        "formula": "(Tickets_Defletidos * 15 minutos_atendimento) / 60",
+        "premise": "Atendentes humanos liberados de chamados repetitivos para focar em pós-venda complexo e retenção.",
+        "status": "Projetado"
+      }
+    ]
+  },
+  "inventory": {
+    "total_skus": 5000,
+    "total_physical_units": 1671577,
+    "total_physical_cost": 348701550.87,
+    "excess_defensive_cost": 120045834.67,
+    "excess_stock_wacc_cost": 21608250.24,
+    "discontinued_skus": 207,
+    "discontinued_units": 77695,
+    "discontinued_capital": 17714096.89,
+    "discontinued_wacc_saving_18pct": 3188537.44,
+    "discontinued_detail": [
+      {
+        "sku_id": "SKU-01289",
+        "nome_produto": "Camiseta Artesanal Preto",
+        "categoria": "Moda",
+        "estoque_fisico": 1182,
+        "custo_unitario": 338.79,
+        "custo_total": 400449.78,
+        "preco_venda_sugerido": 567.21
+      },
+      {
+        "sku_id": "SKU-00233",
+        "nome_produto": "Moletom Sport Dourado",
+        "categoria": "Moda",
+        "estoque_fisico": 1126,
+        "custo_unitario": 331.99,
+        "custo_total": 373820.74,
+        "preco_venda_sugerido": 804.89
+      },
+      {
+        "sku_id": "SKU-04294",
+        "nome_produto": "Jaqueta Oversize Azul",
+        "categoria": "Moda",
+        "estoque_fisico": 1097,
+        "custo_unitario": 302.0,
+        "custo_total": 331294.0,
+        "preco_venda_sugerido": 690.02
+      },
+      {
+        "sku_id": "SKU-00185",
+        "nome_produto": "Camisa Social Clássico Nude",
+        "categoria": "Moda",
+        "estoque_fisico": 870,
+        "custo_unitario": 359.78,
+        "custo_total": 313008.6,
+        "preco_venda_sugerido": 1014.44
+      },
+      {
+        "sku_id": "SKU-01142",
+        "nome_produto": "Calça Jeans Edição Limitada Dourado",
+        "categoria": "Moda",
+        "estoque_fisico": 758,
+        "custo_unitario": 372.52,
+        "custo_total": 282370.16,
+        "preco_venda_sugerido": 1135.47
+      },
+      {
+        "sku_id": "SKU-04441",
+        "nome_produto": "Vestido Básico Dourado",
+        "categoria": "Moda",
+        "estoque_fisico": 707,
+        "custo_unitario": 398.33,
+        "custo_total": 281619.31,
+        "preco_venda_sugerido": 828.3
+      },
+      {
+        "sku_id": "SKU-02204",
+        "nome_produto": "Moletom Sport Azul",
+        "categoria": "Moda",
+        "estoque_fisico": 749,
+        "custo_unitario": 332.86,
+        "custo_total": 249312.14,
+        "preco_venda_sugerido": 757.62
+      },
+      {
+        "sku_id": "SKU-04007",
+        "nome_produto": "Vestido Oversize Rosa",
+        "categoria": "Moda",
+        "estoque_fisico": 633,
+        "custo_unitario": 387.37,
+        "custo_total": 245205.21,
+        "preco_venda_sugerido": 711.84
+      },
+      {
+        "sku_id": "SKU-01083",
+        "nome_produto": "Shorts Slim Azul",
+        "categoria": "Moda",
+        "estoque_fisico": 588,
+        "custo_unitario": 373.92,
+        "custo_total": 219864.96,
+        "preco_venda_sugerido": 1110.3
+      },
+      {
+        "sku_id": "SKU-01830",
+        "nome_produto": "Jaqueta Slim Vermelho",
+        "categoria": "Moda",
+        "estoque_fisico": 948,
+        "custo_unitario": 227.29,
+        "custo_total": 215470.92,
+        "preco_venda_sugerido": 421.73
+      }
+    ],
+    "shelf_life_actionable_window": {
+      "total_skus_in_window": 48,
+      "window_days": "10-20 dias",
+      "traceability_formula": "Dias até Vencer = shelf_life_dias - (Data Referência - data_ultima_entrada)",
+      "traceability_premise": "Data de referência do lote fixada na última entrada física registrada no CD para rastreabilidade auditável.",
+      "items": [
+        {
+          "sku_id": "SKU-03139",
+          "nome_produto": "Porta-Retrato Slim Nude",
+          "categoria": "Lifestyle",
+          "quantidade": 206,
+          "dias_ate_vencer": 10,
+          "custo_unitario": 135.2,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-02051",
+          "nome_produto": "Batom Delicado Branco",
+          "categoria": "Beleza",
+          "quantidade": 239,
+          "dias_ate_vencer": 10,
+          "custo_unitario": 370.11,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-04814",
+          "nome_produto": "Condicionador Básico Vermelho",
+          "categoria": "Beleza",
+          "quantidade": 108,
+          "dias_ate_vencer": 10,
+          "custo_unitario": 183.96,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-04601",
+          "nome_produto": "Jaqueta Sustentável Azul",
+          "categoria": "Moda",
+          "quantidade": 550,
+          "dias_ate_vencer": 10,
+          "custo_unitario": 342.61,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-03220",
+          "nome_produto": "Camiseta Premium Bege",
+          "categoria": "Moda",
+          "quantidade": 348,
+          "dias_ate_vencer": 11,
+          "custo_unitario": 119.25,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-04314",
+          "nome_produto": "Espelho de Mesa Sport Preto",
+          "categoria": "Lifestyle",
+          "quantidade": 305,
+          "dias_ate_vencer": 11,
+          "custo_unitario": 40.7,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-00544",
+          "nome_produto": "Bolsa de Couro Slim Dourado",
+          "categoria": "Acessórios",
+          "quantidade": 326,
+          "dias_ate_vencer": 11,
+          "custo_unitario": 22.71,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-01552",
+          "nome_produto": "Brinco Edição Limitada Vermelho",
+          "categoria": "Acessórios",
+          "quantidade": 126,
+          "dias_ate_vencer": 11,
+          "custo_unitario": 361.78,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-03536",
+          "nome_produto": "Regata Básico Vermelho",
+          "categoria": "Moda",
+          "quantidade": 791,
+          "dias_ate_vencer": 11,
+          "custo_unitario": 320.09,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-01936",
+          "nome_produto": "Almofada Slim Branco",
+          "categoria": "Lifestyle",
+          "quantidade": 344,
+          "dias_ate_vencer": 12,
+          "custo_unitario": 316.69,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-00729",
+          "nome_produto": "Saia Artesanal Verde",
+          "categoria": "Moda",
+          "quantidade": 1097,
+          "dias_ate_vencer": 12,
+          "custo_unitario": 388.4,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-00272",
+          "nome_produto": "Saia Sport Bege",
+          "categoria": "Moda",
+          "quantidade": 792,
+          "dias_ate_vencer": 12,
+          "custo_unitario": 372.88,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-01828",
+          "nome_produto": "Condicionador Edição Limitada Preto",
+          "categoria": "Beleza",
+          "quantidade": 309,
+          "dias_ate_vencer": 12,
+          "custo_unitario": 316.06,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-01152",
+          "nome_produto": "Relógio de Parede Clássico Preto",
+          "categoria": "Lifestyle",
+          "quantidade": 493,
+          "dias_ate_vencer": 12,
+          "custo_unitario": 124.46,
+          "acao_sugerida": "Doação / Descarte Planejado",
+          "action_tag": "urgent"
+        },
+        {
+          "sku_id": "SKU-01284",
+          "nome_produto": "Garrafa Térmica Oversize Nude",
+          "categoria": "Lifestyle",
+          "quantidade": 17,
+          "dias_ate_vencer": 13,
+          "custo_unitario": 37.37,
+          "acao_sugerida": "Promoção Flash 50% OFF",
+          "action_tag": "warning"
+        }
+      ]
+    },
+    "rupture_risk": {
+      "total_skus_at_risk": 102,
+      "criteria": "Cobertura de Estoque (dias) < Lead Time de Reposição em SKUs ativos de linha",
+      "items": [
+        {
+          "sku_id": "SKU-00096",
+          "nome_produto": "Perfume Edição Limitada Bege",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 49,
+          "ponto_pedido": 36,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00119",
+          "nome_produto": "Protetor Solar Moderno Nude",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 46,
+          "ponto_pedido": 83,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00152",
+          "nome_produto": "Esfoliante Premium Prata",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 47,
+          "ponto_pedido": 115,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00169",
+          "nome_produto": "Base Líquida Básico Azul",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 56,
+          "ponto_pedido": 112,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00198",
+          "nome_produto": "Blush Luxo Nude",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 56,
+          "ponto_pedido": 68,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00199",
+          "nome_produto": "Batom Clássico Bege",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 58,
+          "ponto_pedido": 79,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00293",
+          "nome_produto": "Máscara de Cílios Urban Prata",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 49,
+          "ponto_pedido": 113,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00322",
+          "nome_produto": "Kit Skincare Artesanal Dourado",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 58,
+          "ponto_pedido": 133,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00362",
+          "nome_produto": "Perfume Urban Preto",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 48,
+          "ponto_pedido": 142,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00421",
+          "nome_produto": "Base Líquida Artesanal Verde",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 52,
+          "ponto_pedido": 23,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00454",
+          "nome_produto": "Protetor Solar Básico Preto",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 46,
+          "ponto_pedido": 87,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00456",
+          "nome_produto": "Base Líquida Luxo Nude",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 45,
+          "ponto_pedido": 53,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00539",
+          "nome_produto": "Óleo Corporal Luxo Azul",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 54,
+          "ponto_pedido": 86,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00590",
+          "nome_produto": "Óleo Corporal Clássico Dourado",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 45,
+          "ponto_pedido": 23,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        },
+        {
+          "sku_id": "SKU-00706",
+          "nome_produto": "Máscara de Cílios Oversize Azul",
+          "categoria": "Beleza",
+          "estoque_disponivel": 0,
+          "cobertura_dias": 0.0,
+          "lead_time_reposicao": 51,
+          "ponto_pedido": 41,
+          "criticidade": "Ruptura Iminente",
+          "criticidade_tag": "danger"
+        }
+      ]
+    },
+    "status_distribution": [
+      {
+        "status_disponibilidade": "Descontinuado",
+        "skus": 207,
+        "pecas": 77695,
+        "custo_total": 17714096.89,
+        "venda_total": 42112876.3,
+        "share_custo_pct": 5.08
+      },
+      {
+        "status_disponibilidade": "Em Estoque",
+        "skus": 3993,
+        "pecas": 1552184,
+        "custo_total": 322340213.13,
+        "venda_total": 778745564.33,
+        "share_custo_pct": 92.44
+      },
+      {
+        "status_disponibilidade": "Estoque Crítico",
+        "skus": 701,
+        "pecas": 41694,
+        "custo_total": 8646871.09,
+        "venda_total": 20909171.86,
+        "share_custo_pct": 2.48
+      },
+      {
+        "status_disponibilidade": "Ruptura",
+        "skus": 99,
+        "pecas": 4,
+        "custo_total": 369.76,
+        "venda_total": 782.57,
+        "share_custo_pct": 0.0
+      }
+    ],
+    "category_distribution": [
+      {
+        "categoria": "Acessórios",
+        "skus": 753,
+        "pecas": 192539,
+        "custo_total": 40178473.48,
+        "venda_total": 95467316.87,
+        "share_custo_pct": 11.52
+      },
+      {
+        "categoria": "Beleza",
+        "skus": 1512,
+        "pecas": 354702,
+        "custo_total": 75036616.69,
+        "venda_total": 180639068.06,
+        "share_custo_pct": 21.52
+      },
+      {
+        "categoria": "Lifestyle",
+        "skus": 1006,
+        "pecas": 259764,
+        "custo_total": 53261294.11,
+        "venda_total": 128539979.95,
+        "share_custo_pct": 15.27
+      },
+      {
+        "categoria": "Moda",
+        "skus": 1729,
+        "pecas": 864572,
+        "custo_total": 180225166.59,
+        "venda_total": 437122030.18,
+        "share_custo_pct": 51.68
+      }
+    ]
+  },
+  "ice_levers": [
+    {
+      "rank": 1,
+      "title": "Liquidação e Desova de SKUs Descontinuados",
+      "area": "Custos & Capital de Giro",
+      "impact": 10,
+      "confidence": 9,
+      "ease": 8,
+      "ice_score": 72.0,
+      "badge": "Prioridade #1",
+      "timeframe": "Sprint 30-45 dias",
+      "economic_impact": "+ R$ 17,71M caixa líquido / + R$ 3,18M/ano juros estancados",
+      "description": "Desova acelerada dos 207 SKUs descontinuados que retêm capital parado no centro de distribuição, convertendo mercadoria estagnada em liquidez imediata.",
+      "operational_action": "Campanha promocional agressiva via canais próprios e outlet B2B com markup mínimo de recuperação.",
+      "premises": "207 SKUs; R$ 17.714.096,89 de custo contábil; custo de oportunidade WACC/CDI de 18% a.a."
+    },
+    {
+      "rank": 2,
+      "title": "Piso de Frete Mínimo (R$ 150) & Repasse Marketplace",
+      "area": "Receita Líquida & Logística",
+      "impact": 6,
+      "confidence": 10,
+      "ease": 10,
+      "ice_score": 60.0,
+      "badge": "Quick Win (7 dias)",
+      "timeframe": "7 dias (Imediato)",
+      "economic_impact": "+ R$ 90.000,00/ano em margem direta recuperada",
+      "description": "Instituição de piso de pedido para frete grátis e revisão das regras de subsídio no canal Marketplace.",
+      "operational_action": "Eliminar subsídio de frete para pedidos abaixo de R$ 150 e repassar taxa logística no Marketplace (onde o frete consome 4,55% da receita).",
+      "premises": "741 pedidos geraram margem de contribuição negativa em 2023 por conta do frete fixo proporcionalmente abusivo em tickets baixos."
+    },
+    {
+      "rank": 3,
+      "title": "Agente IA de Rastreio Proativo (WhatsApp/Webhook)",
+      "area": "Despesas de Atendimento (SAC)",
+      "impact": 7,
+      "confidence": 9,
+      "ease": 8,
+      "ice_score": 50.4,
+      "badge": "Sprint 30 dias",
+      "timeframe": "30 dias",
+      "economic_impact": "+ R$ 102.000,00/ano em redução de despesa operacional",
+      "description": "Implementação de bot inteligente integrado aos webhooks das transportadoras para disparo proativo de status no WhatsApp.",
+      "operational_action": "Defletir 90% das consultas repetitivas de rastreamento antes que o consumidor abra ticket de suporte com atendente humano.",
+      "premises": "10.765 tickets de 'Onde está meu pedido?' com custo médio de R$ 14,85 por chamado e FRT de 135 minutos."
+    },
+    {
+      "rank": 4,
+      "title": "Quarentena de Fornecedores & Provador Virtual",
+      "area": "Qualidade & Logística Reversa",
+      "impact": 8,
+      "confidence": 8,
+      "ease": 6,
+      "ice_score": 38.4,
+      "badge": "Plano 60 dias",
+      "timeframe": "60 dias",
+      "economic_impact": "+ R$ 338.900,00/ano em margem e custos reversos poupados",
+      "description": "Bloqueio cautelar de SKUs e fornecedores críticos por defeito e implantação de provador virtual inteligente para mitigar devoluções de tamanho.",
+      "operational_action": "5 fornecedores concentram 48% dos defeitos; ferramentas de recomendação de tamanho eliminam 30% dos retornos de vestuário.",
+      "premises": "4.127 devoluções anuais (14,87% do faturamento), gerando R$ 1,21M em perdas totais de margem, frete e handling."
+    },
+    {
+      "rank": 5,
+      "title": "Realocação de Verba de Mídia (-Marketplace / +Influenciadores)",
+      "area": "Marketing & Eficiência de Vendas",
+      "impact": 9,
+      "confidence": 6,
+      "ease": 7,
+      "ice_score": 37.8,
+      "badge": "Transição 90 dias",
+      "timeframe": "90 dias",
+      "economic_impact": "+ R$ 17.900.000,00 em margem gerada / ROAS salta de 4,2x para 5,1x",
+      "description": "Migração orçamentária estratégica desinvestindo de canais saturados e realocando em canais de alto ROAS e fidelização.",
+      "operational_action": "Reduzir R$ 10M de Marketplace e R$ 5M de Google Ads; aportar R$ 10M em Influenciadores e R$ 5M em TikTok Ads.",
+      "premises": "Influenciador possui ROAS de 7.75x e TikTok 4.67x; modelo incorpora penalidade de retornos decrescentes (-15% e -10%)."
+    }
+  ],
+  "traceability": {
+    "gross_revenue": {
+      "title": "Receita Bruta Faturada",
+      "formula": "Sum(quantidade * preco_unitario)",
+      "sql_equivalent": "SELECT SUM(quantidade * preco_unitario) FROM vendas WHERE devolvido = FALSE OR TRUE",
+      "datasets": [
+        "vendas.csv"
+      ],
+      "columns": [
+        "quantidade",
+        "preco_unitario",
+        "receita_bruta"
+      ],
+      "temporal_grain": "Pedido transacional (Jan/2023 a Jan/2024, 13 meses)",
+      "premises": "Registra todo o faturamento nominal emitido no período de 13 meses, totalizando R$ 20.526.133,84 em 27.758 pedidos.",
+      "benchmark": "Anualizado para 12 meses: R$ 19.188.202,13"
+    },
+    "discounts": {
+      "title": "Descontos Comerciais Concedidos",
+      "formula": "Sum(desconto_reais)",
+      "sql_equivalent": "SELECT SUM(desconto_reais) FROM vendas",
+      "datasets": [
+        "vendas.csv"
+      ],
+      "columns": [
+        "desconto_reais",
+        "receita_bruta"
+      ],
+      "temporal_grain": "Mensal e por Campanha",
+      "premises": "Desconto médio de 7,97% sobre a receita bruta. Na Black Friday saltou para 9,55% (erosão de R$ 1,64M no período). Clientes em Churn recebem média de 11,2% de abatimento.",
+      "benchmark": "Teto recomendado para moda/lifestyle: 5,50%"
+    },
+    "contribution_margin": {
+      "title": "Margem de Contribuição Bruta",
+      "formula": "Receita Líquida - CMV - Frete Outbound Subsidiado",
+      "sql_equivalent": "SELECT SUM(receita_liquida - custo_produto - custo_frete) FROM vendas",
+      "datasets": [
+        "vendas.csv"
+      ],
+      "columns": [
+        "receita_liquida",
+        "custo_produto",
+        "custo_frete",
+        "margem_contribuicao"
+      ],
+      "temporal_grain": "Transacional por pedido",
+      "premises": "Margem saudável na venda inicial (50,04%), refletindo markup médio de 2,47x. O atrito ocorre após a entrega.",
+      "benchmark": "Benchmark de varejo de moda: 48% a 52%"
+    },
+    "reverse_logistics_drain": {
+      "title": "Dreno Econômico Direto de Devoluções",
+      "formula": "Frete Perdido + (Casos * R$ 40 Custo de Manuseio/Frete Reverso) + Margem Estornada",
+      "sql_equivalent": "SELECT SUM(custo_frete + margem_contribuicao) + (COUNT(*) * 40.0) FROM vendas WHERE devolvido = TRUE",
+      "datasets": [
+        "vendas.csv"
+      ],
+      "columns": [
+        "devolvido",
+        "custo_frete",
+        "margem_contribuicao",
+        "motivo_devolucao"
+      ],
+      "temporal_grain": "Acumulado 13 meses",
+      "premises": "Taxa de devolução de 14,87% (4.127 pedidos). 69,59% das causas são operacionais evitáveis: Defeito (1.039), Tamanho (1.025) e Atraso na Entrega (808).",
+      "benchmark": "Dreno total auditado: R$ 1.210.000,00"
+    },
+    "post_friction_margin": {
+      "title": "Margem Operacional Pós-Atrito",
+      "formula": "Margem Contribuição Bruta - Frete Devolução - Logística Reversa - SAC Operacional",
+      "sql_equivalent": "Margem_Bruta - 51006.15 - 165080.00 - 179371.00",
+      "datasets": [
+        "vendas.csv",
+        "atendimento.csv"
+      ],
+      "columns": [
+        "margem_contribuicao",
+        "devolvido",
+        "custo_operacional_ticket"
+      ],
+      "temporal_grain": "Conciliado 13 meses",
+      "premises": "Resultado operacional de R$ 9.874.979,50 (48,12% da receita bruta). As perdas diretas com atrito operacional consomem R$ 395.457,15.",
+      "benchmark": "Alvo executivo pós-mitigação: 50,50%"
+    },
+    "excess_stock": {
+      "title": "Estoque Defensivo Excedente",
+      "formula": "Sum(Max(0, estoque_disponivel - 3 * ponto_pedido) * custo_unitario)",
+      "sql_equivalent": "SELECT SUM(GREATEST(0, estoque_disponivel - 3*ponto_pedido) * custo_unitario) FROM estoque",
+      "datasets": [
+        "estoque.csv"
+      ],
+      "columns": [
+        "estoque_disponivel",
+        "ponto_pedido",
+        "custo_unitario",
+        "estoque_fisico"
+      ],
+      "temporal_grain": "Posição contábil atual de estoque",
+      "premises": "Estoque físico total de R$ 348,70M (1,67M unidades). R$ 120,05M configuram excesso defensivo acima de 3x o ponto de pedido de segurança. Giro de 0,022x.",
+      "benchmark": "Custo de oportunidade financeiro (WACC 18% a.a.): R$ 21,61M/ano"
+    },
+    "roas_channel": {
+      "title": "ROAS por Canal de Aquisição",
+      "formula": "Receita Gerada pelo Canal / Investimento Realizado no Canal",
+      "sql_equivalent": "SELECT canal, SUM(receita_gerada)/SUM(investimento_reais) FROM marketing GROUP BY canal",
+      "datasets": [
+        "marketing.csv",
+        "vendas.csv"
+      ],
+      "columns": [
+        "canal",
+        "investimento_reais",
+        "receita_gerada"
+      ],
+      "temporal_grain": "Campanhas 2023",
+      "premises": "Influenciador lidera com 7.75x, TikTok com 4.67x, Instagram 4.51x, Google Ads 3.53x e Marketplace 3.02x.",
+      "benchmark": "Média de mercado para e-commerce: 3.8x"
+    }
+  },
+  "simulators": {
+    "marketing_reallocation": {
+      "title": "Simulador 1: Realocação de Orçamento de Mídia",
+      "description": "Simule a transferência de verba entre canais de mídia para maximizar a margem gerada.",
+      "parameters": [
+        {
+          "id": "delta_influencer",
+          "name": "Aporte Influenciadores (R$ M)",
+          "min": 0,
+          "max": 25,
+          "default": 10,
+          "step": 1,
+          "base_roas": 7.75,
+          "penalty_pct": 15,
+          "unit": "R$ Milhões"
+        },
+        {
+          "id": "delta_tiktok",
+          "name": "Aporte TikTok Ads (R$ M)",
+          "min": 0,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "base_roas": 4.67,
+          "penalty_pct": 10,
+          "unit": "R$ Milhões"
+        },
+        {
+          "id": "delta_google",
+          "name": "Desinvestimento Google Ads (R$ M)",
+          "min": -15,
+          "max": 0,
+          "default": -5,
+          "step": 1,
+          "base_roas": 3.53,
+          "penalty_pct": 0,
+          "unit": "R$ Milhões"
+        },
+        {
+          "id": "delta_marketplace",
+          "name": "Desinvestimento Marketplace (R$ M)",
+          "min": -20,
+          "max": 0,
+          "default": -10,
+          "step": 1,
+          "base_roas": 3.02,
+          "penalty_pct": 0,
+          "unit": "R$ Milhões"
+        }
+      ],
+      "baseline": {
+        "budget_reallocated": 15000000.0,
+        "projected_revenue_gain": 46500000.0,
+        "projected_margin_gain": 17900000.0,
+        "baseline_roas": 4.21,
+        "projected_roas": 5.12
+      }
+    },
+    "pricing_discount": {
+      "title": "Simulador 2: Calibragem de Descontos Comerciais & Margem",
+      "description": "Simule o impacto de restringir cupons promocionais e calibrar o teto de desconto.",
+      "parameters": [
+        {
+          "id": "target_discount_pct",
+          "name": "Desconto Médio Alvo (%)",
+          "min": 4.0,
+          "max": 10.0,
+          "default": 6.5,
+          "step": 0.5,
+          "current": 7.97,
+          "unit": "% da Rec. Bruta"
+        },
+        {
+          "id": "volume_elasticity",
+          "name": "Elasticidade-Preço da Demanda",
+          "min": 0.2,
+          "max": 1.5,
+          "default": 0.6,
+          "step": 0.1,
+          "unit": "E"
+        }
+      ],
+      "baseline": {
+        "current_discount_reais": 1636799.83,
+        "current_discount_pct": 7.97,
+        "gross_revenue": 20526133.84
+      }
+    },
+    "inventory_liquidation": {
+      "title": "Simulador 3: Desova e Liquidação de SKUs Descontinuados",
+      "description": "Simule o desconto médio na queima dos 207 SKUs descontinuados e o fluxo de caixa gerado.",
+      "parameters": [
+        {
+          "id": "liquidation_discount_pct",
+          "name": "Desconto na Liquidação de Descontinuados (%)",
+          "min": 20,
+          "max": 60,
+          "default": 35,
+          "step": 5,
+          "unit": "%"
+        },
+        {
+          "id": "liquidation_speed_months",
+          "name": "Prazo de Liquidação (Meses)",
+          "min": 1,
+          "max": 6,
+          "default": 3,
+          "step": 1,
+          "unit": "meses"
+        }
+      ],
+      "baseline": {
+        "discontinued_capital_cost": 17714096.89,
+        "discontinued_skus_count": 207,
+        "wacc_annual_rate": 0.18
+      }
+    }
+  }
+}

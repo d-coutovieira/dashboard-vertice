@@ -1,0 +1,42 @@
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+python_portable/
+
+# Confraria Project (Projeto separado com executáveis e zip de 300MB)
+Confraria_18_08_v2/
+
+# IDE & System
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Agent & Logs
+.gemini/
+.agents/
+*.log
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Temporary & Cache files
+*.tmp
+*.bak

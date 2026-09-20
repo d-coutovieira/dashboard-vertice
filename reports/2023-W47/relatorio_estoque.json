@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "sector": "estoque",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "metrics": {
+      "total_skus": 5000,
+      "unidades_fisicas": 1671577,
+      "custo_total_fisico": 348701550.87,
+      "excesso_defensivo": 120045834.67,
+      "excesso_wacc_cost": 21608250.24,
+      "skus_descontinuados": 207,
+      "capital_descontinuado": 17714096.89,
+      "economia_wacc_18pct": 3188537.44,
+      "status_distribution": [
+        {
+          "status_disponibilidade": "Descontinuado",
+          "skus": 207,
+          "pecas": 77695,
+          "custo_total": 17714096.89,
+          "venda_total": 42112876.3,
+          "share_custo_pct": 5.08
+        },
+        {
+          "status_disponibilidade": "Em Estoque",
+          "skus": 3993,
+          "pecas": 1552184,
+          "custo_total": 322340213.13,
+          "venda_total": 778745564.33,
+          "share_custo_pct": 92.44
+        },
+        {
+          "status_disponibilidade": "Estoque Crítico",
+          "skus": 701,
+          "pecas": 41694,
+          "custo_total": 8646871.09,
+          "venda_total": 20909171.86,
+          "share_custo_pct": 2.48
+        },
+        {
+          "status_disponibilidade": "Ruptura",
+          "skus": 99,
+          "pecas": 4,
+          "custo_total": 369.76,
+          "venda_total": 782.57,
+          "share_custo_pct": 0.0
+        }
+      ],
+      "category_distribution": [
+        {
+          "categoria": "Acessórios",
+          "skus": 753,
+          "pecas": 192539,
+          "custo_total": 40178473.48,
+          "venda_total": 95467316.87,
+          "share_custo_pct": 11.52
+        },
+        {
+          "categoria": "Beleza",
+          "skus": 1512,
+          "pecas": 354702,
+          "custo_total": 75036616.69,
+          "venda_total": 180639068.06,
+          "share_custo_pct": 21.52
+        },
+        {
+          "categoria": "Lifestyle",
+          "skus": 1006,
+          "pecas": 259764,
+          "custo_total": 53261294.11,
+          "venda_total": 128539979.95,
+          "share_custo_pct": 15.27
+        },
+        {
+          "categoria": "Moda",
+          "skus": 1729,
+          "pecas": 864572,
+          "custo_total": 180225166.59,
+          "venda_total": 437122030.18,
+          "share_custo_pct": 51.68
+        }
+      ],
+      "giro_anual": 0.022,
+      "cobertura_anos": 45.0
+    },
+    "alerts": [
+      {
+        "sector": "estoque",
+        "metric": "skus_descontinuados",
+        "current_value": 207.0,
+        "threshold_value": 100.0,
+        "severity": "CRITICO",
+        "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+        "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 1,
+        "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+        "sector": "estoque",
+        "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+        "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+        "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+        "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+      },
+      {
+        "rank": 7,
+        "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+        "sector": "estoque",
+        "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+        "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+        "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+        "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+      }
+    ]
+  },
+  "narrative": {
+    "headline": "R$ 17.71M Imobilizados em 207 SKUs Descontinuados Drenam R$ 3.19M/ano em Custo WACC",
+    "executive_summary": "A estrutura de estoques da Vértice Retail apresenta o nó mais crítico de capital de giro da operação: <strong>207 SKUs classificados como Descontinuados</strong> retêm <strong>R$ 17.714.096,89 em valor contábil parado</strong> sem reposição ou demanda natural, impondo custo financeiro anual de <strong>R$ 3.188.537,44 (WACC 18% a.a.)</strong>. Além disso, o volume em excesso defensivo soma <strong>R$ 120,05M</strong>, superando o faturamento anual da companhia.",
+    "facts": [
+      {
+        "fact_id": "estoque_total_fisico",
+        "label": "Estoque Físico em Armazém",
+        "formatted_value": "R$ 348,70M (1,67M peças)",
+        "source_origin": "estoque.csv / Auditoria de Inventário",
+        "impact_assessment": "Cobertura teórica estimada de 45 anos com giro anual de 0.022x."
+      },
+      {
+        "fact_id": "estoque_excesso_defensivo",
+        "label": "Estoque Defensivo em Excesso",
+        "formatted_value": "R$ 120,05M",
+        "source_origin": "Diagnóstico Final - Teste 2.1",
+        "impact_assessment": "Custo financeiro de oportunidade de R$ 21,61M/ano a 18% a.a. WACC."
+      },
+      {
+        "fact_id": "estoque_descontinuados",
+        "label": "SKUs Descontinuados Parados",
+        "formatted_value": "207 SKUs (R$ 17,71M)",
+        "source_origin": "Diagnóstico Final - Teste 2.1 & Alavanca ICE #1",
+        "impact_assessment": "Liquidação imediata estanca dreno de R$ 3,19M/ano em juros bancários."
+      }
+    ],
+    "alerts": [
+      {
+        "sector": "estoque",
+        "metric": "skus_descontinuados",
+        "current_value": 207.0,
+        "threshold_value": 100.0,
+        "severity": "CRITICO",
+        "headline": "Volume massivo de capital imobilizado em SKUs descontinuados",
+        "grounded_evidence": "207 SKUs descontinuados somam R$ 17,714,096.89 parados em porta-paletes."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 1,
+        "title": "Liquidação e Desova Acelerada dos 207 SKUs Descontinuados",
+        "sector": "estoque",
+        "primary_bottleneck": "207 SKUs sem reposição retendo capital parado e gerando custo financeiro de carregamento.",
+        "grounded_metric": "R$ 17.714.096,89 de capital contábil imobilizado; custo de oportunidade WACC (18% a.a.) de R$ 3.188.537,44.",
+        "origin_test": "Teste 2.1 (Giro de Estoque e Cobertura) & Alavanca ICE #1 (Score 72.0)",
+        "strategic_mandate": "Campanha agressiva de desova via outlet próprio e lote B2B para converter mercadoria em liquidez imediata."
+      },
+      {
+        "rank": 7,
+        "title": "Racionalização do Estoque de Segurança & Redução de Rupturas",
+        "sector": "estoque",
+        "primary_bottleneck": "800 SKUs em ruptura simultâneos a R$ 120M em estoque defensivo excedente.",
+        "grounded_metric": "16,0% da grade em ruptura (800 SKUs) gerando perda estimada de demanda.",
+        "origin_test": "Teste 2.2 (Ruptura e Disponibilidade de Grade)",
+        "strategic_mandate": "Rebalancear pontos de pedido com base na velocidade real de giro e eliminar superestocagem."
+      }
+    ]
+  }
+}

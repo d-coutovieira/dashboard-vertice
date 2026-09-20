@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "sector": "atendimento",
+    "timestamp": "2026-09-19T15:16:45",
+    "engine": "EloGroup Analytical Synthesis Engine"
+  },
+  "analytics": {
+    "metrics": {
+      "periodo": "2023-W51",
+      "total_tickets": 309,
+      "custo_total": 4708.0,
+      "wismo_tickets": 102,
+      "wismo_share_pct": 33.01,
+      "csat_medio": 3.25,
+      "frt_medio_minutos": 131.4
+    },
+    "previous_metrics": {
+      "periodo": "2023-W50",
+      "total_tickets": 321,
+      "custo_total": 5013.0,
+      "wismo_tickets": 94,
+      "wismo_share_pct": 29.28,
+      "csat_medio": 3.26,
+      "frt_medio_minutos": 172.0
+    },
+    "variations": {
+      "tickets": {
+        "absolute_delta": -12,
+        "pct_change": -3.74,
+        "direction": "down",
+        "has_previous": true
+      },
+      "wismo": {
+        "absolute_delta": 8,
+        "pct_change": 8.51,
+        "direction": "up",
+        "has_previous": true
+      }
+    },
+    "alerts": [
+      {
+        "sector": "atendimento",
+        "metric": "wismo_share_pct",
+        "current_value": 33.01,
+        "threshold_value": 25.0,
+        "severity": "ALERTA",
+        "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+        "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 33.0% do volume SAC total (teto 25.0%)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 3,
+        "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+        "sector": "atendimento",
+        "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+        "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+        "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+        "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+      },
+      {
+        "rank": 4,
+        "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+        "sector": "atendimento",
+        "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+        "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+        "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+        "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+      }
+    ]
+  },
+  "narrative": {
+    "headline": "Sobrecarga de Rastreio (WISMO: 33.0% dos Chamados) Oferece 90% de Potencial de Deflexão via Agente IA",
+    "executive_summary": "O canal de suporte ao cliente registrou <strong>309 atendimentos</strong> com custo operacional direto de <strong>R$ 4.708,00</strong>. A categoria 'Onde está meu pedido?' concentrou <strong>102 chamados (33.0% do total)</strong>, demonstrando dependência excessiva de atendentes humanos para consultas de rastreio de logística que possuem 90% de aderência a atendimento autônomo via agente conversacional em WhatsApp.",
+    "facts": [
+      {
+        "fact_id": "sac_total_tickets",
+        "label": "Volume de Atendimentos",
+        "formatted_value": "309 tickets (Custo: R$ 4.708,00)",
+        "source_origin": "atendimento.csv / SAC Operacional",
+        "impact_assessment": "Atendimento humano atual operando com custo médio de ~R$ 14,85 por chamado."
+      },
+      {
+        "fact_id": "sac_wismo",
+        "label": "Onde está meu pedido? (WISMO)",
+        "formatted_value": "102 chamados (33.0% do SAC)",
+        "source_origin": "Diagnóstico Final - Teste 3.2",
+        "impact_assessment": "Principal categoria geradora de atrito; automação via webhook reduz FRT para < 1 min."
+      }
+    ],
+    "alerts": [
+      {
+        "sector": "atendimento",
+        "metric": "wismo_share_pct",
+        "current_value": 33.01,
+        "threshold_value": 25.0,
+        "severity": "ALERTA",
+        "headline": "Concentração desproporcional de chamados de rastreio de carga (WISMO)",
+        "grounded_evidence": "Chamados 'Onde está meu pedido?' representam 33.0% do volume SAC total (teto 25.0%)."
+      }
+    ],
+    "levers": [
+      {
+        "rank": 3,
+        "title": "Automação Inteligente de SAC e Deflexão de Rastreio de Carga",
+        "sector": "atendimento",
+        "primary_bottleneck": "Atendentes humanos sobrecarregados com consultas mecânicas de rastreamento de entregas.",
+        "grounded_metric": "10.765 tickets de 'Onde está meu pedido?' (30,04% do volume); 90% defletíveis via IA; FRT de 135 min para < 1 min.",
+        "origin_test": "Teste 3.2 (Causas-Raiz de Suporte e Custo Operacional SAC) & Alavanca ICE #3",
+        "strategic_mandate": "Implementar bot proativo em WhatsApp conectado a webhooks de transportadoras."
+      },
+      {
+        "rank": 4,
+        "title": "Protocolo de Bloqueio e Quarentena para Fornecedores Críticos",
+        "sector": "atendimento",
+        "primary_bottleneck": "Defeitos de fabricação geram chamados recorrentes e devoluções custosas de clientes.",
+        "grounded_metric": "1.039 devoluções por defeito (R$ 792k estornados) concentradas em 5 fornecedores de vestuário.",
+        "origin_test": "Teste 1.3 (Falhas Operacionais Evitáveis) & Alavanca ICE #4",
+        "strategic_mandate": "Notificar fornecedores reincidentes, exigir ressarcimento integral e suspender ordens de compra ativas."
+      }
+    ]
+  }
+}
