@@ -41,16 +41,13 @@ python dashboard_server.py
 ## 🏛️ Funcionalidades do Dashboard SPA
 
 1. **Visão Geral & DRE Conciliada:** Formação da lucratividade desde o faturamento bruto (R$ 20,53M) até a margem pós-atrito operacional e custo de estoque WACC.
-2. **Motor de Priorização de Margem (Módulo C):** Matriz de decisão 90 dias com ranking de alavancas por impacto no EBITDA.
-3. **Alavancas ICE:** 5 iniciativas mapeadas e pontuadas por Impacto, Confiança e Facilidade.
-4. **Simuladores de Cenários:** Sensibilidade de descontos, piso de frete marketplace e desova de estoque.
-5. **Sistemas Operacionais:**
+2. **Sistemas Operacionais:**
    - **Vendas & Canais:** Descontos comerciais e dinâmica de marketplace.
    - **Estoque & Capital:** Desova dos 207 SKUs descontinuados (R$ 17,71M) e alívio de R$ 3,19M/ano em juros WACC (18%).
    - **Atendimento (SAC):** Atrito logístico WISMO (27,24% dos tickets) e deflexão com IA.
    - **Marketing & Aquisição:** Análise de ROAS por canal e dispersão de CAC.
    - **Clientes (RFM):** Curva de Pareto (top 20% concentra 61,05% do faturamento LTV).
-6. **Relatórios Executivos com IA (Módulo D):** Síntese em 4 camadas com exportação direta para **PDF A4** e **Markdown**.
+3. **Relatórios Executivos com IA (Módulo D):** Síntese em 4 camadas com exportação direta para **PDF A4** e **Markdown**.
 
 ---
 
