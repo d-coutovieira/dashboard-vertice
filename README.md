@@ -1,7 +1,7 @@
 # Vértice Retail — Dashboard Executivo & Inteligência Estratégica
 **EloGroup Strategic Intelligence · Retail & Consumer Goods Practice**
 
-Sistema integrado de inteligência analítica, reconciliação financeira (DRE), matriz de priorização de alavancas (ICE) e gerador de relatórios executivos determinísticos com suporte a IA generativa (Módulo D).
+Sistema integrado de inteligência analítica, reconciliação financeira (DRE) e gerador de relatórios executivos determinísticos com suporte a IA generativa (Módulo D).
 
 ---
 
